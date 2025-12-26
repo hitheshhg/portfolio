@@ -1,4 +1,4 @@
-import Orb from "./Orb";
+import Orb from "./Orb3D";
 
 export default function Hero() {
   return (
