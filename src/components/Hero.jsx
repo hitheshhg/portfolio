@@ -1,20 +1,25 @@
-import Orb from "./Orb3D";
+import Orb3D from "./Orb3D";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-between px-12 pt-24">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-between px-12 pt-24"
+    >
       <div>
         <h2 className="text-6xl italic font-light mb-3">Creative</h2>
         <h1 className="text-7xl font-black tracking-tight">
-          DEVELOPER<span className="text-gray-500">.</span>
+          DEVELOPER<span className="text-muted">.</span>
         </h1>
       </div>
 
-      <Orb />
+      <div className="hidden md:flex">
+        <Orb3D />
+      </div>
 
-      <p className="max-w-sm text-gray-400 text-sm leading-relaxed">
-        I design and build immersive web experiences using
-        modern JavaScript, 3D graphics, and cloud-native tools.
+      <p className="max-w-sm text-sm text-muted leading-relaxed">
+        I build immersive, UI-focused web experiences using modern
+        frontend and 3D technologies.
       </p>
     </section>
   );

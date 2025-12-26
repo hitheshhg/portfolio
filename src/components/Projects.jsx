@@ -5,10 +5,13 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    supabase.from("projects").select("*").then(({ data }) => {
-      setProjects(data || []);
-    });
+    supabase.from("projects").select("*")
+      .then(({ data, error }) => {
+        console.log("PROJECTS:", data, error);
+        setProjects(data || []);
+      });
   }, []);
+
 
   return (
     <section id="projects" className="px-12 py-32">

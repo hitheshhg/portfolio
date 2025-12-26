@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Articles from "./components/Articles";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
       <Hero />
       <Projects />
       <Articles />
+      <Contact />
       <Footer />
     </>
   );
