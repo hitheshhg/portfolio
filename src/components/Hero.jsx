@@ -1,4 +1,4 @@
-import Orb3D from "./Orb3D";
+import Orb from "./Orb";
 
 export default function Hero() {
   return (
@@ -10,7 +10,7 @@ export default function Hero() {
         </h1>
       </div>
 
-      <Orb3D />
+      <Orb />
 
       <p className="max-w-sm text-gray-400 text-sm leading-relaxed">
         I design and build immersive web experiences using
