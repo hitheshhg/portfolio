@@ -4,7 +4,7 @@ export default function Navbar() {
             <div className="font-bold tracking-widest">HITHESH</div>
             <nav className="space-x-6 text-gray-400">
                 <a href="#" className="hover:text-white">Home</a>
-                <a href="#" className="hover:text-white">Projects</a>
+                <a href="#projects" className="hover:text-white">Projects</a>
                 <a href="#" className="hover:text-white">Contact</a>
             </nav>
         </header>
