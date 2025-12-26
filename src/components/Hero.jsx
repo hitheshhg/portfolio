@@ -1,27 +1,21 @@
-import Orb from "./Orb";
+import Orb3D from "./Orb3D";
 
 export default function Hero() {
-    return (
-        <section className="min-h-screen flex items-center justify-between px-10 pt-24">
+  return (
+    <section className="min-h-screen flex items-center justify-between px-12 pt-24">
+      <div>
+        <h2 className="text-6xl italic font-light mb-3">Creative</h2>
+        <h1 className="text-7xl font-black tracking-tight">
+          DEVELOPER<span className="text-gray-500">.</span>
+        </h1>
+      </div>
 
-            {/* LEFT */}
-            <div>
-                <h2 className="text-6xl italic font-light mb-2">Creative</h2>
-                <h1 className="text-7xl font-extrabold tracking-tight">
-                    DEVELOPER<span className="text-gray-500">.</span>
-                </h1>
-            </div>
+      <Orb3D />
 
-            {/* CENTER */}
-            <Orb />
-
-            {/* RIGHT */}
-            <div className="max-w-sm text-sm text-gray-400 leading-relaxed">
-                Hi, I’m Hithesh — a creative web developer focused on building
-                modern, fast, and visually engaging web experiences using
-                React, Tailwind, and cloud tools.
-            </div>
-
-        </section>
-    );
+      <p className="max-w-sm text-gray-400 text-sm leading-relaxed">
+        I design and build immersive web experiences using
+        modern JavaScript, 3D graphics, and cloud-native tools.
+      </p>
+    </section>
+  );
 }
