@@ -18,8 +18,7 @@ export default function Hero() {
       </div>
 
       <p className="max-w-sm text-sm text-muted leading-relaxed">
-        I build immersive, UI-focused web experiences using modern
-        frontend and 3D technologies.
+        Software Engineering student focused on building reliable, scalable systems.
       </p>
     </section>
   );
