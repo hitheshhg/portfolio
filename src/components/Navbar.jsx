@@ -4,7 +4,7 @@ export default function Navbar() {
       <span className="tracking-widest font-semibold">HITHESH</span>
       <nav className="space-x-8 text-gray-400 text-sm">
         <a href="#projects" className="hover:text-white">Projects</a>
-        <a href="#" className="hover:text-white">Contact</a>
+        <a href="#contact" className="hover:text-white">Contact</a>
       </nav>
     </header>
   );
