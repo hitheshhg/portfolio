@@ -1,4 +1,4 @@
-import Orb3D from "./Orb3D";
+import HeroOrb from "./HeroOrb";
 
 export default function Hero() {
   return (
@@ -14,7 +14,7 @@ export default function Hero() {
       </div>
 
       <div className="hidden md:flex">
-        <Orb3D />
+        <HeroOrb />
       </div>
 
       <p className="max-w-sm text-sm text-muted leading-relaxed">
