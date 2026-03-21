@@ -37,13 +37,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="flex flex-col items-center gap-6"
       >
-        <a
-          href="mailto:gurudattajr@gmail.com"
-          className="group inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md hover:border-white hover:bg-white/10 transition-all duration-300 hover:scale-105"
-        >
-          <Mail size={18} className="group-hover:rotate-12 transition" />
-          Contact Me
-        </a>
+
 
         <div className="flex gap-6">
           <a
