@@ -8,17 +8,9 @@ export default function Footer() {
 
       <div className="flex gap-6 mt-6 md:mt-0">
 
-        <a
-          href="https://github.com/HitheshHG"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:text-white"
-        >
-          GitHub
-        </a>
 
         <a
-          href="https://x.com/gurudattajr"
+          href="https://x.com/hitheshhg"
           target="_blank"
           rel="noreferrer"
           className="hover:text-white"
@@ -26,14 +18,6 @@ export default function Footer() {
           X
         </a>
 
-        <a
-          href="https://www.linkedin.com/in/hitheshhg7/"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:text-white"
-        >
-          LinkedIn
-        </a>
 
         <a
           href="https://medium.com/@gurudattajr"
