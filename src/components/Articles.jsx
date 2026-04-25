@@ -8,14 +8,14 @@ import OrbCore from "./OrbCore";
 
 function ArticleItem({ article, index }) {
   const [hovered, setHovered] = useState(false);
-  const ref    = useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
 
   const date = article.published_at
     ? new Date(article.published_at).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-      })
+      year: "numeric",
+      month: "short",
+    })
     : null;
 
   return (
@@ -121,7 +121,7 @@ function ArticleItem({ article, index }) {
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
-  const ref    = useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   useEffect(() => {
@@ -145,7 +145,6 @@ export default function Articles() {
           alignItems: "start",
         }}
       >
-        {/* Left column: list */}
         <div>
           <div ref={ref} style={{ marginBottom: "4rem" }}>
             <motion.p
@@ -182,7 +181,6 @@ export default function Articles() {
           </div>
         </div>
 
-        {/* Right column: sticky orb */}
         <div style={{ position: "sticky", top: "6rem" }}>
           <div style={{ width: "100%", aspectRatio: "1", borderRadius: "50%" }}>
             <Canvas camera={{ position: [0, 0, 3.5], fov: 50 }}>
@@ -202,7 +200,6 @@ export default function Articles() {
             </Canvas>
           </div>
 
-          {/* Subtle caption */}
           <p
             style={{
               textAlign: "center",

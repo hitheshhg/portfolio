@@ -5,28 +5,20 @@ import { Github, Linkedin } from "lucide-react";
 const EMAIL = "gurudattajr@gmail.com";
 
 const SOCIALS = [
-  { href: "https://github.com/hitheshhg",      Icon: Github,   label: "GitHub"      },
-  { href: "https://linkedin.com/in/hitheshhg", Icon: Linkedin, label: "LinkedIn"    },
-  { href: "https://x.com/hitheshhg",           Icon: null,     label: "X / Twitter" },
-  { href: "https://medium.com/@hitheshhg",     Icon: null,     label: "Medium"      },
+  { href: "https://github.com/hitheshhg", Icon: Github, label: "GitHub" },
+  { href: "https://linkedin.com/in/hitheshhg", Icon: Linkedin, label: "LinkedIn" },
+  { href: "https://x.com/hitheshhg", Icon: null, label: "X / Twitter" },
+  { href: "https://medium.com/@hitheshhg", Icon: null, label: "Medium" },
 ];
 
 const FONT_SIZE = "clamp(3.8rem, 11vw, 11rem)";
 
 function BigWord({ word, delay, color = "var(--text)" }) {
-  const chars  = word.split("");
-  const ref    = useRef(null);
+  const chars = word.split("");
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    /*
-     * Two-div pattern prevents clipping:
-     * Outer — overflow:hidden clips the y:"105%" slide-up.
-     *         paddingBottom gives room for descenders (g, y, p…).
-     *         marginBottom cancels the layout gap that padding adds.
-     * Inner — carries the font styles. lineHeight:1 (not 0.88)
-     *         so the cap-height isn't eaten by the clip boundary.
-     */
     <div
       ref={ref}
       style={{ overflow: "hidden", paddingBottom: "0.12em", marginBottom: "-0.12em" }}
@@ -63,7 +55,7 @@ function BigWord({ word, delay, color = "var(--text)" }) {
 }
 
 export default function Contact() {
-  const ref    = useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
@@ -86,7 +78,6 @@ export default function Contact() {
       />
 
       <div ref={ref}>
-        {/* Section label */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -96,15 +87,12 @@ export default function Contact() {
           03 — Get in Touch
         </motion.p>
 
-        {/* Giant headline */}
         <div style={{ marginBottom: "3.5rem" }}>
           <BigWord word="Let's" delay={0} />
 
-          {/* "Work Together." — flex row, wraps on mobile */}
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", gap: "0 0.28em" }}>
-            <BigWord word="Connect"     delay={0.1}  />
-            {/* Accent period — same clip wrapper so it animates in too */}
-            <div style={{ overflow: "hidden", paddingBottom: "0.12em", marginBottom: "-0.12em" }}>
+            <BigWord word="Connect" delay={0.1} />
+            \            <div style={{ overflow: "hidden", paddingBottom: "0.12em", marginBottom: "-0.12em" }}>
               <motion.span
                 initial={{ y: "105%", display: "inline-block" }}
                 animate={inView ? { y: 0 } : {}}
@@ -124,7 +112,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Email CTA */}
         <motion.a
           href={`mailto:${EMAIL}`}
           initial={{ opacity: 0, y: 20 }}
@@ -153,7 +140,6 @@ export default function Contact() {
           </motion.span>
         </motion.a>
 
-        {/* Social pills */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

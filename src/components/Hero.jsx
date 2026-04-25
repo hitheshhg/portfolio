@@ -9,19 +9,12 @@ const TICKER_ITEMS = [
   "UI & Systems",
 ];
 
-/* ── Word-level reveal — each word slides up independently ── */
 function RevealWords({ text, delay = 0, style = {} }) {
-  const words  = text.split(" ");
-  const ref    = useRef(null);
+  const words = text.split(" ");
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    /*
-     * Clip wrapper: overflow:hidden hides the y:"105%" start position.
-     * paddingBottom stops descenders (g,p,y) from being chopped.
-     * marginBottom cancels the extra space paddingBottom adds.
-     * NEVER put lineHeight < 1 on this element — it shrinks the clip boundary.
-     */
     <div
       ref={ref}
       style={{
@@ -31,7 +24,6 @@ function RevealWords({ text, delay = 0, style = {} }) {
         display: "block",
       }}
     >
-      {/* Inner carries all the font styles — completely isolated from clip */}
       <div style={{ display: "block", ...style }}>
         {words.map((word, i) => (
           <motion.span
@@ -53,7 +45,6 @@ function RevealWords({ text, delay = 0, style = {} }) {
   );
 }
 
-/* ── Rotating badge — pure CSS so it runs off main thread ── */
 function RotatingBadge() {
   return (
     <div
@@ -75,7 +66,7 @@ function RotatingBadge() {
         </defs>
         <text style={{ fontSize: 9, fill: "var(--accent)", fontFamily: "var(--mono)", letterSpacing: "0.08em" }}>
           <textPath href="#bc">
-            AVAILABLE FOR WORK  •  OPEN TO COLLABORATE  •  
+            AVAILABLE FOR WORK  •  OPEN TO COLLABORATE  •
           </textPath>
         </text>
       </svg>
@@ -92,12 +83,11 @@ export default function Hero() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: "7rem 3rem 5rem",   /* bottom pad keeps ticker from covering content */
+        padding: "7rem 3rem 5rem",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Ghost watermark */}
       <div
         aria-hidden
         style={{
@@ -121,7 +111,6 @@ export default function Hero() {
         HITHESH
       </div>
 
-      {/* ── Main layout: headline left, badge right ── */}
       <div
         style={{
           position: "relative",
@@ -132,13 +121,8 @@ export default function Hero() {
           gap: "3rem",
         }}
       >
-        {/* Left: all text content */}
         <div style={{ flex: 1, minWidth: 0 }}>
-          {/*
-           * No outer overflow:hidden here!
-           * RevealWords handles its own clip internally.
-           * A parent overflow:hidden would double-clip the bottom line.
-           */}
+
           <div style={{ fontFamily: "var(--display)" }}>
             <RevealWords
               text="Creative"
@@ -158,7 +142,7 @@ export default function Hero() {
                 fontWeight: 800,
                 fontSize: "clamp(3.8rem, 9vw, 8.5rem)",
                 letterSpacing: "-0.03em",
-                lineHeight: 1.05,   /* never go below 1 — causes clip */
+                lineHeight: 1.05,
                 color: "var(--text)",
               }}
             />
@@ -231,26 +215,24 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: rotating badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           style={{ flexShrink: 0, paddingBottom: "0.5rem" }}
         >
-          
+
           <RotatingBadge />
         </motion.div>
       </div>
 
-      {/* ── Scroll indicator ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6 }}
         style={{
           position: "absolute",
-          bottom: "4.5rem",        /* above the ticker band */
+          bottom: "4.5rem",
           left: "50%",
           transform: "translateX(-50%)",
           display: "flex",
@@ -283,7 +265,6 @@ export default function Hero() {
         </span>
       </motion.div>
 
-      {/* ── Bottom ticker band ── */}
       <div
         style={{
           position: "absolute",
@@ -298,7 +279,6 @@ export default function Hero() {
         }}
       >
         <div className="ticker-inner">
-          {/* Two copies so the loop is seamless */}
           {[0, 1].map((di) =>
             TICKER_ITEMS.map((item, i) => (
               <span

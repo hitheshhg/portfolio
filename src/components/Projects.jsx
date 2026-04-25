@@ -4,9 +4,9 @@ import { supabase } from "../lib/supabase";
 
 function ProjectRow({ project, index }) {
   const [open, setOpen] = useState(false);
-  const ref    = useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const num    = String(index + 1).padStart(2, "0");
+  const num = String(index + 1).padStart(2, "0");
 
   return (
     <motion.div
@@ -32,7 +32,6 @@ function ProjectRow({ project, index }) {
           gap: "1.5rem",
         }}
       >
-        {/* Index number */}
         <span
           style={{
             fontFamily: "var(--mono)",
@@ -45,7 +44,6 @@ function ProjectRow({ project, index }) {
           {num}
         </span>
 
-        {/* Title */}
         <motion.h3
           animate={{ x: open ? 8 : 0 }}
           transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
@@ -61,7 +59,6 @@ function ProjectRow({ project, index }) {
           {project.title}
         </motion.h3>
 
-        {/* Tech pills */}
         <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", justifyContent: "flex-end" }}>
           {(project.tech || "").split(",").map((t) => (
             <span
@@ -86,7 +83,6 @@ function ProjectRow({ project, index }) {
         </div>
       </div>
 
-      {/* Expanded detail */}
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
@@ -172,7 +168,7 @@ export default function Projects() {
     });
   }, []);
 
-  const ref    = useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
@@ -180,7 +176,6 @@ export default function Projects() {
       id="projects"
       style={{ padding: "8rem 3rem", position: "relative" }}
     >
-      {/* Section header */}
       <div ref={ref} style={{ marginBottom: "4rem" }}>
         <motion.p
           initial={{ opacity: 0, x: -20 }}
@@ -224,13 +219,11 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Project rows */}
       <div>
         {projects.map((p, i) => (
           <ProjectRow key={p.id} project={p} index={i} />
         ))}
 
-        {/* Bottom border */}
         <div style={{ borderTop: "1px solid var(--border)" }} />
       </div>
     </section>

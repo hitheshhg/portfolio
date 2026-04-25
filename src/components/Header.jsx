@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 const NAV = [
-  { href: "#projects",  label: "Projects"  },
-  { href: "#articles",  label: "Articles"  },
-  { href: "#contact",   label: "Contact"   },
+  { href: "#projects", label: "Projects" },
+  { href: "#articles", label: "Articles" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -20,7 +20,6 @@ export default function Header() {
 
   return (
     <>
-      {/* scroll progress bar */}
       <motion.div
         style={{
           scaleX,
@@ -58,7 +57,6 @@ export default function Header() {
           fontFamily: "var(--display)",
         }}
       >
-        {/* Logo */}
         <a
           href="#hero"
           style={{
@@ -71,7 +69,6 @@ export default function Header() {
           Hithesh
         </a>
 
-        {/* Nav */}
         <nav style={{ display: "flex", gap: "2.5rem", alignItems: "center" }}>
           {NAV.map(({ href, label }) => (
             <NavLink key={href} href={href}>
@@ -79,7 +76,6 @@ export default function Header() {
             </NavLink>
           ))}
 
-          {/* CTA pill */}
           <a
             href="/resume.pdf"
             style={{
