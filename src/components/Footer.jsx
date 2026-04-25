@@ -20,27 +20,6 @@ export default function Footer() {
         © {year} Hithesh HG — Built with{" "}
         <span style={{ color: "var(--accent)" }}>React + Three.js</span>
       </span>
-
-      <div style={{ display: "flex", gap: "2rem" }}>
-        {[
-          { href: "https://x.com/hitheshhg",        label: "X" },
-          { href: "https://medium.com/@gurudattajr", label: "Medium" },
-          { href: "https://github.com/hitheshhg",    label: "GitHub" },
-        ].map(({ href, label }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            className="link-under"
-            style={{ color: "var(--muted)", transition: "color 0.2s" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
-          >
-            {label}
-          </a>
-        ))}
-      </div>
     </footer>
   );
 }
