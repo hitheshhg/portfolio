@@ -8,7 +8,7 @@ const SOCIALS = [
   { href: "https://github.com/hitheshhg",      Icon: Github,   label: "GitHub"      },
   { href: "https://linkedin.com/in/hitheshhg", Icon: Linkedin, label: "LinkedIn"    },
   { href: "https://x.com/hitheshhg",           Icon: null,     label: "X / Twitter" },
-  { href: "https://medium.com/@gurudattajr",   Icon: null,     label: "Medium"      },
+  { href: "https://medium.com/@hitheshhg",     Icon: null,     label: "Medium"      },
 ];
 
 const FONT_SIZE = "clamp(3.8rem, 11vw, 11rem)";
