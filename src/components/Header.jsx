@@ -81,7 +81,7 @@ export default function Header() {
 
           {/* CTA pill */}
           <a
-            href="mailto:hitheshhg@gmail.com"
+            href="/resume.pdf"
             style={{
               fontSize: "0.65rem",
               letterSpacing: "0.18em",
