@@ -3,7 +3,6 @@ import { motion, useScroll, useSpring } from "framer-motion";
 
 const NAV = [
   { href: "#projects", label: "Projects" },
-  { href: "#articles", label: "Articles" },
   { href: "#contact", label: "Contact" },
 ];
 

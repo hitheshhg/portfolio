@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { supabase } from "../lib/supabase";
+import { supabase } from "./lib/supabase";
 
 function ProjectRow({ project, index }) {
   const [open, setOpen] = useState(false);

@@ -1,8 +1,20 @@
 {
   "name": "portfolio",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "description": "A UI-focused creative developer portfolio featuring interactive 3D visuals, clean design, and dynamic content powered by Supabase. Built with React, Tailwind CSS, and Three.js, and deployed on Vercel.",
+  "homepage": "https://github.com/hitheshhg/portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/hitheshhg/portfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hitheshhg/portfolio.git"
+  },
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "eslint.config.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
