@@ -1,61 +1,96 @@
-# Hithesh HG — Engineering Portfolio & Systems Showcase
+# Hithesh HG — Data Analyst & Business Intelligence Portfolio
 
-> Minimalist, ultra-responsive engineering portfolio built with Next.js 16, TypeScript, Tailwind CSS, and zero-dependency Web Audio micro-haptics.
+> A high-performance, minimalist, and beautifully engineered portfolio showcasing real-world business intelligence dashboards, exploratory data analysis (EDA), predictive models, and SQL data architectures.
 
-[![Live Site](https://img.shields.io/badge/Live_Site-hithesh.dev-4ade80?style=flat-square)](https://hithesh.dev)
+[![Live Site](https://img.shields.io/badge/Live_Site-hithesh.dev-10b981?style=flat-square)](https://hithesh.dev)
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
 ---
 
-## ⚡ Highlights
+## 📊 Portfolio Overview
 
-- **Bento Grid Architecture**: Pixel-faithful, balanced 12-column bento grids unified across all routes (`/`, `/design`, `/development`, `/blog`, `/cv`, and `/projects/[slug]`).
-- **Butter-Smooth 120fps Performance**: Pure native hardware acceleration without JavaScript scroll-jacking loops. Subpixel font smoothing and lightweight GPU compositing.
-- **Micro-Haptics (`sound.ts`)**: 0kb zero-dependency audio synthesizer creating subtle mechanical switch clicks and arcade fanfares directly via browser `AudioContext`.
-- **Command Palette (`⌘K`)**: Raycast/Linear-style global command menu with full keyboard navigation (`ArrowUp`, `ArrowDown`, `Enter`).
-- **Memorable Easter Eggs**:
-  - **Konami Code (`↑ ↑ ↓ ↓ ← → ← → B A`)**: Unlocks a retro green-phosphor CRT scanline terminal mode, 8-bit fanfare, and celebratory confetti shower.
-  - **Logo Multi-Click**: Rapidly click `hithesh.dev` 5 times to fire party confetti.
-  - **Interactive CLI commands**: `confetti`, `matrix`, `coffee`, `quote`.
+This portfolio is custom-architected for **Hithesh HG**, a **Data Analyst & Business Intelligence Specialist** based in Bengaluru, India. It highlights end-to-end data workflows from raw pipeline ingestion and data validation to statistical modeling and executive BI storytelling.
+
+### Key Sections:
+- **Overview (`/`)**: Bento grid showcasing the analytics lifecycle, core technical stack, featured case studies, and live contact points.
+- **Projects & Case Studies (`/development`)**: Detailed breakdowns of real-world analytical problems, architectures, code implementations, and quantified business outcomes:
+  - *Customer Churn & Retention Intelligence* (Python, PostgreSQL, Power BI, XGBoost)
+  - *E-Commerce Cohort & Revenue Analytics* (Advanced SQL Window Functions, Tableau, RFM Segmentation)
+  - *Clinical Readmission & Risk Stratification* (Multivariate Logistic Regression, Looker Studio, BigQuery)
+- **Insights & Notes (`/blog`)**: Technical deep-dives covering SQL window functions, dimensional star schema modeling in Power BI, and statistical power in A/B testing with full interactive modal reading views.
+- **Curriculum Vitae (`/cv`)**: Comprehensive professional trajectory, academic coursework, technical competencies matrix, and one-click PDF resume download (`/resume.pdf`).
+- **Dashboard Design Systems (`/design`)**: Accessible color palettes (WCAG AAA compliant), executive KPI scorecards, and tabular typography standards.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Core Analytical Stack
+
+- **Relational Databases & Querying**: PostgreSQL, Google BigQuery, Snowflake, MySQL, Advanced SQL (CTEs, Window Functions, Performance Tuning).
+- **Programming & Data Science**: Python (Pandas, NumPy, Scikit-learn, Statsmodels, SciPy), R, Jupyter Notebooks.
+- **Business Intelligence & Reporting**: Power BI & DAX, Tableau Desktop/Server, Google Looker Studio, Advanced Excel (Power Query, Pivot Tables).
+- **Architecture & Pipelines**: ETL Pipeline Design, Data Hygiene & Schema Normalization, Star Schema Dimensional Modeling.
+
+---
+
+## ⚡ Technical Architecture
 
 - **Framework**: Next.js 16 (App Router & Turbopack)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4 + Vanilla CSS Tokens
-- **Icons**: Lucide React + Custom SVG Design Primitives
-- **Audio**: Web Audio API (native browser synthesizer)
-- **Effects**: Lazy-loaded `canvas-confetti`
+- **Language**: TypeScript (Strict mode enabled)
+- **Styling**: Tailwind CSS v4 + GPU hardware-accelerated CSS transitions
+- **Typography**: Plus Jakarta Sans (Headings/Body) + JetBrains Mono (Metrics/Code)
+- **SEO & Social**: Automated dynamic OpenGraph (`/opengraph-image`), robots.txt (`/robots.ts`), and XML sitemaps (`/sitemap.ts`)
+- **API & Contact**: Edge-ready contact endpoint with Zod validation, honeypot anti-spam, and Resend email dispatch
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started Locally
 
-First, install dependencies:
+### Prerequisites
+- Node.js 18.17+ or 20+
+- npm or pnpm
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/hitheshhg/portfolio.git
+cd portfolio
+
+# Install dependencies
 npm install
-```
 
-Run the development server:
-
-```bash
+# Start local development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📦 Building for Production
+## 📦 Production Build & Deployment
+
+### Local Production Build
+To test the production build locally:
 
 ```bash
 npm run build
 npm run start
+```
+
+### Deploying to Vercel (Recommended)
+1. Push this repository to GitHub.
+2. Go to [vercel.com](https://vercel.com) and import the repository.
+3. Next.js is automatically detected; click **Deploy**.
+4. *(Optional)* Add environment variables for contact form integration:
+   - `RESEND_API_KEY`: Your Resend API key
+   - `CONTACT_EMAIL`: Recipient email (default: `hitheshhg@gmail.com`)
+
+### Deploying to Docker / Node Server
+```bash
+npm run build
+NODE_ENV=production node_modules/.bin/next start -p 3000
 ```
 
 ---

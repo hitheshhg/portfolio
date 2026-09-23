@@ -12,15 +12,14 @@ export default function CvPage() {
         {/* Unified Top Navigation with Banner & Download Action */}
         <BentoHeader
           activeTab="cv"
-          tagLineThrough="resume"
-          tagHighlight="cv"
+          tagHighlight="curriculum vitae"
           title="curriculum vitae"
-          subtitle="Comprehensive record of professional experience, academic foundations, and engineering competencies."
+          subtitle="Comprehensive record of professional experience, statistical & analytical projects, and data competencies."
           headerAction={
             <a
               href="/resume.pdf"
               download="Hithesh_HG_Resume.pdf"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-black font-medium text-xs font-mono hover:bg-neutral-200 transition-colors shadow-sm shrink-0"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-black font-semibold text-xs font-mono hover:bg-neutral-200 transition-colors shadow-sm shrink-0"
             >
               <Download className="w-3.5 h-3.5" />
               <span>download official pdf</span>
@@ -34,8 +33,8 @@ export default function CvPage() {
           <div className="lg:col-span-7 bento-card p-6 sm:p-8 bg-black text-white border border-white/[0.08] space-y-6">
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <span className="font-mono text-xs uppercase tracking-wider text-neutral-400 font-semibold flex items-center gap-1.5">
-                <span className="text-[#4ade80]">{"//"}</span>
-                <span>work &amp; leadership experience</span>
+                <span className="text-[#10b981]">{"//"}</span>
+                <span>analytics &amp; work experience</span>
               </span>
               <span className="text-[11px] font-mono text-neutral-500">
                 {experiences.length} positions
@@ -55,7 +54,7 @@ export default function CvPage() {
                       {exp.role}
                     </h2>
                     <span className="text-[11px] font-mono text-neutral-400 shrink-0 flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-[#4ade80]" />
+                      <Calendar className="w-3 h-3 text-[#10b981]" />
                       {exp.period}
                     </span>
                   </div>
@@ -78,7 +77,7 @@ export default function CvPage() {
                   <ul className="space-y-1.5 pt-1">
                     {exp.responsibilities.map((resp, rIdx) => (
                       <li key={rIdx} className="text-xs text-neutral-300 flex items-start gap-2">
-                        <span className="text-[#4ade80] font-mono">›</span>
+                        <span className="text-[#10b981] font-mono">›</span>
                         <span className="font-sans leading-relaxed">{resp}</span>
                       </li>
                     ))}
@@ -106,10 +105,10 @@ export default function CvPage() {
             <div className="bento-card p-6 sm:p-8 bg-black text-white border border-white/[0.08] space-y-5">
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
                 <span className="font-mono text-xs uppercase tracking-wider text-neutral-400 font-semibold flex items-center gap-1.5">
-                  <span className="text-[#4ade80]">{"//"}</span>
+                  <span className="text-[#10b981]">{"//"}</span>
                   <span>academic foundation</span>
                 </span>
-                <span className="text-[11px] font-mono text-neutral-500">engineering</span>
+                <span className="text-[11px] font-mono text-neutral-500">computer science</span>
               </div>
 
               <div className="space-y-6">
@@ -124,7 +123,7 @@ export default function CvPage() {
                       </span>
                     </div>
 
-                    <p className="text-xs font-mono text-[#4ade80]">
+                    <p className="text-xs font-mono text-[#10b981]">
                       {edu.field}
                     </p>
 
@@ -141,7 +140,7 @@ export default function CvPage() {
                     {/* Coursework Pills */}
                     <div className="pt-2">
                       <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500 block mb-1.5">
-                        relevant coursework
+                        relevant analytical coursework
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {edu.coursework.map((c) => (
@@ -163,10 +162,10 @@ export default function CvPage() {
             <div className="bento-card p-6 sm:p-8 bg-black text-white border border-white/[0.08] space-y-5">
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
                 <span className="font-mono text-xs uppercase tracking-wider text-neutral-400 font-semibold flex items-center gap-1.5">
-                  <span className="text-[#4ade80]">{"//"}</span>
-                  <span>technical competencies</span>
+                  <span className="text-[#10b981]">{"//"}</span>
+                  <span>analytical competencies</span>
                 </span>
-                <span className="text-[11px] font-mono text-[#4ade80]">production</span>
+                <span className="text-[11px] font-mono text-[#10b981]">verified</span>
               </div>
 
               <div className="space-y-4">

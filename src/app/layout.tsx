@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
-import { CommandPalette } from "@/components/ui/CommandPalette";
 import "./globals.css";
 
 const fontGrotesk = Plus_Jakarta_Sans({
@@ -17,24 +16,27 @@ const fontMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hithesh.dev"),
-  title: "Hithesh HG — Software Engineer & Full Stack Developer",
+  title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
   description:
-    "Portfolio of Hithesh HG — Full stack engineer specializing in Next.js, Java, Spring Boot, TypeScript, and high-performance system architectures.",
+    "Portfolio of Hithesh HG — Data Analyst specializing in SQL, Python, Power BI, Tableau, predictive modeling, and statistical business intelligence.",
   keywords: [
     "Hithesh HG",
-    "Full Stack Developer",
-    "Software Engineer",
-    "Next.js",
-    "TypeScript",
-    "Java",
-    "Spring Boot",
+    "Data Analyst",
+    "Business Intelligence",
+    "SQL",
     "PostgreSQL",
+    "Python",
+    "Pandas",
+    "Power BI",
+    "Tableau",
+    "Predictive Modeling",
+    "ETL",
   ],
   authors: [{ name: "Hithesh HG", url: "https://github.com/hitheshhg" }],
   openGraph: {
-    title: "Hithesh HG — Software Engineer & Full Stack Developer",
+    title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
     description:
-      "Crafting high-impact web apps, native mobile systems, and scalable backend microservices.",
+      "Transforming complex datasets into actionable business intelligence, predictive models, and decision-ready dashboards.",
     url: "https://hithesh.dev",
     siteName: "Hithesh HG Portfolio",
     locale: "en_US",
@@ -55,7 +57,6 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-[#09090b] text-white antialiased selection:bg-white selection:text-black">
         {children}
-        <CommandPalette />
       </body>
     </html>
   );

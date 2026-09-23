@@ -1,21 +1,21 @@
-import { IdeationIcon, ResearchIcon, WireframesIcon } from "@/components/ui/FigmaIcons";
+import { Database, SearchCheck, BarChart3 } from "lucide-react";
 
 export function FigmaProcessCard() {
   const steps = [
     {
-      title: "ideation",
-      subtitle: "problem framing & requirements",
-      icon: <IdeationIcon className="w-10 h-10 text-white stroke-[1.2] group-hover:scale-110 transition-transform duration-300" />,
+      title: "ingest & clean",
+      subtitle: "ETL pipelines & schema hygiene",
+      icon: <Database className="w-8 h-8 text-[#38bdf8] group-hover:scale-110 transition-transform duration-300" />,
     },
     {
-      title: "research",
-      subtitle: "architecture & benchmarking",
-      icon: <ResearchIcon className="w-10 h-10 text-white stroke-[1.2] group-hover:scale-110 transition-transform duration-300" />,
+      title: "explore & model",
+      subtitle: "statistics & predictive ML",
+      icon: <SearchCheck className="w-8 h-8 text-[#10b981] group-hover:scale-110 transition-transform duration-300" />,
     },
     {
-      title: "wireframes",
-      subtitle: "system design & hi-fi build",
-      icon: <WireframesIcon className="w-10 h-10 text-white stroke-[1.2] group-hover:scale-110 transition-transform duration-300" />,
+      title: "visualize & impact",
+      subtitle: "BI dashboards & decisions",
+      icon: <BarChart3 className="w-8 h-8 text-[#f59e0b] group-hover:scale-110 transition-transform duration-300" />,
     },
   ];
 
@@ -24,16 +24,13 @@ export function FigmaProcessCard() {
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <span className="font-mono text-xs text-neutral-500 line-through">
-            design
-          </span>
-          <span className="font-mono text-xs font-semibold text-white tracking-wide">
-            process
+          <span className="font-mono text-xs font-semibold text-white tracking-wide uppercase">
+            analytics lifecycle
           </span>
         </div>
 
         <p className="text-xs sm:text-sm text-neutral-400 font-sans leading-relaxed max-w-md">
-          A disciplined engineering workflow: from exploratory problem framing and rigorous benchmarking to clean architecture and responsive craft.
+          A rigorous analytical methodology: from raw pipeline ingestion and data validation to statistical modeling and executive BI storytelling.
         </p>
       </div>
 
@@ -50,7 +47,7 @@ export function FigmaProcessCard() {
             <span className="text-xs font-mono font-medium text-neutral-200 group-hover:text-white transition-colors">
               {step.title}
             </span>
-            <span className="text-[10px] font-mono text-neutral-500 mt-0.5 line-clamp-1">
+            <span className="text-[10px] font-mono text-neutral-400 mt-0.5 line-clamp-1">
               {step.subtitle}
             </span>
           </div>
@@ -60,7 +57,7 @@ export function FigmaProcessCard() {
       {/* Bottom tag */}
       <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-neutral-400">
         <span>methodology</span>
-        <span className="text-[#4ade80]">iterative &amp; verified</span>
+        <span className="text-[#10b981]">evidence-based &amp; verified</span>
       </div>
     </div>
   );

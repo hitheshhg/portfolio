@@ -25,30 +25,31 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Row 2: Development Tools Card */}
+        {/* Row 2: Analytics Tools Card */}
         <FigmaToolsCard />
 
-        {/* Row 3: Featured Work Bento Grid */}
+        {/* Row 3: Featured Analytics Case Studies */}
         <div className="bento-card p-6 sm:p-8 bg-black text-white border border-white/[0.08]">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xs text-neutral-500 line-through">
-                  featured
-                </span>
-                <span className="font-mono text-xs font-semibold text-white tracking-wide">
+                <span className="font-mono text-xs font-semibold text-[#10b981] tracking-wide uppercase">
                   selected work
+                </span>
+                <span className="text-neutral-600 text-xs font-mono">•</span>
+                <span className="font-mono text-xs text-neutral-400">
+                  real-world business impact
                 </span>
               </div>
               <h2 className="text-xl sm:text-2xl font-sans font-bold text-white tracking-tight">
-                production systems &amp; apps
+                predictive models &amp; executive dashboards
               </h2>
             </div>
             <Link
               href="/development"
               className="inline-flex items-center gap-1.5 text-xs font-mono text-neutral-400 hover:text-white transition-colors group"
             >
-              <span>view all projects</span>
+              <span>view all case studies</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
@@ -115,25 +116,26 @@ export default function HomePage() {
         <div className="bento-card p-6 sm:p-8 bg-black text-white border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-1.5 max-w-xl">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs text-neutral-500 line-through">
-                contact
+              <span className="font-mono text-xs font-semibold text-[#10b981] tracking-wide uppercase">
+                connect
               </span>
-              <span className="font-mono text-xs font-semibold text-white tracking-wide">
+              <span className="text-neutral-600 text-xs font-mono">•</span>
+              <span className="font-mono text-xs text-neutral-400">
                 collaborate
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-sans font-bold text-white tracking-tight">
-              have a project or role in mind?
+              have a data challenge or analytics role in mind?
             </h2>
             <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
-              Open to engineering opportunities, distributed systems challenges, and product collaborations.
+              Open to Data Analyst, Business Intelligence, and Analytics Engineering opportunities. Let&apos;s turn your data into strategic clarity.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <a
               href="mailto:hitheshhg@gmail.com"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-black font-medium text-xs font-mono hover:bg-neutral-200 transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-black font-semibold text-xs font-mono hover:bg-neutral-200 transition-colors shadow-sm"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>hitheshhg@gmail.com</span>

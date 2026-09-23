@@ -13,13 +13,12 @@ export default function DevelopmentPage() {
         {/* Unified Top Navigation with Banner */}
         <BentoHeader
           activeTab="development"
-          tagLineThrough="software"
-          tagHighlight="development"
-          title="engineering projects & systems"
-          subtitle="Production-grade web apps, native mobile systems, and backend microservices built with Next.js, Java, TypeScript, and PostgreSQL."
+          tagHighlight="analytics &amp; bi"
+          title="analytics projects &amp; case studies"
+          subtitle="End-to-end data workflows, exploratory analysis, predictive modeling pipelines, and interactive BI dashboards built with Python, SQL, Power BI, and Tableau."
           headerAction={
             <span className="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.04] border border-white/10 text-neutral-300">
-              {projects.length} featured systems
+              {projects.length} analytical case studies
             </span>
           }
         />
@@ -65,7 +64,7 @@ export default function DevelopmentPage() {
                   <ArrowUpRight className="w-4 h-4 text-neutral-500 group-hover/link:text-white transition-colors" />
                 </Link>
 
-                <p className="text-xs font-mono text-[#4ade80] mb-2.5">
+                <p className="text-xs font-mono text-[#10b981] mb-2.5">
                   {project.tagline}
                 </p>
 
@@ -93,7 +92,7 @@ export default function DevelopmentPage() {
                     href={`/projects/${project.slug}`}
                     className="text-white hover:underline underline-offset-4 flex items-center gap-1"
                   >
-                    <span>case study</span>
+                    <span>view case study</span>
                     <span>→</span>
                   </Link>
 
@@ -103,7 +102,7 @@ export default function DevelopmentPage() {
                         href={project.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="GitHub Repository"
+                        aria-label="Analytics Repository"
                         className="p-1 text-neutral-400 hover:text-white transition-colors"
                       >
                         <GithubIcon className="w-3.5 h-3.5" />
@@ -114,7 +113,7 @@ export default function DevelopmentPage() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Live Demo"
+                        aria-label="Live Dashboard"
                         className="p-1 text-neutral-400 hover:text-white transition-colors"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />

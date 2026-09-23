@@ -76,7 +76,7 @@ export default async function ProjectDetailPage({
             href="/development"
             className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors group"
           >
-            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform text-[#4ade80]" />
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform text-[#10b981]" />
             <span>back to all projects</span>
           </Link>
           <span className="text-neutral-500">case study // {project.category.toLowerCase()}</span>
@@ -106,7 +106,7 @@ export default async function ProjectDetailPage({
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 text-xs font-mono">
               <div>
                 <span className="text-neutral-500 block mb-1 flex items-center gap-1">
-                  <User className="w-3 h-3 text-[#4ade80]" /> role
+                  <User className="w-3 h-3 text-[#10b981]" /> role
                 </span>
                 <span className="text-neutral-200 font-sans text-xs">
                   {project.role}
@@ -114,19 +114,19 @@ export default async function ProjectDetailPage({
               </div>
               <div>
                 <span className="text-neutral-500 block mb-1 flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-[#4ade80]" /> duration
+                  <Clock className="w-3 h-3 text-[#10b981]" /> duration
                 </span>
                 <span className="text-neutral-200">{project.duration}</span>
               </div>
               <div>
                 <span className="text-neutral-500 block mb-1 flex items-center gap-1">
-                  <Calendar className="w-3 h-3 text-[#4ade80]" /> year
+                  <Calendar className="w-3 h-3 text-[#10b981]" /> year
                 </span>
                 <span className="text-neutral-200">{project.year}</span>
               </div>
               <div>
                 <span className="text-neutral-500 block mb-1 flex items-center gap-1">
-                  <Layers className="w-3 h-3 text-[#4ade80]" /> primary stack
+                  <Layers className="w-3 h-3 text-[#10b981]" /> primary stack
                 </span>
                 <span className="text-neutral-200">{project.stack[0]}</span>
               </div>
@@ -165,7 +165,7 @@ export default async function ProjectDetailPage({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-white text-xs font-mono hover:border-white/30 transition-colors"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-[#4ade80]" />
+                <ExternalLink className="w-3.5 h-3.5 text-[#10b981]" />
                 <span>live demo</span>
               </a>
             )}
@@ -204,7 +204,7 @@ export default async function ProjectDetailPage({
                 </h3>
                 {project.architectureDetails.map((detail, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-xs text-neutral-300">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#4ade80] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10b981] shrink-0 mt-0.5" />
                     <span className="font-sans leading-relaxed">{detail}</span>
                   </div>
                 ))}
@@ -225,7 +225,7 @@ export default async function ProjectDetailPage({
                     key={idx}
                     className="p-4 rounded-xl border border-white/5 bg-white/[0.02]"
                   >
-                    <span className="font-mono text-[11px] text-[#4ade80] block mb-1">
+                    <span className="font-mono text-[11px] text-[#10b981] block mb-1">
                       0{idx + 1}
                     </span>
                     <h3 className="font-bold text-sm text-white mb-1.5 font-sans">
@@ -265,7 +265,7 @@ export default async function ProjectDetailPage({
                 <span className="font-mono text-xs text-neutral-400">[05]</span>
                 <h2 className="text-lg sm:text-xl font-sans font-bold text-white flex items-center gap-2">
                   <span>outcomes &amp; metrics</span>
-                  <TrendingUp className="w-4 h-4 text-[#4ade80]" />
+                  <TrendingUp className="w-4 h-4 text-[#10b981]" />
                 </h2>
               </div>
               <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-4 font-sans">
@@ -276,9 +276,9 @@ export default async function ProjectDetailPage({
                 {project.outcome.metrics.map((metric, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl border border-[#4ade80]/20 bg-[#4ade80]/5"
+                    className="p-4 rounded-xl border border-[#10b981]/20 bg-[#10b981]/5"
                   >
-                    <span className="font-mono text-xs text-[#4ade80] block mb-1">
+                    <span className="font-mono text-xs text-[#10b981] block mb-1">
                       ✓ outcome
                     </span>
                     <p className="text-xs text-neutral-200 font-medium">
@@ -304,7 +304,7 @@ export default async function ProjectDetailPage({
               className="text-white hover:underline underline-offset-4 inline-flex items-center gap-1.5"
             >
               <span>next: {nextProject.title}</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#4ade80]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#10b981]" />
             </Link>
           </div>
         </article>

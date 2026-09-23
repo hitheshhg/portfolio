@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowUp, Terminal } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
-import { playClick } from "@/lib/sound";
 
 export function Footer() {
   const [time, setTime] = useState<string>("");
@@ -32,7 +31,6 @@ export function Footer() {
   }, []);
 
   const scrollToTop = () => {
-    playClick(900, 0.03);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -43,44 +41,27 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-center sm:text-left font-mono">
           <Link
             href="/"
-            onClick={() => playClick(600, 0.02)}
-            className="text-sm font-semibold tracking-tight text-white hover:opacity-80 transition-opacity"
+            className="text-sm font-semibold tracking-tight text-white hover:text-[#10b981] transition-colors"
           >
             hithesh.dev
           </Link>
           <span className="text-neutral-700 hidden sm:inline">•</span>
           <span className="text-xs text-neutral-400 flex items-center justify-center sm:justify-start gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
             <span>BLR {time ? `${time} IST` : "IST"}</span>
           </span>
           <span className="text-neutral-700 hidden sm:inline">•</span>
           <p className="text-xs text-neutral-500">
-            © {new Date().getFullYear()} Hithesh HG
+            © {new Date().getFullYear()} Hithesh HG • Data Analyst
           </p>
         </div>
 
         {/* Shortcuts & Socials */}
         <div className="flex items-center gap-3 text-xs font-mono">
-          <button
-            type="button"
-            onClick={() => {
-              playClick(700, 0.02);
-              window.dispatchEvent(
-                new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })
-              );
-            }}
-            className="hidden sm:inline-flex items-center gap-1.5 text-neutral-400 hover:text-white px-2 py-1 rounded-lg border border-white/10 hover:border-white/20 transition-all text-[11px]"
-          >
-            <Terminal className="w-3 h-3 text-[#4ade80]" />
-            <span>cmd</span>
-            <kbd className="text-[10px] text-neutral-500">⌘K</kbd>
-          </button>
-
           <a
             href="https://github.com/hitheshhg"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => playClick(600, 0.02)}
             aria-label="GitHub"
             className="p-1.5 text-neutral-400 hover:text-white transition-colors"
           >
@@ -90,7 +71,6 @@ export function Footer() {
             href="https://linkedin.com/in/hitheshhg"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => playClick(600, 0.02)}
             aria-label="LinkedIn"
             className="p-1.5 text-neutral-400 hover:text-white transition-colors"
           >
@@ -100,7 +80,7 @@ export function Footer() {
             type="button"
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="p-1.5 rounded-lg border border-white/10 text-neutral-400 hover:text-white hover:border-white/30 transition-all ml-1"
+            className="p-1.5 rounded-lg border border-white/10 text-neutral-400 hover:text-white hover:border-white/30 transition-all ml-1 cursor-pointer"
           >
             <ArrowUp className="w-3.5 h-3.5" />
           </button>

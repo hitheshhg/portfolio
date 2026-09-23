@@ -1,14 +1,12 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Download, Menu, X } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
-import { playClick, playFanfare } from "@/lib/sound";
-import { fireConfetti } from "@/lib/confetti";
 
 export interface BentoHeaderProps {
-  activeTab?: "home" | "design" | "development" | "blog" | "cv";
+  activeTab?: "home" | "design" | "development" | "blog" | "cv" | "projects" | "insights";
   tagLineThrough?: string;
   tagHighlight?: string;
   title?: string;
@@ -17,10 +15,9 @@ export interface BentoHeaderProps {
 }
 
 const NAV_LINKS = [
-  { name: "home", href: "/", id: "home" },
-  { name: "design", href: "/design", id: "design" },
-  { name: "development", href: "/development", id: "development" },
-  { name: "blog", href: "/blog", id: "blog" },
+  { name: "overview", href: "/", id: "home" },
+  { name: "projects", href: "/development", id: "development" },
+  { name: "insights", href: "/blog", id: "blog" },
   { name: "cv", href: "/cv", id: "cv" },
 ] as const;
 
@@ -33,26 +30,6 @@ export function BentoHeader({
   headerAction,
 }: BentoHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
-  const lastClickTimeRef = useRef(0);
-
-  const handleLogoClick = () => {
-    const now = Date.now();
-    playClick(750, 0.02);
-
-    if (now - lastClickTimeRef.current > 2000) {
-      setClickCount(1);
-    } else {
-      const next = clickCount + 1;
-      setClickCount(next);
-      if (next >= 5) {
-        setClickCount(0);
-        playFanfare();
-        fireConfetti();
-      }
-    }
-    lastClickTimeRef.current = now;
-  };
 
   return (
     <header className="bento-card p-6 sm:p-8 bg-black text-white w-full border border-white/[0.08] shadow-2xl transition-all">
@@ -62,15 +39,13 @@ export function BentoHeader({
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            onClick={handleLogoClick}
-            title="Click 5 times for a surprise 🎉"
-            className="font-mono text-xs sm:text-sm font-semibold tracking-tight text-white hover:opacity-80 transition-opacity select-none"
+            className="font-mono text-xs sm:text-sm font-bold tracking-tight text-white hover:text-[#10b981] transition-colors select-none"
           >
             hithesh.dev
           </Link>
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono bg-[#4ade80]/10 text-[#4ade80] border border-[#4ade80]/25">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] animate-pulse" />
-            <span>available for work</span>
+          <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/25">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
+            <span>open for data &amp; analytics roles</span>
           </span>
         </div>
 
@@ -80,15 +55,17 @@ export function BentoHeader({
           className="hidden md:flex items-center gap-1 text-xs font-mono"
         >
           {NAV_LINKS.map((link) => {
-            const isActive = activeTab === link.id;
+            const isActive =
+              activeTab === link.id ||
+              (link.id === "development" && activeTab === "projects") ||
+              (link.id === "blog" && activeTab === "insights");
             return (
               <Link
                 key={link.id}
                 href={link.href}
-                onClick={() => playClick(700, 0.02)}
-                className={`px-3 py-1.5 rounded-lg transition-all ${
+                className={`px-3.5 py-1.5 rounded-lg transition-all ${
                   isActive
-                    ? "text-white bg-white/10 font-semibold shadow-sm border border-white/10"
+                    ? "text-white bg-white/10 font-bold shadow-sm border border-white/10"
                     : "text-neutral-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
               >
@@ -100,27 +77,10 @@ export function BentoHeader({
 
         {/* Actions & Socials */}
         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          {/* Quick Command Palette Button */}
-          <button
-            type="button"
-            onClick={() => {
-              playClick(800, 0.02);
-              window.dispatchEvent(
-                new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })
-              );
-            }}
-            aria-label="Open Command Menu"
-            className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-neutral-400 hover:text-white hover:border-white/25 text-[11px] font-mono transition-all group"
-          >
-            <span className="text-neutral-500 group-hover:text-neutral-300">cmd</span>
-            <kbd className="text-[10px] text-neutral-400 font-mono">⌘K</kbd>
-          </button>
-
           <a
             href="https://github.com/hitheshhg"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => playClick(600, 0.02)}
             aria-label="GitHub Profile"
             className="p-1.5 text-neutral-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
           >
@@ -130,7 +90,6 @@ export function BentoHeader({
             href="https://linkedin.com/in/hitheshhg"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => playClick(600, 0.02)}
             aria-label="LinkedIn Profile"
             className="p-1.5 text-neutral-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
           >
@@ -140,8 +99,7 @@ export function BentoHeader({
           <a
             href="/resume.pdf"
             download="Hithesh_HG_Resume.pdf"
-            onClick={() => playClick(850, 0.03)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-black font-medium text-[11px] font-mono hover:bg-neutral-200 transition-colors shadow-sm"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-black font-semibold text-[11px] font-mono hover:bg-neutral-200 transition-colors shadow-sm"
           >
             <Download className="w-3 h-3" />
             <span className="hidden sm:inline">download cv</span>
@@ -151,12 +109,9 @@ export function BentoHeader({
           {/* Mobile Menu Button */}
           <button
             type="button"
-            onClick={() => {
-              playClick(500, 0.02);
-              setMobileMenuOpen(!mobileMenuOpen);
-            }}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
-            className="md:hidden p-1.5 text-neutral-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+            className="md:hidden p-1.5 text-neutral-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -167,7 +122,10 @@ export function BentoHeader({
       {mobileMenuOpen && (
         <div className="md:hidden pt-4 mt-4 border-t border-white/10 flex flex-col gap-1.5">
           {NAV_LINKS.map((link) => {
-            const isActive = activeTab === link.id;
+            const isActive =
+              activeTab === link.id ||
+              (link.id === "development" && activeTab === "projects") ||
+              (link.id === "blog" && activeTab === "insights");
             return (
               <Link
                 key={link.id}
@@ -198,7 +156,7 @@ export function BentoHeader({
                   </span>
                 )}
                 {tagHighlight && (
-                  <span className="font-mono text-xs font-semibold text-white tracking-wide">
+                  <span className="font-mono text-xs font-semibold text-white tracking-wide uppercase">
                     {tagHighlight}
                   </span>
                 )}

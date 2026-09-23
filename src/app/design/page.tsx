@@ -1,75 +1,73 @@
 import { BentoHeader } from "@/components/layout/BentoHeader";
 import { Footer } from "@/components/layout/Footer";
-import { Palette, CheckCircle2 } from "lucide-react";
+import { BarChart2, CheckCircle2 } from "lucide-react";
 
 export default function DesignPage() {
   const designProjects = [
     {
-      title: "Design System & UI Kit",
-      category: "Design System",
+      title: "Executive BI Design System & Color Scales",
+      category: "BI Design System",
       description:
-        "Comprehensive tokenized design library built from Figma primitives. Features strict 8pt spacing, WCAG AAA dark mode contrast tokens, and composable compound components.",
-      deliverables: ["40+ Reusable Tokens", "Auto Layout 5.0", "WCAG AAA Compliant"],
-      tags: ["Figma", "Auto Layout", "Design Tokens", "Accessibility"],
+        "Comprehensive visual design language for business intelligence dashboards. Features colorblind-safe categorical palettes, sequential gradients for heatmaps, and high-contrast dark themes.",
+      deliverables: ["Colorblind-Safe Palettes", "Standardized KPI Cards", "WCAG AAA Compliant"],
+      tags: ["Power BI", "Tableau", "Data Viz", "Accessibility"],
       visual: (
         <div className="w-full h-36 rounded-xl bg-white/[0.03] border border-white/10 p-3.5 flex flex-col justify-between overflow-hidden relative group-hover:border-white/20 transition-colors">
           <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400">
             <span className="flex items-center gap-1.5">
-              <Palette className="w-3.5 h-3.5 text-[#4ade80]" /> tokens.tokenset
+              <BarChart2 className="w-3.5 h-3.5 text-[#10b981]" /> dataviz.palette
             </span>
-            <span className="text-[#4ade80]">v2.4</span>
+            <span className="text-[#10b981]">v3.0</span>
           </div>
 
           <div className="grid grid-cols-4 gap-2">
-            <div className="h-10 rounded-lg bg-[#121214] border border-white/15 flex flex-col items-center justify-center">
-              <span className="text-[9px] font-mono text-neutral-400">canvas</span>
+            <div className="h-10 rounded-lg bg-[#10b981] flex flex-col items-center justify-center">
+              <span className="text-[9px] font-mono text-black font-bold">positive</span>
             </div>
-            <div className="h-10 rounded-lg bg-[#000000] border border-white/15 flex flex-col items-center justify-center">
-              <span className="text-[9px] font-mono text-neutral-400">card</span>
+            <div className="h-10 rounded-lg bg-[#38bdf8] flex flex-col items-center justify-center">
+              <span className="text-[9px] font-mono text-black font-bold">neutral</span>
             </div>
-            <div className="h-10 rounded-lg bg-[#4ade80]/15 border border-[#4ade80]/30 flex flex-col items-center justify-center">
-              <span className="text-[9px] font-mono text-[#4ade80]">brand</span>
+            <div className="h-10 rounded-lg bg-[#f59e0b] flex flex-col items-center justify-center">
+              <span className="text-[9px] font-mono text-black font-bold">warning</span>
             </div>
-            <div className="h-10 rounded-lg bg-white/10 border border-white/20 flex flex-col items-center justify-center">
-              <span className="text-[9px] font-mono text-white">border</span>
+            <div className="h-10 rounded-lg bg-[#f43f5e] flex flex-col items-center justify-center">
+              <span className="text-[9px] font-mono text-white font-bold">critical</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-white text-black font-semibold">
-              button:primary
+              kpi:scorecard
             </span>
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono border border-white/20 text-neutral-300">
-              badge:ghost
+              sparkline:trend
             </span>
           </div>
         </div>
       ),
     },
     {
-      title: "Mobile App Wireframing & UX",
-      category: "Product Design",
+      title: "Dashboard Wireframing & Information Architecture",
+      category: "Information Design",
       description:
-        "Information architecture, user flow mapping, and low-fidelity prototypes for rapid usability validation across iOS and Android form factors.",
-      deliverables: ["18 Interactive Flows", "Heuristic Evaluation", "Clickable Prototypes"],
-      tags: ["UX Research", "Wireframing", "User Journeys", "Information Arch"],
+        "Figma wireframes and user flow mapping for complex multi-page operational reports. Optimizes filter placement, drill-through paths, and visual scannability.",
+      deliverables: ["12 Interactive Layouts", "Executive Drill-Downs", "Low-Fidelity Mocks"],
+      tags: ["Information Arch", "Wireframing", "Cognitive Load", "UX Research"],
       visual: (
         <div className="w-full h-36 rounded-xl bg-white/[0.03] border border-white/10 p-3.5 flex items-center justify-center gap-3 overflow-hidden relative group-hover:border-white/20 transition-colors">
-          <div className="w-20 h-28 rounded-xl bg-black border border-white/20 p-1.5 flex flex-col justify-between shadow-lg">
-            <div className="h-2 w-8 bg-white/20 rounded-full mx-auto" />
+          <div className="w-24 h-28 rounded-xl bg-black border border-white/20 p-2 flex flex-col justify-between shadow-lg">
+            <div className="h-2 w-12 bg-white/20 rounded-full" />
             <div className="space-y-1">
-              <div className="h-2 w-full bg-white/10 rounded" />
-              <div className="h-2 w-3/4 bg-white/10 rounded" />
+              <div className="h-3 w-full bg-[#10b981]/20 rounded border border-[#10b981]/30" />
+              <div className="h-6 w-full bg-white/10 rounded" />
             </div>
-            <div className="h-4 w-full bg-[#4ade80]/20 border border-[#4ade80]/40 rounded flex items-center justify-center">
-              <span className="text-[8px] font-mono text-[#4ade80]">submit</span>
-            </div>
+            <div className="h-3 w-full bg-white/10 rounded" />
           </div>
-          <div className="w-20 h-28 rounded-xl bg-black border border-white/10 p-1.5 flex flex-col justify-between opacity-70">
-            <div className="h-2 w-8 bg-white/20 rounded-full mx-auto" />
+          <div className="w-24 h-28 rounded-xl bg-black border border-white/10 p-2 flex flex-col justify-between opacity-70">
+            <div className="h-2 w-10 bg-white/20 rounded-full" />
             <div className="grid grid-cols-2 gap-1 my-auto">
-              <div className="h-6 bg-white/10 rounded" />
-              <div className="h-6 bg-white/10 rounded" />
+              <div className="h-8 bg-white/10 rounded" />
+              <div className="h-8 bg-white/10 rounded" />
             </div>
             <div className="h-2 w-full bg-white/20 rounded" />
           </div>
@@ -77,35 +75,31 @@ export default function DesignPage() {
       ),
     },
     {
-      title: "Editorial & Digital Identity",
-      category: "Branding",
+      title: "Tabular Layouts & Financial Typography",
+      category: "Data Typography",
       description:
-        "Modular typography hierarchies, rhythmic baseline grids, and visual art direction designed for engineering publications and developer docs.",
-      deliverables: ["Type Specimen Sheet", "Grid Alignments", "Asset Guidelines"],
-      tags: ["Typography", "Grid Systems", "Identity", "Design Craft"],
+        "Monospaced numeric alignments, baseline rhythms, and tabular figures ensuring accurate scanning of large accounting and transactional data tables.",
+      deliverables: ["Tabular Figure Rules", "Grid Rhythm Spec", "Density Standards"],
+      tags: ["Typography", "Tabular Figures", "Financial BI", "Grid Rhythms"],
       visual: (
         <div className="w-full h-36 rounded-xl bg-white/[0.03] border border-white/10 p-3.5 flex flex-col justify-between overflow-hidden relative group-hover:border-white/20 transition-colors">
           <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400">
-            <span>type / grotesque</span>
-            <span className="text-neutral-500">800 • 500 • 400</span>
+            <span>tabular / figures</span>
+            <span className="text-neutral-500">tnum • zero</span>
           </div>
 
-          <div className="flex items-baseline justify-between px-2">
-            <span className="text-3xl font-sans font-bold text-white tracking-tighter">
-              Aa
-            </span>
-            <span className="text-2xl font-serif italic text-neutral-400">
-              Gg
-            </span>
-            <span className="text-2xl font-mono text-[#4ade80]">
-              &lt;01&gt;
-            </span>
-            <span className="text-xl font-mono text-neutral-500">
-              8pt
-            </span>
+          <div className="space-y-1 px-1 font-mono text-xs">
+            <div className="flex justify-between border-b border-white/5 pb-1">
+              <span className="text-neutral-400">Q3 ARR</span>
+              <span className="text-white font-bold">$1,420,500.00</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-neutral-400">Variance</span>
+              <span className="text-[#10b981] font-bold">+18.4%</span>
+            </div>
           </div>
 
-          <div className="h-1 w-full bg-gradient-to-r from-white/40 via-[#4ade80]/40 to-transparent rounded-full" />
+          <div className="h-1 w-full bg-gradient-to-r from-white/40 via-[#10b981]/40 to-transparent rounded-full" />
         </div>
       ),
     },
@@ -117,13 +111,12 @@ export default function DesignPage() {
         {/* Unified Top Navigation with Banner */}
         <BentoHeader
           activeTab="design"
-          tagLineThrough="portfolio"
-          tagHighlight="design"
-          title="design work & case studies"
-          subtitle="From user research and low-fidelity wireframing to tokenized design systems and interactive high-fidelity interfaces."
+          tagHighlight="dashboard &amp; viz design"
+          title="data visualization &amp; dashboard systems"
+          subtitle="Architecting intuitive executive dashboard systems, accessible color scales, and human-centered business intelligence interfaces."
           headerAction={
             <span className="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.04] border border-white/10 text-neutral-300">
-              {designProjects.length} core studies
+              {designProjects.length} design studies
             </span>
           }
         />
@@ -163,7 +156,7 @@ export default function DesignPage() {
                       key={deliv}
                       className="flex items-center gap-2 text-[11px] font-mono text-neutral-300"
                     >
-                      <CheckCircle2 className="w-3 h-3 text-[#4ade80] shrink-0" />
+                      <CheckCircle2 className="w-3 h-3 text-[#10b981] shrink-0" />
                       <span>{deliv}</span>
                     </div>
                   ))}

@@ -6,34 +6,424 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R /F3 7 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 120 >>
+<< /Length 7185 >>
 stream
 BT
-/F1 24 Tf
-100 700 Td
-(Hithesh HG - Full Stack Developer Resume) Tj
-0 -40 Td
-/F1 14 Tf
-(TODO: Formal Resume PDF placeholder. Contact: hitheshhg@gmail.com) Tj
+/F2 22 Tf
+0.08 0.08 0.1 rg
+45 742 Td
+(HITHESH HG) Tj
+ET
+BT
+/F2 10 Tf
+0.2 0.25 0.3 rg
+45 725 Td
+(DATA ANALYST & BUSINESS INTELLIGENCE SPECIALIST) Tj
+ET
+BT
+/F1 8.5 Tf
+0.4 0.42 0.45 rg
+45 710 Td
+(Bengaluru, India  |  hitheshhg@gmail.com  |  hithesh.dev  |  github.com/hitheshhg  |  linkedin.com/in/hitheshhg) Tj
+ET
+0.85 0.85 0.88 RG
+1.2 w
+45 698 m 567 698 l S
+BT
+/F2 10.5 Tf
+0.06 0.72 0.51 rg
+45 680 Td
+(EXECUTIVE SUMMARY) Tj
+ET
+0.15 0.15 0.18 RG
+1 w
+45 676 m 567 676 l S
+BT
+/F1 8.5 Tf
+0.2 0.2 0.22 rg
+45 664 Td
+(Results-driven Data Analyst with a rigorous Computer Science foundation, specializing in translating complex relational) Tj
+ET
+BT
+/F1 8.5 Tf
+0.2 0.2 0.22 rg
+45 652 Td
+(datasets into actionable business intelligence, predictive classification models, and executive dashboards. Expert in advanced) Tj
+ET
+BT
+/F1 8.5 Tf
+0.2 0.2 0.22 rg
+45 640 Td
+(SQL \(CTEs, Window Functions\), Python \(Pandas, Scikit-learn\), Power BI \(DAX, Star Schema\), and statistical experimentation.) Tj
+ET
+BT
+/F2 10.5 Tf
+0.06 0.72 0.51 rg
+45 620 Td
+(TECHNICAL COMPETENCIES) Tj
+ET
+0.15 0.15 0.18 RG
+1 w
+45 616 m 567 616 l S
+BT
+/F2 8.5 Tf
+0.1 0.1 0.12 rg
+45 604 Td
+(*  Querying & Relational Databases:) Tj
+ET
+BT
+/F1 8.5 Tf
+0.25 0.25 0.28 rg
+215 604 Td
+(Advanced SQL \(PostgreSQL, MySQL, Google BigQuery, Snowflake\), CTEs, Window Functions) Tj
+ET
+BT
+/F2 8.5 Tf
+0.1 0.1 0.12 rg
+45 592 Td
+(*  Programming & Data Science:) Tj
+ET
+BT
+/F1 8.5 Tf
+0.25 0.25 0.28 rg
+215 592 Td
+(Python \(Pandas, NumPy, Scikit-learn, Statsmodels, SciPy\), R, Jupyter Notebooks, Git / GitHub) Tj
+ET
+BT
+/F2 8.5 Tf
+0.1 0.1 0.12 rg
+45 580 Td
+(*  BI, Visualization & Reporting:) Tj
+ET
+BT
+/F1 8.5 Tf
+0.25 0.25 0.28 rg
+215 580 Td
+(Power BI \(DAX, Power Query, Data Modeling\), Tableau Desktop/Server, Looker Studio, Advanced Excel) Tj
+ET
+BT
+/F2 8.5 Tf
+0.1 0.1 0.12 rg
+45 568 Td
+(*  Analytics & Statistical Modeling:) Tj
+ET
+BT
+/F1 8.5 Tf
+0.25 0.25 0.28 rg
+215 568 Td
+(Exploratory Data Analysis \(EDA\), Cohort Analysis, RFM Segmentation, A/B Hypothesis Testing, ETL Pipelines) Tj
+ET
+BT
+/F2 10.5 Tf
+0.06 0.72 0.51 rg
+45 546 Td
+(PROFESSIONAL EXPERIENCE) Tj
+ET
+0.15 0.15 0.18 RG
+1 w
+45 542 m 567 542 l S
+BT
+/F2 9.5 Tf
+0.1 0.1 0.12 rg
+45 530 Td
+(Data & Business Intelligence Analytics Trainee) Tj
+ET
+BT
+/F2 8.5 Tf
+0.3 0.3 0.3 rg
+480 530 Td
+(06/2026 - 08/2026) Tj
+ET
+BT
+/F3 8.5 Tf
+0.35 0.38 0.42 rg
+45 518 Td
+(Dlithe  |  Bengaluru, India) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 506 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 506 Td
+(Extracted, cleansed, and analyzed 100k+ row enterprise transactional datasets using PostgreSQL window functions and CTEs.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 494.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 494.5 Td
+(Engineered interactive multi-page Power BI & Tableau dashboards with complex DAX measures and row-level security \(RLS\).) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 483 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 483 Td
+(Conducted exploratory data analysis \(EDA\) and feature engineering in Python \(Pandas, NumPy\) to pinpoint customer churn drivers.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 471.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 471.5 Td
+(Formulated hypothesis tests \(Chi-Square, T-tests\) and regression models to deliver data-backed insights for executive decisions.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 460 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 460 Td
+(Automated weekly reporting pipelines via Python scripts, eliminating 8+ hours of manual spreadsheet compilation per cycle.) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.1 0.12 rg
+45 444.5 Td
+(Junior Data Analyst Intern) Tj
+ET
+BT
+/F2 8.5 Tf
+0.3 0.3 0.3 rg
+538 444.5 Td
+(2023) Tj
+ET
+BT
+/F3 8.5 Tf
+0.35 0.38 0.42 rg
+45 432.5 Td
+(2StarIT Solutions  |  Karnataka, India) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 420.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 420.5 Td
+(Analyzed web and mobile user engagement telemetry to identify conversion drop-offs across multi-step product funnels.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 409 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 409 Td
+(Designed and automated executive KPI dashboards in Google Looker Studio and Excel for 10+ business stakeholders.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 397.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 397.5 Td
+(Wrote structured SQL queries reconciling transactional payments with CRM records, resolving revenue reporting discrepancies.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 386 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 386 Td
+(Assisted product team in evaluating A/B test parameters and verifying statistical significance on feature rollouts.) Tj
+ET
+BT
+/F2 10.5 Tf
+0.06 0.72 0.51 rg
+45 366.5 Td
+(FEATURED ANALYTICS PROJECTS) Tj
+ET
+0.15 0.15 0.18 RG
+1 w
+45 362.5 m 567 362.5 l S
+BT
+/F2 8.8 Tf
+0.1 0.1 0.12 rg
+45 352.5 Td
+(Customer Churn & Retention Intelligence \(Python, PostgreSQL, Power BI, XGBoost\)) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 341.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 341.5 Td
+(Constructed predictive attrition model on 70,000+ subscription accounts achieving 0.88 ROC-AUC and 86% recall.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 330.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 330.5 Td
+(Deployed an executive Power BI dashboard with what-if parameter modeling; contributed to 18% churn reduction and $280K ARR saved.) Tj
+ET
+BT
+/F2 8.8 Tf
+0.1 0.1 0.12 rg
+45 305.5 Td
+(E-Commerce Cohort & Revenue Analytics \(SQL Window Functions, Tableau, RFM Analysis\)) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 294.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 294.5 Td
+(Analyzed 500k+ transactions using PostgreSQL window functions \(DENSE_RANK, LAG\) to construct dynamic cohort retention heatmaps.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 283.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 283.5 Td
+(Developed RFM customer segmentation in Python, driving 24% repeat purchase lift and automating 15 hrs/week of reporting.) Tj
+ET
+BT
+/F2 8.8 Tf
+0.1 0.1 0.12 rg
+45 258.5 Td
+(Clinical Readmission & Risk Stratification \(Python, Statsmodels, Looker Studio, BigQuery\)) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 247.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 247.5 Td
+(Evaluated 100k+ hospital admissions using multivariate logistic regression and odds ratio estimation to identify readmission risk factors.) Tj
+ET
+BT
+/F2 8.5 Tf
+0.06 0.72 0.51 rg
+52 236.5 Td
+(>) Tj
+ET
+BT
+/F1 8.2 Tf
+0.22 0.22 0.25 rg
+62 236.5 Td
+(Delivered Looker Studio scorecard identifying 4 key clinical drivers \(p < 0.01\) with projected $350K penalty reduction.) Tj
+ET
+BT
+/F2 10.5 Tf
+0.06 0.72 0.51 rg
+45 217.5 Td
+(EDUCATION & ACADEMIC BACKGROUND) Tj
+ET
+0.15 0.15 0.18 RG
+1 w
+45 213.5 m 567 213.5 l S
+BT
+/F2 9.5 Tf
+0.1 0.1 0.12 rg
+45 203.5 Td
+(Bachelor of Technology \(B.Tech\) - Computer Science & Engineering) Tj
+ET
+BT
+/F2 8.5 Tf
+0.3 0.3 0.3 rg
+495 203.5 Td
+(2023 - Present) Tj
+ET
+BT
+/F3 8.5 Tf
+0.35 0.38 0.42 rg
+45 191.5 Td
+(NMAM Institute of Technology \(NMAMIT\), Nitte  |  CGPA: 8.7 / 10.0) Tj
+ET
+BT
+/F1 8 Tf
+0.3 0.3 0.32 rg
+45 180.5 Td
+(Relevant Coursework: Database Management Systems, Probability & Statistics, Data Mining & Business Analytics, Operating Systems) Tj
 ET
 endstream
 endobj
 5 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
 xref
-0 6
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000244 00000 n 
-0000000416 00000 n 
+0000000261 00000 n 
+0000007498 00000 n 
+0000007568 00000 n 
+0000007643 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 8 /Root 1 0 R >>
 startxref
-495
+7721
 %%EOF
