@@ -16,7 +16,7 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hithesh.dev"),
+  metadataBase: new URL("https://hitheshhg.qd.je"),
   title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
   description:
     "Portfolio of Hithesh HG — Data Analyst specializing in SQL, Python, Power BI, Tableau, predictive modeling, and statistical business intelligence.",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
     description:
       "Transforming complex datasets into actionable business intelligence, predictive models, and decision-ready dashboards.",
-    url: "https://hithesh.dev",
+    url: "https://hitheshhg.qd.je",
     siteName: "Hithesh HG Portfolio",
     locale: "en_US",
     type: "website",

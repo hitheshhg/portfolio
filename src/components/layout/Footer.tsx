@@ -43,7 +43,7 @@ export function Footer() {
             href="/"
             className="text-sm font-semibold tracking-tight text-[var(--text-primary)] hover:text-[var(--accent-emerald)] transition-colors"
           >
-            hithesh.dev
+            hitheshhg.qd.je
           </Link>
           <span className="text-[var(--text-subtle)] hidden sm:inline">•</span>
           <span className="text-xs text-[var(--text-muted)] flex items-center justify-center sm:justify-start gap-1.5">

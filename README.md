@@ -2,7 +2,7 @@
 
 > A high-performance, minimalist, and beautifully engineered portfolio showcasing real-world business intelligence dashboards, exploratory data analysis (EDA), predictive models, and SQL data architectures.
 
-[![Live Site](https://img.shields.io/badge/Live_Site-hithesh.dev-10b981?style=flat-square)](https://hithesh.dev)
+[![Live Site](https://img.shields.io/badge/Live_Site-hitheshhg.qd.je-10b981?style=flat-square)](https://hitheshhg.qd.je)
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)

@@ -107,7 +107,7 @@ export default async function Image() {
           }}
         >
           <div>SQL • Python • Power BI • Tableau • PostgreSQL</div>
-          <div>hithesh.dev</div>
+          <div>hitheshhg.qd.je</div>
         </div>
       </div>
     ),

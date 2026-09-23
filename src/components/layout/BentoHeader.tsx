@@ -42,7 +42,7 @@ export function BentoHeader({
             href="/"
             className="font-mono text-xs sm:text-sm font-bold tracking-tight text-[var(--text-primary)] hover:text-[var(--accent-emerald)] transition-colors select-none"
           >
-            hithesh.dev
+            hitheshhg.qd.je
           </Link>
           <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[var(--accent-emerald-bg)] text-[var(--accent-emerald)] border border-[var(--accent-emerald-border)]">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-emerald)] animate-pulse" />

@@ -35,7 +35,7 @@ function buildDataAnalystResumePdf() {
   addText("HITHESH HG", "F2", 22, 45, 742, 0.08, 0.08, 0.1);
   addText("DATA ANALYST & BUSINESS INTELLIGENCE SPECIALIST", "F2", 10, 45, 725, 0.2, 0.25, 0.3);
   addText(
-    "Bengaluru, India  |  hitheshhg@gmail.com  |  hithesh.dev  |  github.com/hitheshhg  |  linkedin.com/in/hitheshhg",
+    "Bengaluru, India  |  hitheshhg@gmail.com  |  hitheshhg.qd.je  |  github.com/hitheshhg  |  linkedin.com/in/hitheshhg",
     "F1",
     8.5,
     45,
