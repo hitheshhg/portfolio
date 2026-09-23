@@ -6,7 +6,6 @@ export interface ProjectCaseStudy {
   summary: string;
   category: "Business Intelligence" | "Predictive Analytics" | "Healthcare Analytics";
   year: string;
-  coverImage: string;
   badge: string;
   featured: boolean;
   repoUrl?: string;
@@ -37,7 +36,6 @@ export const projects: ProjectCaseStudy[] = [
       "End-to-end data analytics workflow on 70,000+ subscription records. Uncovered primary drivers of customer attrition using SQL and Python, built an ensemble classification model, and deployed an executive Power BI dashboard enabling targeted retention campaigns that lowered churn by 18%.",
     category: "Predictive Analytics",
     year: "2024",
-    coverImage: "/projects/churn-analytics.svg",
     badge: "Python • SQL • Power BI • Machine Learning",
     featured: true,
     repoUrl: "https://github.com/hitheshhg/customer-churn-analytics",
@@ -102,7 +100,6 @@ export const projects: ProjectCaseStudy[] = [
       "Comprehensive retail transactional analytics using advanced PostgreSQL window functions and Tableau. Delivered granular cohort retention heatmaps, Recency-Frequency-Monetary (RFM) customer segmentation, and product affinity models to optimize promotional spend and inventory allocation.",
     category: "Business Intelligence",
     year: "2024",
-    coverImage: "/projects/cohort-revenue.svg",
     badge: "Advanced SQL • Tableau • RFM Modeling • Python",
     featured: true,
     repoUrl: "https://github.com/hitheshhg/ecommerce-cohort-analysis",
@@ -167,7 +164,6 @@ export const projects: ProjectCaseStudy[] = [
       "Statistical modeling and health analytics study examining 30-day inpatient readmissions. Performed multivariate logistic regression, hypothesis testing, and risk stratification to identify clinically significant predictors of preventable readmissions, presented in an interactive Looker Studio dashboard.",
     category: "Healthcare Analytics",
     year: "2023",
-    coverImage: "/projects/healthcare-readmission.svg",
     badge: "Python • Statsmodels • Looker Studio • Biostatistics",
     featured: true,
     repoUrl: "https://github.com/hitheshhg/hospital-readmission-analytics",

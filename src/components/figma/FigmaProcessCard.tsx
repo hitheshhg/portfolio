@@ -5,31 +5,31 @@ export function FigmaProcessCard() {
     {
       title: "ingest & clean",
       subtitle: "ETL pipelines & schema hygiene",
-      icon: <Database className="w-8 h-8 text-[#38bdf8] group-hover:scale-110 transition-transform duration-300" />,
+      icon: <Database className="w-8 h-8 text-[var(--accent-sky)] group-hover:scale-110 transition-transform duration-300" />,
     },
     {
       title: "explore & model",
       subtitle: "statistics & predictive ML",
-      icon: <SearchCheck className="w-8 h-8 text-[#10b981] group-hover:scale-110 transition-transform duration-300" />,
+      icon: <SearchCheck className="w-8 h-8 text-[var(--accent-emerald)] group-hover:scale-110 transition-transform duration-300" />,
     },
     {
       title: "visualize & impact",
       subtitle: "BI dashboards & decisions",
-      icon: <BarChart3 className="w-8 h-8 text-[#f59e0b] group-hover:scale-110 transition-transform duration-300" />,
+      icon: <BarChart3 className="w-8 h-8 text-[var(--accent-amber)] group-hover:scale-110 transition-transform duration-300" />,
     },
   ];
 
   return (
-    <div className="bento-card p-6 sm:p-10 flex flex-col justify-between h-full min-h-[380px] bg-black text-white border border-white/[0.08]">
+    <div className="bento-card p-6 sm:p-10 flex flex-col justify-between h-full min-h-[380px]">
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <span className="font-mono text-xs font-semibold text-white tracking-wide uppercase">
+          <span className="font-mono text-xs font-semibold text-[var(--text-primary)] tracking-wide uppercase">
             analytics lifecycle
           </span>
         </div>
 
-        <p className="text-xs sm:text-sm text-neutral-400 font-sans leading-relaxed max-w-md">
+        <p className="text-xs sm:text-sm text-[var(--text-secondary)] font-sans leading-relaxed max-w-md">
           A rigorous analytical methodology: from raw pipeline ingestion and data validation to statistical modeling and executive BI storytelling.
         </p>
       </div>
@@ -39,15 +39,15 @@ export function FigmaProcessCard() {
         {steps.map((step) => (
           <div
             key={step.title}
-            className="flex flex-col items-center text-center group p-2 rounded-xl hover:bg-white/[0.02] transition-colors"
+            className="flex flex-col items-center text-center group p-2 rounded-xl hover:bg-[var(--surface-subtle)] transition-colors"
           >
-            <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-2.5 rounded-2xl bg-white/[0.03] border border-white/5 group-hover:border-white/20 group-hover:bg-white/[0.06] transition-all">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-2.5 rounded-2xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] group-hover:border-[var(--bento-border-hover)] group-hover:bg-[var(--surface-hover)] transition-all shadow-xs">
               {step.icon}
             </div>
-            <span className="text-xs font-mono font-medium text-neutral-200 group-hover:text-white transition-colors">
+            <span className="text-xs font-mono font-medium text-[var(--text-primary)] transition-colors">
               {step.title}
             </span>
-            <span className="text-[10px] font-mono text-neutral-400 mt-0.5 line-clamp-1">
+            <span className="text-[10px] font-mono text-[var(--text-muted)] mt-0.5 line-clamp-1">
               {step.subtitle}
             </span>
           </div>
@@ -55,9 +55,9 @@ export function FigmaProcessCard() {
       </div>
 
       {/* Bottom tag */}
-      <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-neutral-400">
+      <div className="pt-4 border-t border-[var(--bento-border)] flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)]">
         <span>methodology</span>
-        <span className="text-[#10b981]">evidence-based &amp; verified</span>
+        <span className="text-[var(--accent-emerald)] font-medium">evidence-based &amp; verified</span>
       </div>
     </div>
   );

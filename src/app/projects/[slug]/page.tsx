@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { projects } from "@/data/projects";
@@ -44,7 +43,6 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} — Case Study | Hithesh HG`,
       description: project.tagline,
-      images: [project.coverImage],
     },
   };
 }
@@ -65,7 +63,7 @@ export default async function ProjectDetailPage({
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
   return (
-    <div className="min-h-screen bg-transparent text-white pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className="min-h-screen bg-transparent text-[var(--text-primary)] pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
         {/* Unified Top Navigation */}
         <BentoHeader activeTab="development" />
@@ -74,85 +72,73 @@ export default async function ProjectDetailPage({
         <div className="flex items-center justify-between text-xs font-mono px-2">
           <Link
             href="/development"
-            className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors group"
           >
-            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform text-[#10b981]" />
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform text-[var(--accent-emerald)]" />
             <span>back to all projects</span>
           </Link>
-          <span className="text-neutral-500">case study // {project.category.toLowerCase()}</span>
+          <span className="text-[var(--text-subtle)]">case study // {project.category.toLowerCase()}</span>
         </div>
 
         {/* Main Project Case Study Bento Card */}
-        <article className="bento-card p-6 sm:p-10 space-y-12 bg-black text-white border border-white/[0.08]">
+        <article className="bento-card p-6 sm:p-10 space-y-10">
           {/* Header Info */}
           <header>
             <div className="flex flex-wrap items-center gap-2.5 mb-4">
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono border border-white/10 text-neutral-300">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono border border-[var(--surface-border)] bg-[var(--surface-subtle)] text-[var(--text-secondary)]">
                 {project.category}
               </span>
-              <span className="text-xs font-mono text-neutral-600">•</span>
-              <span className="text-xs font-mono text-neutral-400">{project.year}</span>
+              <span className="text-xs font-mono text-[var(--text-subtle)]">•</span>
+              <span className="text-xs font-mono text-[var(--text-muted)]">{project.year}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-sans font-bold text-white mb-3 tracking-tight">
+            <h1 className="text-3xl sm:text-5xl font-sans font-bold text-[var(--text-primary)] mb-3 tracking-tight">
               {project.title}
             </h1>
 
-            <p className="text-sm sm:text-base font-mono text-neutral-400 leading-relaxed mb-8 max-w-2xl">
+            <p className="text-sm sm:text-base font-mono text-[var(--text-secondary)] leading-relaxed mb-8 max-w-2xl">
               {project.tagline}
             </p>
 
             {/* Metadata Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 text-xs font-mono">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] text-xs font-mono shadow-xs">
               <div>
-                <span className="text-neutral-500 block mb-1 flex items-center gap-1">
-                  <User className="w-3 h-3 text-[#10b981]" /> role
+                <span className="text-[var(--text-muted)] block mb-1 flex items-center gap-1">
+                  <User className="w-3 h-3 text-[var(--accent-emerald)]" /> role
                 </span>
-                <span className="text-neutral-200 font-sans text-xs">
+                <span className="text-[var(--text-primary)] font-sans text-xs font-medium">
                   {project.role}
                 </span>
               </div>
               <div>
-                <span className="text-neutral-500 block mb-1 flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-[#10b981]" /> duration
+                <span className="text-[var(--text-muted)] block mb-1 flex items-center gap-1">
+                  <Clock className="w-3 h-3 text-[var(--accent-emerald)]" /> duration
                 </span>
-                <span className="text-neutral-200">{project.duration}</span>
+                <span className="text-[var(--text-primary)] font-medium">{project.duration}</span>
               </div>
               <div>
-                <span className="text-neutral-500 block mb-1 flex items-center gap-1">
-                  <Calendar className="w-3 h-3 text-[#10b981]" /> year
+                <span className="text-[var(--text-muted)] block mb-1 flex items-center gap-1">
+                  <Calendar className="w-3 h-3 text-[var(--accent-emerald)]" /> year
                 </span>
-                <span className="text-neutral-200">{project.year}</span>
+                <span className="text-[var(--text-primary)] font-medium">{project.year}</span>
               </div>
               <div>
-                <span className="text-neutral-500 block mb-1 flex items-center gap-1">
-                  <Layers className="w-3 h-3 text-[#10b981]" /> primary stack
+                <span className="text-[var(--text-muted)] block mb-1 flex items-center gap-1">
+                  <Layers className="w-3 h-3 text-[var(--accent-emerald)]" /> primary stack
                 </span>
-                <span className="text-neutral-200">{project.stack[0]}</span>
+                <span className="text-[var(--text-primary)] font-medium">{project.stack[0]}</span>
               </div>
             </div>
           </header>
 
-          {/* Cover Visual */}
-          <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-white/10 bg-neutral-950">
-            <Image
-              src={project.coverImage}
-              alt={project.title}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 1152px"
-              className="object-cover"
-            />
-          </div>
-
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-2 pb-6 border-b border-white/5">
+          <div className="flex flex-wrap items-center gap-3 pt-2 pb-6 border-b border-[var(--surface-border)]">
             {project.repoUrl && (
               <a
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-black text-xs font-mono hover:bg-neutral-200 transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] text-xs font-mono hover:opacity-90 transition-opacity shadow-xs"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>github repo</span>
@@ -163,9 +149,9 @@ export default async function ProjectDetailPage({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-white text-xs font-mono hover:border-white/30 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--bento-border)] bg-[var(--surface-subtle)] hover:bg-[var(--surface-hover)] text-[var(--text-primary)] text-xs font-mono transition-colors"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-[#10b981]" />
+                <ExternalLink className="w-3.5 h-3.5 text-[var(--accent-emerald)]" />
                 <span>live demo</span>
               </a>
             )}
@@ -176,12 +162,12 @@ export default async function ProjectDetailPage({
             {/* Problem */}
             <section>
               <div className="flex items-center gap-2 mb-3">
-                <span className="font-mono text-xs text-neutral-400">[01]</span>
-                <h2 className="text-lg sm:text-xl font-sans font-bold text-white">
+                <span className="font-mono text-xs text-[var(--text-subtle)]">[01]</span>
+                <h2 className="text-lg sm:text-xl font-sans font-bold text-[var(--text-primary)]">
                   the problem
                 </h2>
               </div>
-              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans">
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed font-sans">
                 {project.problem}
               </p>
             </section>
@@ -189,22 +175,22 @@ export default async function ProjectDetailPage({
             {/* Approach & Architecture */}
             <section>
               <div className="flex items-center gap-2 mb-3">
-                <span className="font-mono text-xs text-neutral-400">[02]</span>
-                <h2 className="text-lg sm:text-xl font-sans font-bold text-white">
+                <span className="font-mono text-xs text-[var(--text-subtle)]">[02]</span>
+                <h2 className="text-lg sm:text-xl font-sans font-bold text-[var(--text-primary)]">
                   approach &amp; architecture
                 </h2>
               </div>
-              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-4 font-sans">
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4 font-sans">
                 {project.approach}
               </p>
 
-              <div className="p-5 rounded-xl border border-white/5 bg-white/[0.02] space-y-2.5">
-                <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-400 font-semibold mb-2">
+              <div className="p-5 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-subtle)] space-y-2.5">
+                <h3 className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)] font-semibold mb-2">
                   system highlights
                 </h3>
                 {project.architectureDetails.map((detail, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-neutral-300">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10b981] shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2.5 text-xs text-[var(--text-secondary)]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-emerald)] shrink-0 mt-0.5" />
                     <span className="font-sans leading-relaxed">{detail}</span>
                   </div>
                 ))}
@@ -214,8 +200,8 @@ export default async function ProjectDetailPage({
             {/* Features */}
             <section>
               <div className="flex items-center gap-2 mb-4">
-                <span className="font-mono text-xs text-neutral-400">[03]</span>
-                <h2 className="text-lg sm:text-xl font-sans font-bold text-white">
+                <span className="font-mono text-xs text-[var(--text-subtle)]">[03]</span>
+                <h2 className="text-lg sm:text-xl font-sans font-bold text-[var(--text-primary)]">
                   key features
                 </h2>
               </div>
@@ -223,15 +209,15 @@ export default async function ProjectDetailPage({
                 {project.keyFeatures.map((feat, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl border border-white/5 bg-white/[0.02]"
+                    className="p-4 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-subtle)]"
                   >
-                    <span className="font-mono text-[11px] text-[#10b981] block mb-1">
+                    <span className="font-mono text-[11px] text-[var(--accent-emerald)] font-semibold block mb-1">
                       0{idx + 1}
                     </span>
-                    <h3 className="font-bold text-sm text-white mb-1.5 font-sans">
+                    <h3 className="font-bold text-sm text-[var(--text-primary)] mb-1.5 font-sans">
                       {feat.title}
                     </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">
                       {feat.description}
                     </p>
                   </div>
@@ -242,8 +228,8 @@ export default async function ProjectDetailPage({
             {/* Tech Stack */}
             <section>
               <div className="flex items-center gap-2 mb-3">
-                <span className="font-mono text-xs text-neutral-400">[04]</span>
-                <h2 className="text-lg sm:text-xl font-sans font-bold text-white">
+                <span className="font-mono text-xs text-[var(--text-subtle)]">[04]</span>
+                <h2 className="text-lg sm:text-xl font-sans font-bold text-[var(--text-primary)]">
                   technologies
                 </h2>
               </div>
@@ -251,7 +237,7 @@ export default async function ProjectDetailPage({
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 rounded text-xs font-mono bg-white/[0.04] text-neutral-300 border border-white/5"
+                    className="px-2.5 py-1 rounded text-xs font-mono bg-[var(--surface-subtle)] text-[var(--text-secondary)] border border-[var(--surface-border)]"
                   >
                     {tech}
                   </span>
@@ -262,13 +248,13 @@ export default async function ProjectDetailPage({
             {/* Outcomes */}
             <section>
               <div className="flex items-center gap-2 mb-3">
-                <span className="font-mono text-xs text-neutral-400">[05]</span>
-                <h2 className="text-lg sm:text-xl font-sans font-bold text-white flex items-center gap-2">
+                <span className="font-mono text-xs text-[var(--text-subtle)]">[05]</span>
+                <h2 className="text-lg sm:text-xl font-sans font-bold text-[var(--text-primary)] flex items-center gap-2">
                   <span>outcomes &amp; metrics</span>
-                  <TrendingUp className="w-4 h-4 text-[#10b981]" />
+                  <TrendingUp className="w-4 h-4 text-[var(--accent-emerald)]" />
                 </h2>
               </div>
-              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-4 font-sans">
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4 font-sans">
                 {project.outcome.summary}
               </p>
 
@@ -276,12 +262,12 @@ export default async function ProjectDetailPage({
                 {project.outcome.metrics.map((metric, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl border border-[#10b981]/20 bg-[#10b981]/5"
+                    className="p-4 rounded-xl border border-[var(--accent-emerald-border)] bg-[var(--accent-emerald-bg)]"
                   >
-                    <span className="font-mono text-xs text-[#10b981] block mb-1">
+                    <span className="font-mono text-xs text-[var(--accent-emerald)] font-semibold block mb-1">
                       ✓ outcome
                     </span>
-                    <p className="text-xs text-neutral-200 font-medium">
+                    <p className="text-xs text-[var(--text-primary)] font-medium">
                       {metric}
                     </p>
                   </div>
@@ -291,20 +277,20 @@ export default async function ProjectDetailPage({
           </div>
 
           {/* Footer Nav */}
-          <div className="pt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+          <div className="pt-8 border-t border-[var(--surface-border)] flex items-center justify-between text-xs font-mono">
             <Link
               href="/development"
-              className="text-neutral-400 hover:text-white transition-colors"
+              className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
             >
               ← all projects
             </Link>
 
             <Link
               href={`/projects/${nextProject.slug}`}
-              className="text-white hover:underline underline-offset-4 inline-flex items-center gap-1.5"
+              className="text-[var(--text-primary)] hover:text-[var(--accent-emerald)] hover:underline underline-offset-4 inline-flex items-center gap-1.5 font-medium"
             >
               <span>next: {nextProject.title}</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#10b981]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[var(--accent-emerald)]" />
             </Link>
           </div>
         </article>

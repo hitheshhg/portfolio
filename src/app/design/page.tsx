@@ -12,34 +12,34 @@ export default function DesignPage() {
       deliverables: ["Colorblind-Safe Palettes", "Standardized KPI Cards", "WCAG AAA Compliant"],
       tags: ["Power BI", "Tableau", "Data Viz", "Accessibility"],
       visual: (
-        <div className="w-full h-36 rounded-xl bg-white/[0.03] border border-white/10 p-3.5 flex flex-col justify-between overflow-hidden relative group-hover:border-white/20 transition-colors">
-          <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400">
+        <div className="w-full h-36 rounded-xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] p-3.5 flex flex-col justify-between overflow-hidden relative group-hover:border-[var(--bento-border-hover)] transition-colors">
+          <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)]">
             <span className="flex items-center gap-1.5">
-              <BarChart2 className="w-3.5 h-3.5 text-[#10b981]" /> dataviz.palette
+              <BarChart2 className="w-3.5 h-3.5 text-[var(--accent-emerald)]" /> dataviz.palette
             </span>
-            <span className="text-[#10b981]">v3.0</span>
+            <span className="text-[var(--accent-emerald)] font-semibold">v3.0</span>
           </div>
 
           <div className="grid grid-cols-4 gap-2">
-            <div className="h-10 rounded-lg bg-[#10b981] flex flex-col items-center justify-center">
+            <div className="h-10 rounded-lg bg-[#10b981] flex flex-col items-center justify-center shadow-xs">
               <span className="text-[9px] font-mono text-black font-bold">positive</span>
             </div>
-            <div className="h-10 rounded-lg bg-[#38bdf8] flex flex-col items-center justify-center">
+            <div className="h-10 rounded-lg bg-[#38bdf8] flex flex-col items-center justify-center shadow-xs">
               <span className="text-[9px] font-mono text-black font-bold">neutral</span>
             </div>
-            <div className="h-10 rounded-lg bg-[#f59e0b] flex flex-col items-center justify-center">
+            <div className="h-10 rounded-lg bg-[#f59e0b] flex flex-col items-center justify-center shadow-xs">
               <span className="text-[9px] font-mono text-black font-bold">warning</span>
             </div>
-            <div className="h-10 rounded-lg bg-[#f43f5e] flex flex-col items-center justify-center">
+            <div className="h-10 rounded-lg bg-[#f43f5e] flex flex-col items-center justify-center shadow-xs">
               <span className="text-[9px] font-mono text-white font-bold">critical</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-white text-black font-semibold">
+            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-semibold shadow-xs">
               kpi:scorecard
             </span>
-            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono border border-white/20 text-neutral-300">
+            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono border border-[var(--surface-border)] text-[var(--text-secondary)]">
               sparkline:trend
             </span>
           </div>
@@ -54,22 +54,22 @@ export default function DesignPage() {
       deliverables: ["12 Interactive Layouts", "Executive Drill-Downs", "Low-Fidelity Mocks"],
       tags: ["Information Arch", "Wireframing", "Cognitive Load", "UX Research"],
       visual: (
-        <div className="w-full h-36 rounded-xl bg-white/[0.03] border border-white/10 p-3.5 flex items-center justify-center gap-3 overflow-hidden relative group-hover:border-white/20 transition-colors">
-          <div className="w-24 h-28 rounded-xl bg-black border border-white/20 p-2 flex flex-col justify-between shadow-lg">
-            <div className="h-2 w-12 bg-white/20 rounded-full" />
+        <div className="w-full h-36 rounded-xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] p-3.5 flex items-center justify-center gap-3 overflow-hidden relative group-hover:border-[var(--bento-border-hover)] transition-colors">
+          <div className="w-24 h-28 rounded-xl bg-[var(--bento-bg)] border border-[var(--bento-border)] p-2 flex flex-col justify-between shadow-md">
+            <div className="h-2 w-12 bg-[var(--surface-border)] rounded-full" />
             <div className="space-y-1">
-              <div className="h-3 w-full bg-[#10b981]/20 rounded border border-[#10b981]/30" />
-              <div className="h-6 w-full bg-white/10 rounded" />
+              <div className="h-3 w-full bg-[var(--accent-emerald-bg)] rounded border border-[var(--accent-emerald-border)]" />
+              <div className="h-6 w-full bg-[var(--surface-subtle)] rounded" />
             </div>
-            <div className="h-3 w-full bg-white/10 rounded" />
+            <div className="h-3 w-full bg-[var(--surface-subtle)] rounded" />
           </div>
-          <div className="w-24 h-28 rounded-xl bg-black border border-white/10 p-2 flex flex-col justify-between opacity-70">
-            <div className="h-2 w-10 bg-white/20 rounded-full" />
+          <div className="w-24 h-28 rounded-xl bg-[var(--bento-bg)] border border-[var(--bento-border)] p-2 flex flex-col justify-between opacity-70 shadow-sm">
+            <div className="h-2 w-10 bg-[var(--surface-border)] rounded-full" />
             <div className="grid grid-cols-2 gap-1 my-auto">
-              <div className="h-8 bg-white/10 rounded" />
-              <div className="h-8 bg-white/10 rounded" />
+              <div className="h-8 bg-[var(--surface-subtle)] rounded" />
+              <div className="h-8 bg-[var(--surface-subtle)] rounded" />
             </div>
-            <div className="h-2 w-full bg-white/20 rounded" />
+            <div className="h-2 w-full bg-[var(--surface-border)] rounded" />
           </div>
         </div>
       ),
@@ -82,31 +82,31 @@ export default function DesignPage() {
       deliverables: ["Tabular Figure Rules", "Grid Rhythm Spec", "Density Standards"],
       tags: ["Typography", "Tabular Figures", "Financial BI", "Grid Rhythms"],
       visual: (
-        <div className="w-full h-36 rounded-xl bg-white/[0.03] border border-white/10 p-3.5 flex flex-col justify-between overflow-hidden relative group-hover:border-white/20 transition-colors">
-          <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400">
+        <div className="w-full h-36 rounded-xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] p-3.5 flex flex-col justify-between overflow-hidden relative group-hover:border-[var(--bento-border-hover)] transition-colors">
+          <div className="flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)]">
             <span>tabular / figures</span>
-            <span className="text-neutral-500">tnum • zero</span>
+            <span className="text-[var(--text-subtle)]">tnum • zero</span>
           </div>
 
           <div className="space-y-1 px-1 font-mono text-xs">
-            <div className="flex justify-between border-b border-white/5 pb-1">
-              <span className="text-neutral-400">Q3 ARR</span>
-              <span className="text-white font-bold">$1,420,500.00</span>
+            <div className="flex justify-between border-b border-[var(--surface-border)] pb-1">
+              <span className="text-[var(--text-muted)]">Q3 ARR</span>
+              <span className="text-[var(--text-primary)] font-bold">$1,420,500.00</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-neutral-400">Variance</span>
-              <span className="text-[#10b981] font-bold">+18.4%</span>
+              <span className="text-[var(--text-muted)]">Variance</span>
+              <span className="text-[var(--accent-emerald)] font-bold">+18.4%</span>
             </div>
           </div>
 
-          <div className="h-1 w-full bg-gradient-to-r from-white/40 via-[#10b981]/40 to-transparent rounded-full" />
+          <div className="h-1 w-full bg-gradient-to-r from-[var(--text-subtle)] via-[var(--accent-emerald)] to-transparent rounded-full" />
         </div>
       ),
     },
   ];
 
   return (
-    <div className="min-h-screen bg-transparent text-white pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className="min-h-screen bg-transparent text-[var(--text-primary)] pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
         {/* Unified Top Navigation with Banner */}
         <BentoHeader
@@ -115,7 +115,7 @@ export default function DesignPage() {
           title="data visualization &amp; dashboard systems"
           subtitle="Architecting intuitive executive dashboard systems, accessible color scales, and human-centered business intelligence interfaces."
           headerAction={
-            <span className="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.04] border border-white/10 text-neutral-300">
+            <span className="px-3 py-1 rounded-full text-xs font-mono bg-[var(--surface-subtle)] border border-[var(--bento-border)] text-[var(--text-secondary)]">
               {designProjects.length} design studies
             </span>
           }
@@ -126,14 +126,14 @@ export default function DesignPage() {
           {designProjects.map((item, idx) => (
             <div
               key={idx}
-              className="bento-card p-6 bg-black text-white border border-white/[0.08] flex flex-col justify-between h-full group hover:border-white/20 transition-all duration-300"
+              className="bento-card p-6 flex flex-col justify-between h-full group hover:border-[var(--bento-border-hover)] transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="font-mono text-[11px] text-neutral-500">
+                  <span className="font-mono text-[11px] text-[var(--text-subtle)]">
                     0{idx + 1}
                   </span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono border border-white/10 text-neutral-300">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono border border-[var(--surface-border)] bg-[var(--surface-subtle)] text-[var(--text-secondary)]">
                     {item.category}
                   </span>
                 </div>
@@ -141,22 +141,22 @@ export default function DesignPage() {
                 {/* Visual Preview Canvas */}
                 <div className="mb-5">{item.visual}</div>
 
-                <h2 className="text-lg font-bold font-sans text-white mb-2 group-hover:underline underline-offset-4">
+                <h2 className="text-lg font-bold font-sans text-[var(--text-primary)] mb-2 group-hover:underline underline-offset-4">
                   {item.title}
                 </h2>
 
-                <p className="text-xs text-neutral-400 leading-relaxed mb-5">
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-5">
                   {item.description}
                 </p>
 
                 {/* Deliverables checklist */}
-                <div className="space-y-1.5 mb-5 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div className="space-y-1.5 mb-5 p-3 rounded-xl bg-[var(--surface-subtle)] border border-[var(--surface-border)]">
                   {item.deliverables.map((deliv) => (
                     <div
                       key={deliv}
-                      className="flex items-center gap-2 text-[11px] font-mono text-neutral-300"
+                      className="flex items-center gap-2 text-[11px] font-mono text-[var(--text-secondary)]"
                     >
-                      <CheckCircle2 className="w-3 h-3 text-[#10b981] shrink-0" />
+                      <CheckCircle2 className="w-3 h-3 text-[var(--accent-emerald)] shrink-0" />
                       <span>{deliv}</span>
                     </div>
                   ))}
@@ -165,11 +165,11 @@ export default function DesignPage() {
 
               <div>
                 {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5">
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--surface-border)]">
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.04] text-neutral-300 border border-white/5"
+                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--surface-subtle)] text-[var(--text-secondary)] border border-[var(--surface-border)]"
                     >
                       {tag}
                     </span>

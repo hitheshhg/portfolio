@@ -14,7 +14,7 @@ import {
 export function FigmaToolsCard() {
   const toolsRow1 = [
     { name: "python", icon: <PythonIcon className="w-10 h-10" /> },
-    { name: "postgresql & sql", icon: <SqlIcon className="w-10 h-10 text-[#38bdf8]" /> },
+    { name: "postgresql & sql", icon: <SqlIcon className="w-10 h-10 text-[var(--accent-sky)]" /> },
     { name: "power bi & dax", icon: <PowerBiIcon className="w-10 h-10" /> },
     { name: "tableau", icon: <TableauIcon className="w-10 h-10" /> },
     { name: "snowflake", icon: <SnowflakeIcon className="w-10 h-10" /> },
@@ -25,14 +25,14 @@ export function FigmaToolsCard() {
     { name: "pandas & numpy", icon: <PandasIcon className="w-10 h-10" /> },
     { name: "google bigquery", icon: <BigQueryIcon className="w-10 h-10" /> },
     { name: "r statistics", icon: <RIcon className="w-10 h-10" /> },
-    { name: "etl & data pipelines", icon: <EtlIcon className="w-10 h-10 text-[#10b981]" /> },
+    { name: "etl & data pipelines", icon: <EtlIcon className="w-10 h-10 text-[var(--accent-emerald)]" /> },
   ];
 
   return (
-    <div className="bento-card p-6 sm:p-10 flex flex-col justify-between w-full bg-black text-white border border-white/[0.08]">
+    <div className="bento-card p-6 sm:p-10 flex flex-col justify-between w-full">
       {/* Header */}
       <div className="flex items-center gap-2 mb-8 sm:mb-10">
-        <span className="font-mono text-xs font-semibold text-white tracking-wide uppercase">
+        <span className="font-mono text-xs font-semibold text-[var(--text-primary)] tracking-wide uppercase">
           core analytics stack
         </span>
       </div>
@@ -46,7 +46,7 @@ export function FigmaToolsCard() {
               <div className="h-14 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform duration-300">
                 {tool.icon}
               </div>
-              <span className="text-xs font-mono text-neutral-300 group-hover:text-white transition-colors">
+              <span className="text-xs font-mono text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
                 {tool.name}
               </span>
             </div>
@@ -60,7 +60,7 @@ export function FigmaToolsCard() {
               <div className="h-14 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform duration-300">
                 {tool.icon}
               </div>
-              <span className="text-xs font-mono text-neutral-300 group-hover:text-white transition-colors">
+              <span className="text-xs font-mono text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
                 {tool.name}
               </span>
             </div>

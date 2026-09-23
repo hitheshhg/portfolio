@@ -164,7 +164,7 @@ export default function BlogPage() {
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
 
   return (
-    <div className="min-h-screen bg-transparent text-white pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className="min-h-screen bg-transparent text-[var(--text-primary)] pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
         {/* Unified Top Navigation with Banner */}
         <BentoHeader
@@ -173,7 +173,7 @@ export default function BlogPage() {
           title="articles &amp; analytics notes"
           subtitle="Explorations in SQL optimization, business intelligence architecture, statistical experimentation, and data storytelling."
           headerAction={
-            <span className="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.04] border border-white/10 text-neutral-300">
+            <span className="px-3 py-1 rounded-full text-xs font-mono bg-[var(--surface-subtle)] border border-[var(--bento-border)] text-[var(--text-secondary)]">
               {articles.length} published notes
             </span>
           }
@@ -185,31 +185,31 @@ export default function BlogPage() {
             <article
               key={idx}
               onClick={() => setActiveArticle(art)}
-              className="bento-card p-6 bg-black text-white border border-white/[0.08] flex flex-col justify-between h-full group cursor-pointer hover:border-white/20 transition-all duration-300"
+              className="bento-card p-6 flex flex-col justify-between h-full group cursor-pointer hover:border-[var(--bento-border-hover)] transition-all duration-300"
             >
               <div>
-                <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-neutral-500">
+                <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-[var(--text-muted)]">
                   <span className="flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-[#10b981]" />
+                    <Clock className="w-3 h-3 text-[var(--accent-emerald)]" />
                     {art.readTime}
                   </span>
                   <span>{art.date}</span>
                 </div>
 
-                <h2 className="text-base sm:text-lg font-bold font-sans text-white mb-2.5 group-hover:underline underline-offset-4 leading-snug">
+                <h2 className="text-base sm:text-lg font-bold font-sans text-[var(--text-primary)] mb-2.5 group-hover:underline underline-offset-4 leading-snug">
                   {art.title}
                 </h2>
 
-                <p className="text-xs text-neutral-400 leading-relaxed mb-6">
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-6">
                   {art.summary}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.04] text-neutral-300 border border-white/5">
+              <div className="pt-4 border-t border-[var(--surface-border)] flex items-center justify-between">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--surface-subtle)] text-[var(--text-secondary)] border border-[var(--surface-border)]">
                   {art.tag}
                 </span>
-                <span className="text-xs font-mono text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 transition-all flex items-center gap-1">
+                <span className="text-xs font-mono text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-0.5 transition-all flex items-center gap-1 font-medium">
                   <span>read note</span>
                   <span>→</span>
                 </span>
@@ -227,22 +227,22 @@ export default function BlogPage() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
           onClick={() => setActiveArticle(null)}
         >
           <div
-            className="bento-card bg-black border border-white/20 p-6 sm:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto text-white shadow-2xl relative"
+            className="bento-card p-6 sm:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between gap-4 pb-4 border-b border-white/10 mb-6">
-              <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.05] border border-white/10 text-[#10b981]">
+            <div className="flex items-center justify-between gap-4 pb-4 border-b border-[var(--bento-border)] mb-6">
+              <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--accent-emerald-bg)] border border-[var(--accent-emerald-border)] text-[var(--accent-emerald)] font-medium">
                   {activeArticle.tag}
                 </span>
-                <span>•</span>
+                <span className="text-[var(--text-subtle)]">•</span>
                 <span>{activeArticle.date}</span>
-                <span>•</span>
+                <span className="text-[var(--text-subtle)]">•</span>
                 <span>{activeArticle.readTime}</span>
               </div>
 
@@ -250,19 +250,19 @@ export default function BlogPage() {
                 type="button"
                 onClick={() => setActiveArticle(null)}
                 aria-label="Close reading view"
-                className="p-1.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Title */}
-            <h2 className="text-xl sm:text-2xl font-sans font-bold text-white mb-4 tracking-tight leading-snug">
+            <h2 className="text-xl sm:text-2xl font-sans font-bold text-[var(--text-primary)] mb-4 tracking-tight leading-snug">
               {activeArticle.title}
             </h2>
 
             {/* Intro */}
-            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-6 font-sans">
+            <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-sans">
               {activeArticle.fullContent.intro}
             </p>
 
@@ -270,27 +270,27 @@ export default function BlogPage() {
             <div className="space-y-5 mb-6">
               {activeArticle.fullContent.points.map((point, pIdx) => (
                 <div key={pIdx} className="space-y-1.5">
-                  <h3 className="text-sm font-sans font-bold text-white flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10b981] shrink-0" />
+                  <h3 className="text-sm font-sans font-bold text-[var(--text-primary)] flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-emerald)] shrink-0" />
                     <span>{point.heading}</span>
                   </h3>
-                  <p className="text-xs text-neutral-400 leading-relaxed pl-5 font-sans">
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed pl-5 font-sans">
                     {point.body}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Code Snippet if applicable */}
+            {/* Code Snippet */}
             {activeArticle.fullContent.codeSnippet && (
-              <div className="mb-6 rounded-xl bg-neutral-950 border border-white/10 p-4 font-mono text-[11px] text-neutral-300 overflow-x-auto">
+              <div className="mb-6 rounded-xl bg-zinc-950 dark:bg-black border border-[var(--surface-border)] p-4 font-mono text-[11px] text-zinc-100 overflow-x-auto shadow-inner">
                 <pre>{activeArticle.fullContent.codeSnippet}</pre>
               </div>
             )}
 
             {/* Conclusion */}
-            <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-xs text-neutral-300 font-sans leading-relaxed">
-              <span className="font-mono text-[10px] text-[#10b981] uppercase tracking-wider block mb-1">
+            <div className="p-4 rounded-xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] text-xs text-[var(--text-secondary)] font-sans leading-relaxed">
+              <span className="font-mono text-[10px] text-[var(--accent-emerald)] uppercase tracking-wider block mb-1 font-semibold">
                 Analytical Takeaway
               </span>
               {activeArticle.fullContent.conclusion}

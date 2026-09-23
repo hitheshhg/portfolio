@@ -1,19 +1,84 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
+    /* Light Mode: Clean, high-contrast, minimalist Nordic/Stripe/Linear aesthetics */
+    --canvas-bg: #f8fafc;
+    --bento-bg: #ffffff;
+    --bento-border: rgba(15, 23, 42, 0.08);
+    --bento-border-hover: rgba(15, 23, 42, 0.18);
+    --bento-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+    --bento-shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
+
+    --text-primary: #09090b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --text-subtle: #94a3b8;
+
+    --surface-subtle: rgba(15, 23, 42, 0.03);
+    --surface-hover: rgba(15, 23, 42, 0.06);
+    --surface-border: rgba(15, 23, 42, 0.08);
+    --surface-card-subtle: #f1f5f9;
+
+    --accent-emerald: #059669;
+    --accent-emerald-bg: rgba(5, 150, 105, 0.08);
+    --accent-emerald-border: rgba(5, 150, 105, 0.25);
+
+    --accent-sky: #0284c7;
+    --accent-amber: #d97706;
+
+    --btn-primary-bg: #09090b;
+    --btn-primary-text: #ffffff;
+    --btn-primary-hover: #1e293b;
+
+    --selection-bg: #09090b;
+    --selection-text: #ffffff;
+
+    --scrollbar-thumb: rgba(15, 23, 42, 0.15);
+    --scrollbar-thumb-hover: rgba(15, 23, 42, 0.3);
+  }
+
+  .dark {
+    /* Dark Mode: Deep obsidian stealth, glowing boundaries, high-contrast typography */
     --canvas-bg: #09090b;
-    --bento-bg: #000000;
+    --bento-bg: #111113;
     --bento-border: rgba(255, 255, 255, 0.08);
-    --text-main: #ffffff;
+    --bento-border-hover: rgba(255, 255, 255, 0.18);
+    --bento-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    --bento-shadow-hover: 0 12px 32px -4px rgba(0, 0, 0, 0.7);
+
+    --text-primary: #ffffff;
+    --text-secondary: #d4d4d8;
     --text-muted: #a1a1aa;
     --text-subtle: #71717a;
+
+    --surface-subtle: rgba(255, 255, 255, 0.03);
+    --surface-hover: rgba(255, 255, 255, 0.07);
+    --surface-border: rgba(255, 255, 255, 0.08);
+    --surface-card-subtle: rgba(255, 255, 255, 0.02);
+
     --accent-emerald: #10b981;
+    --accent-emerald-bg: rgba(16, 185, 129, 0.10);
+    --accent-emerald-border: rgba(16, 185, 129, 0.25);
+
     --accent-sky: #38bdf8;
+    --accent-amber: #f59e0b;
+
+    --btn-primary-bg: #ffffff;
+    --btn-primary-text: #09090b;
+    --btn-primary-hover: #f4f4f5;
+
+    --selection-bg: #ffffff;
+    --selection-text: #000000;
+
+    --scrollbar-thumb: rgba(255, 255, 255, 0.12);
+    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.25);
   }
 
   *, ::before, ::after {
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--bento-border);
   }
 
   html {
@@ -26,19 +91,20 @@
 
   body {
     background-color: var(--canvas-bg);
-    color: var(--text-main);
+    color: var(--text-primary);
     font-family: var(--font-grotesk), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   ::selection {
-    color: #000000;
-    background: #ffffff;
+    color: var(--selection-text);
+    background: var(--selection-bg);
   }
 
-  /* Featherlight, modern minimalist scrollbar */
+  /* Featherlight minimalist scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -49,33 +115,39 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--scrollbar-thumb);
     border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--scrollbar-thumb-hover);
   }
 }
 
-/* Bento Card Style: Butter-smooth, zero-jank, GPU composited */
+/* Bento Card Style: Butter-smooth, zero-jank, GPU composited with responsive light/dark themes */
 .bento-card {
-  background-color: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: var(--bento-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--bento-border);
   border-radius: 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--bento-shadow);
   transform: translateZ(0);
   backface-visibility: hidden;
-  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bento-card:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--bento-border-hover);
+  box-shadow: var(--bento-shadow-hover);
 }
 
 /* Accessibility Focus States */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--accent-emerald);
   outline-offset: 2px;
 }

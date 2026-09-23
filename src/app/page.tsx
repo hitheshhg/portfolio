@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { BentoHeader } from "@/components/layout/BentoHeader";
 import { FigmaHeroCard } from "@/components/figma/FigmaHeroCard";
@@ -10,7 +9,7 @@ import { projects } from "@/data/projects";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-transparent text-white pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className="min-h-screen bg-transparent text-[var(--text-primary)] pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
         {/* Unified Top Navigation */}
         <BentoHeader activeTab="home" />
@@ -29,25 +28,25 @@ export default function HomePage() {
         <FigmaToolsCard />
 
         {/* Row 3: Featured Analytics Case Studies */}
-        <div className="bento-card p-6 sm:p-8 bg-black text-white border border-white/[0.08]">
+        <div className="bento-card p-6 sm:p-8">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-semibold text-[#10b981] tracking-wide uppercase">
+                <span className="font-mono text-xs font-semibold text-[var(--accent-emerald)] tracking-wide uppercase">
                   selected work
                 </span>
-                <span className="text-neutral-600 text-xs font-mono">•</span>
-                <span className="font-mono text-xs text-neutral-400">
+                <span className="text-[var(--text-subtle)] text-xs font-mono">•</span>
+                <span className="font-mono text-xs text-[var(--text-muted)]">
                   real-world business impact
                 </span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-sans font-bold text-white tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-sans font-bold text-[var(--text-primary)] tracking-tight">
                 predictive models &amp; executive dashboards
               </h2>
             </div>
             <Link
               href="/development"
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-neutral-400 hover:text-white transition-colors group"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors group"
             >
               <span>view all case studies</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -58,54 +57,58 @@ export default function HomePage() {
             {projects.map((project, idx) => (
               <div
                 key={project.id}
-                className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col justify-between group hover:border-white/20 transition-all duration-300"
+                className="p-6 rounded-2xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] flex flex-col justify-between group hover:border-[var(--bento-border-hover)] transition-all duration-300 shadow-xs"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-[11px] text-neutral-500">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[11px] text-[var(--text-subtle)]">
                       0{idx + 1}
                     </span>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono border border-white/10 text-neutral-300">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono border border-[var(--surface-border)] bg-[var(--bento-bg)] text-[var(--text-secondary)] shadow-xs">
                       {project.category}
                     </span>
                   </div>
 
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-neutral-950 border border-white/10 mb-4 block group-hover:border-white/20 transition-all"
+                    className="inline-flex items-center gap-1.5 group/link mb-2 block"
                   >
-                    <Image
-                      src={project.coverImage}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </Link>
-
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-1.5 group/link mb-1.5"
-                  >
-                    <h3 className="text-base font-bold font-sans text-white group-hover/link:underline underline-offset-4">
+                    <h3 className="text-lg font-bold font-sans text-[var(--text-primary)] group-hover/link:underline underline-offset-4 leading-snug">
                       {project.title}
                     </h3>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-neutral-500 group-hover/link:text-white" />
+                    <ArrowUpRight className="w-4 h-4 text-[var(--text-subtle)] group-hover/link:text-[var(--text-primary)] shrink-0 transition-colors" />
                   </Link>
 
-                  <p className="text-xs text-neutral-400 leading-relaxed mb-4 line-clamp-2">
+                  <p className="text-xs font-mono text-[var(--accent-emerald)] mb-3 font-medium">
                     {project.tagline}
                   </p>
+
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4 line-clamp-3">
+                    {project.summary}
+                  </p>
+
+                  {/* Quantified Impact Pill */}
+                  <div className="p-3 rounded-xl bg-[var(--accent-emerald-bg)] border border-[var(--accent-emerald-border)] mb-4">
+                    <span className="font-mono text-[10px] text-[var(--accent-emerald)] font-semibold block uppercase tracking-wider mb-0.5">
+                      Key Impact
+                    </span>
+                    <p className="text-xs text-[var(--text-primary)] font-medium line-clamp-2 leading-snug">
+                      {project.outcome.metrics[0]}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-                  <span className="text-neutral-500">{project.year}</span>
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="text-neutral-300 hover:text-white transition-colors"
-                  >
-                    case study →
-                  </Link>
+                <div>
+                  <div className="pt-3 border-t border-[var(--surface-border)] flex items-center justify-between text-xs font-mono">
+                    <span className="text-[var(--text-muted)]">{project.year}</span>
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="text-[var(--text-primary)] hover:text-[var(--accent-emerald)] transition-colors font-medium flex items-center gap-1"
+                    >
+                      <span>case study</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -113,21 +116,21 @@ export default function HomePage() {
         </div>
 
         {/* Row 4: Quick Connect Bento Card */}
-        <div className="bento-card p-6 sm:p-8 bg-black text-white border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div className="bento-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-1.5 max-w-xl">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-semibold text-[#10b981] tracking-wide uppercase">
+              <span className="font-mono text-xs font-semibold text-[var(--accent-emerald)] tracking-wide uppercase">
                 connect
               </span>
-              <span className="text-neutral-600 text-xs font-mono">•</span>
-              <span className="font-mono text-xs text-neutral-400">
+              <span className="text-[var(--text-subtle)] text-xs font-mono">•</span>
+              <span className="font-mono text-xs text-[var(--text-muted)]">
                 collaborate
               </span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-sans font-bold text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-sans font-bold text-[var(--text-primary)] tracking-tight">
               have a data challenge or analytics role in mind?
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
               Open to Data Analyst, Business Intelligence, and Analytics Engineering opportunities. Let&apos;s turn your data into strategic clarity.
             </p>
           </div>
@@ -135,14 +138,14 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <a
               href="mailto:hitheshhg@gmail.com"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-black font-semibold text-xs font-mono hover:bg-neutral-200 transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-semibold text-xs font-mono hover:opacity-90 transition-opacity shadow-xs"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>hitheshhg@gmail.com</span>
             </a>
             <Link
               href="/cv"
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-white/10 text-white font-medium text-xs font-mono hover:border-white/30 hover:bg-white/[0.04] transition-all"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-[var(--bento-border)] bg-[var(--surface-subtle)] hover:bg-[var(--surface-hover)] text-[var(--text-primary)] font-medium text-xs font-mono transition-all"
             >
               <span>view cv</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
