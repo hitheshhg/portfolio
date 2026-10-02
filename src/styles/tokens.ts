@@ -1,39 +1,39 @@
 /**
- * Design Tokens for Hithesh HG - Data Analyst & BI Portfolio
- * Master-crafted color system for crisp Light and Obsidian Dark modes
+ * Design Tokens for Hithesh HG Portfolio
+ * Faithfully extracted from Figma Bento Theme with full Light & Dark mode support
  */
 
 export const tokens = {
   colors: {
     canvas: {
-      dark: "#09090b", // Deep obsidian canvas
-      light: "#f8fafc", // Clean Nordic slate canvas
+      dark: "#09090b", // Deep matte charcoal/obsidian canvas
+      light: "#f4f4f5", // Clean light grey canvas
     },
     card: {
-      dark: "#111113", // Sleek matte bento surface
-      light: "#ffffff", // Pure white card surface
+      dark: "#000000", // Pitch black bento surface
+      light: "#ffffff", // Pure white bento surface
     },
     border: {
       dark: "rgba(255, 255, 255, 0.08)",
-      darkHover: "rgba(255, 255, 255, 0.18)",
-      light: "rgba(15, 23, 42, 0.08)",
-      lightHover: "rgba(15, 23, 42, 0.18)",
+      light: "rgba(0, 0, 0, 0.08)",
+    },
+    borderHover: {
+      dark: "rgba(255, 255, 255, 0.22)",
+      light: "rgba(0, 0, 0, 0.2)",
     },
     text: {
       primaryDark: "#ffffff",
-      secondaryDark: "#d4d4d8",
-      mutedDark: "#a1a1aa",
-      subtleDark: "#71717a",
+      secondaryDark: "#a1a1aa",
+      mutedDark: "#71717a",
       primaryLight: "#09090b",
-      secondaryLight: "#475569",
-      mutedLight: "#64748b",
-      subtleLight: "#94a3b8",
+      secondaryLight: "#52525b",
+      mutedLight: "#71717a",
     },
     accent: {
-      emeraldDark: "#10b981",
-      emeraldLight: "#059669",
-      sky: "#38bdf8",
-      amber: "#f59e0b",
+      brandDark: "#ffffff",
+      brandLight: "#09090b",
+      codeDark: "#4ade80", // Subtle terminal green for <engineer/>
+      codeLight: "#16a34a", // High contrast green for light mode
     },
   },
   typography: {
@@ -44,7 +44,7 @@ export const tokens = {
   },
   radii: {
     bento: "20px",
-    cardSubtle: "16px",
+    subcard: "16px",
     pill: "9999px",
     sm: "8px",
     md: "12px",

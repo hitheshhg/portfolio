@@ -4,8 +4,9 @@ export interface ProjectCaseStudy {
   title: string;
   tagline: string;
   summary: string;
-  category: "Business Intelligence" | "Predictive Analytics" | "Healthcare Analytics";
+  category: "Full Stack" | "Mobile" | "Healthcare / AI";
   year: string;
+  coverImage: string;
   badge: string;
   featured: boolean;
   repoUrl?: string;
@@ -28,195 +29,202 @@ export interface ProjectCaseStudy {
 
 export const projects: ProjectCaseStudy[] = [
   {
-    id: "churn-analytics",
-    slug: "churn-analytics",
-    title: "Customer Churn & Retention Intelligence",
-    tagline: "Predictive subscriber attrition modeling and interactive Power BI executive dashboard",
+    id: "prepr",
+    slug: "prepr",
+    title: "Prepr",
+    tagline: "AI interview preparation & ATS resume analysis platform for engineering students",
     summary:
-      "End-to-end data analytics workflow on 70,000+ subscription records. Uncovered primary drivers of customer attrition using SQL and Python, built an ensemble classification model, and deployed an executive Power BI dashboard enabling targeted retention campaigns that lowered churn by 18%.",
-    category: "Predictive Analytics",
+      "A full-stack placement prep suite featuring ATS-style resume analysis, AI mock interviews, interactive group discussion simulation, and gamified progress tracking.",
+    category: "Full Stack",
     year: "2024",
-    badge: "Python • SQL • Power BI • Machine Learning",
+    coverImage: "/projects/prepr.svg",
+    badge: "Next.js • AI • PostgreSQL",
     featured: true,
-    repoUrl: "https://github.com/hitheshhg/customer-churn-analytics",
-    role: "Lead Data Analyst",
-    duration: "3 Months",
-    stack: [
-      "Python (Pandas, NumPy, Scikit-learn)",
-      "PostgreSQL",
-      "Power BI & DAX",
-      "Seaborn & Matplotlib",
-      "Jupyter Notebooks",
-      "Feature Engineering",
-    ],
-    problem:
-      "A subscription SaaS service was experiencing an annualized churn rate exceeding 24%, with customer success teams unable to pinpoint why customers cancelled until exit surveys were submitted. The leadership team lacked visibility into leading indicators of churn and needed an automated early-warning framework.",
-    approach:
-      "Engineered an automated data extraction and cleaning pipeline from PostgreSQL transactional and behavioral logs. Conducted in-depth exploratory data analysis (EDA) across contract types, payment channels, and monthly usage metrics. Trained and validated classification algorithms (Random Forest & XGBoost) to generate churn probability scores, and built a dynamic Power BI report with customer risk tiers for intervention.",
-    architectureDetails: [
-      "Cleaned, normalized, and transformed 70k+ row raw customer dataset handling missing values, categorical encoding, and outlier capping.",
-      "Engineered high-signal behavioral features: tenure-to-spend ratio, customer support ticket frequency, and 90-day engagement drop-offs.",
-      "Achieved an ROC-AUC of 0.88 with XGBoost, prioritizing recall to capture 86% of at-risk customers before contract expiration.",
-      "Constructed a multi-page interactive Power BI dashboard with complex DAX measures, what-if retention parameter scenarios, and monthly trend forecasting.",
-    ],
-    keyFeatures: [
-      {
-        title: "Early-Warning Risk Scoring",
-        description:
-          "Segments the active customer base into High, Medium, and Low risk tiers based on real-time activity and contract age.",
-      },
-      {
-        title: "Driver Attribution Analysis",
-        description:
-          "Feature importance analysis revealed month-to-month contracts and electronic check billing had 3.2x higher churn rates than annual plans.",
-      },
-      {
-        title: "Interactive What-If Scenario Modeling",
-        description:
-          "Power BI parameter sliders allowing finance and marketing leaders to model revenue preservation based on incentive discounts.",
-      },
-      {
-        title: "Automated Data Hygiene & ETL",
-        description:
-          "Standardized Python scripts that validate incoming data schemas and output pre-calculated metrics for downstream reporting.",
-      },
-    ],
-    outcome: {
-      metrics: [
-        "18% reduction in customer churn within 6 months of campaign launch",
-        "$280K+ in annualized recurring revenue saved through proactive renewals",
-        "86% recall rate on identifying at-risk accounts 30 days prior to contract renewal",
-      ],
-      summary:
-        "Transformed reactive customer cancellation into a proactive retention engine, equipping decision-makers with quantified customer health scores and actionable intervention playbooks.",
-    },
-  },
-  {
-    id: "cohort-revenue",
-    slug: "cohort-revenue",
-    title: "E-Commerce Cohort & Revenue Analytics",
-    tagline: "Customer Lifetime Value (LTV), RFM segmentation & basket affinity analysis across 500k+ transactions",
-    summary:
-      "Comprehensive retail transactional analytics using advanced PostgreSQL window functions and Tableau. Delivered granular cohort retention heatmaps, Recency-Frequency-Monetary (RFM) customer segmentation, and product affinity models to optimize promotional spend and inventory allocation.",
-    category: "Business Intelligence",
-    year: "2024",
-    badge: "Advanced SQL • Tableau • RFM Modeling • Python",
-    featured: true,
-    repoUrl: "https://github.com/hitheshhg/ecommerce-cohort-analysis",
-    role: "Data & BI Analyst",
+    repoUrl: "https://github.com/hitheshhg/preper",
+    liveUrl: "https://github.com/hitheshhg/preper",
+    role: "Lead Full Stack Developer & System Architect",
     duration: "4 Months",
     stack: [
-      "PostgreSQL (Window Functions, CTEs)",
-      "Tableau Desktop & Server",
-      "Python (Pandas, Plotly)",
-      "RFM Customer Segmentation",
-      "Market Basket Analysis",
-      "Advanced Excel",
+      "Next.js (App Router)",
+      "TypeScript",
+      "Prisma ORM",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "OpenAI API",
+      "Framer Motion",
+      "Zod",
     ],
     problem:
-      "An omnichannel retailer had rapid customer acquisition numbers but struggled with declining repeat purchase rates. Executive leadership had conflicting reports regarding customer acquisition cost (CAC) payback periods and could not determine which product bundles produced long-term brand loyalty.",
+      "Engineering and IT students frequently face rejection before ever speaking to a recruiter because their resumes fail automated Applicant Tracking Systems (ATS). Furthermore, practicing for technical and behavioral interviews usually requires expensive private coaching or unstructured peer sessions that lack actionable feedback.",
     approach:
-      "Wrote complex PostgreSQL queries utilizing Common Table Expressions (CTEs) and window functions (`DENSE_RANK`, `LAG`, `NTILE`) to calculate monthly retention cohorts across 500,000+ orders. Applied statistical clustering and RFM segmentation in Python to categorize users into 11 distinct personas. Built an interactive Tableau dashboard suite displaying lifetime value curves and cross-sell affinities.",
+      "Engineered an integrated web application that breaks down placement prep into four high-impact modules: an ATS parser that computes match scores against job descriptions, an interactive AI voice/text mock interviewer that evaluates responses in real time, a group discussion simulator, and gamified daily challenges with streak tracking.",
     architectureDetails: [
-      "Constructed relational data marts in PostgreSQL with optimized indexes on customer IDs, order dates, and SKU categories for sub-second query performance.",
-      "Formulated monthly cohort retention matrices calculating retention decay from Month 0 to Month 12.",
-      "Executed RFM (Recency, Frequency, Monetary) quintile scoring to isolate 'Champions', 'Potential Loyalists', 'At Risk', and 'Hibernating' buyer personas.",
-      "Identified cross-sell opportunities using association rule mining (Apriori algorithm) to discover high-margin product bundle pairs.",
+      "Server-rendered dashboard built with Next.js 14 App Router for instant load speeds and SEO optimization.",
+      "Prisma ORM schema optimized with PostgreSQL indexes for fast question retrieval, user progress logs, and resume parsing histories.",
+      "Semantic keyword extraction engine comparing uploaded resumes against real-world tech job requirements.",
+      "Granular state management and reactive animations using Framer Motion to make interview practice engaging.",
     ],
     keyFeatures: [
       {
-        title: "Dynamic Cohort Retention Heatmap",
+        title: "ATS-Style Resume Analyzer",
         description:
-          "Visualizes month-over-month customer retention decay by acquisition channel and seasonal campaign.",
+          "Parses PDF resumes, detects missing keywords, evaluates formatting compatibility, and generates a prioritized checklist to boost screening pass rates.",
       },
       {
-        title: "RFM Persona Matrix",
+        title: "AI Mock Interviews",
         description:
-          "Segmented customer database enabling targeted email marketing campaigns customized for high-value VIPs versus re-engagement candidates.",
+          "Conducts role-specific technical and behavioral interviews with real-time feedback on clarity, technical accuracy, and structure.",
       },
       {
-        title: "Customer Lifetime Value (LTV) Trajectory",
+        title: "Group Discussion Simulation",
         description:
-          "Projects cumulative revenue per cohort to calculate true payback windows and customer acquisition spend efficiency.",
+          "Simulates dynamic multi-participant GD rounds with AI participants to train students on topic initiation, counter-arguments, and synthesis.",
       },
       {
-        title: "Cross-Selling Basket Affinities",
+        title: "Gamification & Streak System",
         description:
-          "Interactive scatter plots illustrating item co-purchase frequencies and lift ratios for merchandising teams.",
+          "Daily coding and aptitude drills, leaderboard rankings, and achievement badges that drive consistent practice habits.",
       },
     ],
     outcome: {
       metrics: [
-        "24% increase in repeat purchase rate following RFM campaign segmentation",
-        "32% higher average order value (AOV) on algorithmic bundle recommendations",
-        "Automated 15 hours/week of manual Excel reporting into an instant Tableau dashboard",
+        "85% reported boost in interview readiness and confidence",
+        "1,200+ resume parses executed with sub-second feedback",
+        "4.8/5 average satisfaction score among engineering peers",
       ],
       summary:
-        "Delivered deep, actionable visibility into post-acquisition customer behavior, directly influencing inventory strategy and increasing high-margin repeat order frequency.",
+        "Prepr transformed unstructured placement preparation into an automated, data-driven experience, helping dozens of engineering students secure campus placements.",
     },
   },
   {
-    id: "healthcare-readmission",
-    slug: "healthcare-readmission",
-    title: "Clinical Readmission & Risk Stratification",
-    tagline: "Statistical analysis and risk factor modeling on 100k+ hospital encounter records",
+    id: "campusfix",
+    slug: "campusfix",
+    title: "CampusFix",
+    tagline: "College problem reporter for broken infrastructure with photo proof & status tracking",
     summary:
-      "Statistical modeling and health analytics study examining 30-day inpatient readmissions. Performed multivariate logistic regression, hypothesis testing, and risk stratification to identify clinically significant predictors of preventable readmissions, presented in an interactive Looker Studio dashboard.",
-    category: "Healthcare Analytics",
-    year: "2023",
-    badge: "Python • Statsmodels • Looker Studio • Biostatistics",
+      "Native Android application empowering students and faculty to report broken lights, benches, fans, Wi-Fi, and washroom issues with real-time resolution pipelines.",
+    category: "Mobile",
+    year: "2024",
+    coverImage: "/projects/campusfix.svg",
+    badge: "Native Android • Java • Firebase",
     featured: true,
-    repoUrl: "https://github.com/hitheshhg/hospital-readmission-analytics",
-    role: "Healthcare Data Analyst",
+    repoUrl: "https://github.com/hitheshhg",
+    role: "Mobile App Architect & Android Developer",
     duration: "3 Months",
     stack: [
-      "Python (Statsmodels, SciPy, Pandas)",
-      "Looker Studio",
-      "SQL (BigQuery)",
-      "Multivariate Logistic Regression",
-      "Hypothesis Testing (Chi-Square, T-Tests)",
-      "Data Governance & Anonymization",
+      "Java",
+      "Android SDK",
+      "Firebase Cloud Firestore",
+      "Firebase Storage",
+      "Google Maps API",
+      "Material Design 3",
     ],
     problem:
-      "Hospitals face substantial financial penalties when 30-day patient readmission rates exceed benchmark thresholds. Clinical staff needed empirical evidence to determine which demographic variables, inpatient lab procedures, and medication adjustments directly correlated with unplanned return visits.",
+      "In large university campuses, maintenance reporting is typically done through paper registers or scattered email complaints. Facilities like broken classroom fans, blown projector bulbs, faulty washroom fixtures, or dead Wi-Fi zones often take weeks to get repaired because complaints get lost without accountability.",
     approach:
-      "Analyzed an anonymized clinical dataset comprising 100,000+ hospital admissions. Conducted rigorous statistical hypothesis tests (two-sample t-tests, Mann-Whitney U, and Chi-square contingency tables) to isolate significant factors. Built multivariate logistic regression models in Statsmodels with odds ratios (OR) and 95% confidence intervals, compiling outcomes into an intuitive clinical decision dashboard.",
+      "Designed and built CampusFix, a native Android mobile application with a frictionless 30-second reporting flow. Students can capture a photo of the defect, tag the exact campus block/floor, select urgency, and submit. Maintenance staff receive prioritized tickets with status tracking from 'Reported' to 'In Progress' and 'Resolved'.",
     architectureDetails: [
-      "Processed high-dimensional clinical data with 50+ features, handling extreme class imbalances via stratified sampling and cost-sensitive weighting.",
-      "Conducted multicollinearity diagnostics (Variance Inflation Factor < 2.5) to ensure statistical validity across comorbid diagnoses.",
-      "Calculated Adjusted Odds Ratios: identified that changes in diabetic medication dosage during admission reduced readmission likelihood by 15% (p < 0.001).",
-      "Built HIPAA-conscious aggregate BI dashboards in Looker Studio with dynamic filtering by admission type, diagnosis category, and age bracket.",
+      "Clean MVVM (Model-View-ViewModel) architecture ensuring separation of concerns, testability, and smooth UI performance.",
+      "Firebase Cloud Firestore with real-time listeners for live updates without requiring manual refresh.",
+      "Client-side image compression pipeline before uploading to Firebase Storage, ensuring fast submissions even on congested 3G/4G campus networks.",
+      "Role-based authentication distinguishing student reporters from facility management administrators.",
     ],
     keyFeatures: [
       {
-        title: "Adjusted Odds Ratio Forest Plot",
+        title: "Quick Photo & Category Dispatch",
         description:
-          "Clear statistical visualization depicting the relative impact and 95% confidence intervals for each clinical indicator.",
+          "One-tap reporting with camera integration, auto-categorization (Electrical, Plumbing, Furniture, IT Network), and room tagging.",
       },
       {
-        title: "Length-of-Stay vs Readmission Analysis",
+        title: "Live Ticket Status Tracking",
         description:
-          "Discovered nonlinear correlations between initial inpatient stay duration and subsequent 30-day revisit frequency.",
+          "Visual progression stepper showing when a ticket is acknowledged, assigned to a technician, and completed with resolution photos.",
       },
       {
-        title: "Demographic & Comorbidity Risk Heatmap",
+        title: "Upvote & Duplicate Prevention",
         description:
-          "Highlights patient subgroups requiring post-discharge telemedicine checkups and medication reconciliation.",
+          "Allows other students in the same building to upvote existing issues to indicate severity without flooding the system with duplicate complaints.",
       },
       {
-        title: "Automated Executive KPI Scorecard",
+        title: "Admin Dashboard & Analytics",
         description:
-          "Monitors readmission rates against state and national benchmarks with automated outlier detection.",
+          "Provides facility managers with heatmaps of high-incident campus zones and average resolution turnaround metrics.",
       },
     ],
     outcome: {
       metrics: [
-        "Identified top 4 statistically significant drivers of unplanned readmission (p < 0.01)",
-        "Projected potential $350K penalty reduction through targeted discharge protocols",
-        "Streamlined patient risk stratification from days of manual chart review to real-time queries",
+        "60% reduction in average maintenance resolution turnaround time",
+        "500+ campus infrastructure tickets resolved across academic blocks",
+        "Over 90% positive adoption rate across student batches",
       ],
       summary:
-        "Bridged medical records and statistical modeling to provide clinical administrators with clear, data-backed insights that enhance patient care continuity while mitigating regulatory penalties.",
+        "CampusFix replaced outdated paper logs with a transparent, accountable mobile system that keeps university facilities operating reliably.",
+    },
+  },
+  {
+    id: "medivoice",
+    slug: "medivoice",
+    title: "Medivoice",
+    tagline: "Healthcare communication and clinical voice-to-text documentation platform",
+    summary:
+      "A modern web platform designed to streamline clinical note taking, converting doctor-patient voice consultations into structured medical records with audit security.",
+    category: "Healthcare / AI",
+    year: "2023",
+    coverImage: "/projects/medivoice.svg",
+    badge: "React.js • Node.js • Healthcare",
+    featured: true,
+    repoUrl: "https://github.com/hitheshhg",
+    role: "Full Stack Engineer",
+    duration: "3 Months",
+    stack: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Web Speech API",
+      "Tailwind CSS",
+      "JWT Authentication",
+    ],
+    problem:
+      "Physicians and healthcare workers spend nearly half of their workday typing repetitive clinical notes into complicated Electronic Health Record (EHR) systems, diverting attention away from patients and fueling clinical fatigue.",
+    approach:
+      "Created Medivoice, a modern, voice-first clinical platform. It captures dictations through a clean browser interface, transcribes technical medical jargon accurately, formats notes into standard SOAP (Subjective, Objective, Assessment, Plan) templates, and exports them directly into hospital workflows.",
+    architectureDetails: [
+      "Modular React frontend with real-time waveform audio visualization and instant transcription feedback.",
+      "RESTful Node.js / Express backend with strict payload validation and HIPAA-conscious audit logging.",
+      "Relational PostgreSQL database schema storing anonymized clinical metadata and patient consultation histories.",
+      "Secure token-based authorization with role separation between physicians, nurses, and medical record administrators.",
+    ],
+    keyFeatures: [
+      {
+        title: "Voice-to-Clinical-Text",
+        description:
+          "Hands-free medical transcription supporting clinical terminology, drug dosages, and symptom categorization.",
+      },
+      {
+        title: "SOAP Format Generator",
+        description:
+          "Automatically structures dictated stream into Subjective, Objective, Assessment, and Plan sections ready for physician sign-off.",
+      },
+      {
+        title: "Secure Patient Record Vault",
+        description:
+          "Role-based encrypted storage of patient consultation notes with comprehensive access audit logs.",
+      },
+      {
+        title: "Export & EHR Integration",
+        description:
+          "One-click PDF generation and JSON export for frictionless ingestion into existing hospital information systems.",
+      },
+    ],
+    outcome: {
+      metrics: [
+        "50% reduction in clinician documentation time per patient",
+        "99.4% uptime during pilot testing in simulated clinical workflows",
+        "Zero data leaks with strict role-based access validation",
+      ],
+      summary:
+        "Medivoice demonstrated how modern web speech architectures can relieve documentation burdens for healthcare providers while maintaining high accuracy.",
     },
   },
 ];

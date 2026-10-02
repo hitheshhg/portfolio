@@ -7,19 +7,20 @@ import { skillCategories } from "@/data/skills";
 
 export default function CvPage() {
   return (
-    <div className="min-h-screen bg-transparent text-[var(--text-primary)] pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className="min-h-screen bg-transparent pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
         {/* Unified Top Navigation with Banner & Download Action */}
         <BentoHeader
           activeTab="cv"
-          tagHighlight="curriculum vitae"
+          tagLineThrough="resume"
+          tagHighlight="cv"
           title="curriculum vitae"
-          subtitle="Comprehensive record of professional experience, statistical & analytical projects, and data competencies."
+          subtitle="Comprehensive record of professional experience, academic foundations, and engineering competencies."
           headerAction={
             <a
               href="/resume.pdf"
               download="Hithesh_HG_Resume.pdf"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-semibold text-xs font-mono hover:opacity-90 transition-opacity shadow-xs shrink-0"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-black font-medium text-xs font-mono dark:hover:bg-neutral-200 transition-colors shadow-sm shrink-0"
             >
               <Download className="w-3.5 h-3.5" />
               <span>download official pdf</span>
@@ -31,12 +32,12 @@ export default function CvPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-start">
           {/* Column 1: Experience (7 cols) */}
           <div className="lg:col-span-7 bento-card p-6 sm:p-8 space-y-6">
-            <div className="flex items-center justify-between border-b border-[var(--bento-border)] pb-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] font-semibold flex items-center gap-1.5">
-                <span className="text-[var(--accent-emerald)]">{"//"}</span>
-                <span>analytics &amp; work experience</span>
+            <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-neutral-600 dark:text-neutral-400 font-semibold flex items-center gap-1.5">
+                <span className="text-emerald-600 dark:text-[#4ade80]">{"//"}</span>
+                <span>work &amp; leadership experience</span>
               </span>
-              <span className="text-[11px] font-mono text-[var(--text-muted)]">
+              <span className="text-[11px] font-mono text-neutral-500">
                 {experiences.length} positions
               </span>
             </div>
@@ -46,38 +47,38 @@ export default function CvPage() {
                 <div
                   key={exp.id}
                   className={`space-y-3 ${
-                    idx !== experiences.length - 1 ? "pb-8 border-b border-[var(--surface-border)]" : ""
+                    idx !== experiences.length - 1 ? "pb-8 border-b border-black/5 dark:border-white/5" : ""
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h2 className="text-base font-bold font-sans text-[var(--text-primary)]">
+                    <h2 className="text-base font-bold font-sans text-neutral-900 dark:text-white">
                       {exp.role}
                     </h2>
-                    <span className="text-[11px] font-mono text-[var(--text-muted)] shrink-0 flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-[var(--accent-emerald)]" />
+                    <span className="text-[11px] font-mono text-neutral-500 dark:text-neutral-400 shrink-0 flex items-center gap-1">
+                      <Calendar className="w-3 h-3 text-emerald-600 dark:text-[#4ade80]" />
                       {exp.period}
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[var(--text-secondary)]">
-                    <span className="font-semibold text-[var(--text-primary)]">{exp.company}</span>
-                    <span className="text-[var(--text-subtle)]">•</span>
-                    <span className="text-[var(--text-muted)]">{exp.location}</span>
-                    <span className="text-[var(--text-subtle)]">•</span>
-                    <span className="px-2 py-0.5 rounded text-[10px] bg-[var(--surface-subtle)] text-[var(--text-secondary)] border border-[var(--surface-border)]">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-neutral-600 dark:text-neutral-300">
+                    <span className="font-semibold text-neutral-900 dark:text-white">{exp.company}</span>
+                    <span className="text-neutral-300 dark:text-neutral-600">•</span>
+                    <span className="text-neutral-500 dark:text-neutral-400">{exp.location}</span>
+                    <span className="text-neutral-300 dark:text-neutral-600">•</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-black/[0.03] dark:bg-white/[0.04] text-neutral-600 dark:text-neutral-300 border border-black/5 dark:border-white/5">
                       {exp.type}
                     </span>
                   </div>
 
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">
+                  <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
                     {exp.description}
                   </p>
 
                   {/* Key Contributions */}
                   <ul className="space-y-1.5 pt-1">
                     {exp.responsibilities.map((resp, rIdx) => (
-                      <li key={rIdx} className="text-xs text-[var(--text-secondary)] flex items-start gap-2">
-                        <span className="text-[var(--accent-emerald)] font-mono">›</span>
+                      <li key={rIdx} className="text-xs text-neutral-700 dark:text-neutral-300 flex items-start gap-2">
+                        <span className="text-emerald-600 dark:text-[#4ade80] font-mono">›</span>
                         <span className="font-sans leading-relaxed">{resp}</span>
                       </li>
                     ))}
@@ -88,7 +89,7 @@ export default function CvPage() {
                     {exp.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--surface-subtle)] text-[var(--text-secondary)] border border-[var(--surface-border)]"
+                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-black/[0.03] dark:bg-white/[0.04] text-neutral-600 dark:text-neutral-300 border border-black/5 dark:border-white/5"
                       >
                         {tech}
                       </span>
@@ -103,50 +104,50 @@ export default function CvPage() {
           <div className="lg:col-span-5 flex flex-col gap-4 sm:gap-5">
             {/* Education Bento Card */}
             <div className="bento-card p-6 sm:p-8 space-y-5">
-              <div className="flex items-center justify-between border-b border-[var(--bento-border)] pb-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] font-semibold flex items-center gap-1.5">
-                  <span className="text-[var(--accent-emerald)]">{"//"}</span>
+              <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-neutral-600 dark:text-neutral-400 font-semibold flex items-center gap-1.5">
+                  <span className="text-emerald-600 dark:text-[#4ade80]">{"//"}</span>
                   <span>academic foundation</span>
                 </span>
-                <span className="text-[11px] font-mono text-[var(--text-muted)]">computer science</span>
+                <span className="text-[11px] font-mono text-neutral-500">engineering</span>
               </div>
 
               <div className="space-y-6">
                 {educationList.map((edu) => (
                   <div key={edu.id} className="space-y-2.5">
                     <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                      <h2 className="text-base font-bold font-sans text-[var(--text-primary)]">
+                      <h2 className="text-base font-bold font-sans text-neutral-900 dark:text-white">
                         {edu.degree}
                       </h2>
-                      <span className="text-[11px] font-mono text-[var(--text-muted)] shrink-0">
+                      <span className="text-[11px] font-mono text-neutral-500 dark:text-neutral-400 shrink-0">
                         {edu.period}
                       </span>
                     </div>
 
-                    <p className="text-xs font-mono text-[var(--accent-emerald)] font-medium">
+                    <p className="text-xs font-mono text-emerald-600 dark:text-[#4ade80]">
                       {edu.field}
                     </p>
 
-                    <p className="text-xs text-[var(--text-muted)] flex items-center gap-1.5 font-mono">
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 font-mono">
                       <span>{edu.institution}</span>
                       <span>•</span>
                       <span>{edu.location}</span>
                     </p>
 
-                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans pt-1">
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans pt-1">
                       {edu.description}
                     </p>
 
                     {/* Coursework Pills */}
                     <div className="pt-2">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--text-muted)] block mb-1.5">
-                        relevant analytical coursework
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500 block mb-1.5">
+                        relevant coursework
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {edu.coursework.map((c) => (
                           <span
                             key={c}
-                            className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--surface-subtle)] text-[var(--text-secondary)] border border-[var(--surface-border)]"
+                            className="px-2 py-0.5 rounded text-[10px] font-mono bg-black/[0.03] dark:bg-white/[0.04] text-neutral-600 dark:text-neutral-300 border border-black/5 dark:border-white/5"
                           >
                             {c}
                           </span>
@@ -160,25 +161,25 @@ export default function CvPage() {
 
             {/* Technical Competencies Matrix Card */}
             <div className="bento-card p-6 sm:p-8 space-y-5">
-              <div className="flex items-center justify-between border-b border-[var(--bento-border)] pb-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] font-semibold flex items-center gap-1.5">
-                  <span className="text-[var(--accent-emerald)]">{"//"}</span>
-                  <span>analytical competencies</span>
+              <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-neutral-600 dark:text-neutral-400 font-semibold flex items-center gap-1.5">
+                  <span className="text-emerald-600 dark:text-[#4ade80]">{"//"}</span>
+                  <span>technical competencies</span>
                 </span>
-                <span className="text-[11px] font-mono text-[var(--accent-emerald)] font-medium">verified</span>
+                <span className="text-[11px] font-mono text-emerald-600 dark:text-[#4ade80]">production</span>
               </div>
 
               <div className="space-y-4">
                 {skillCategories.map((cat) => (
                   <div key={cat.category} className="space-y-1.5">
-                    <span className="text-xs font-mono font-semibold text-[var(--text-primary)] block">
+                    <span className="text-xs font-mono font-semibold text-neutral-800 dark:text-neutral-300 block">
                       {cat.category}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {cat.skills.map((skill) => (
                         <span
                           key={skill.name}
-                          className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--surface-subtle)] text-[var(--text-secondary)] border border-[var(--surface-border)] hover:border-[var(--bento-border-hover)] transition-colors"
+                          className="px-2 py-0.5 rounded text-[10px] font-mono bg-black/[0.03] dark:bg-white/[0.04] text-neutral-600 dark:text-neutral-300 border border-black/5 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 transition-colors"
                         >
                           {skill.name}
                         </span>

@@ -22,140 +22,118 @@ interface Article {
 
 const articles: Article[] = [
   {
-    slug: "sql-window-functions-cohort-analysis",
-    title: "Advanced SQL Window Functions for Cohort Retention Analysis",
+    slug: "bento-interfaces-nextjs",
+    title: "Building Pixel-Faithful Bento Interfaces with Next.js",
     date: "Sep 2026",
-    readTime: "5 min read",
+    readTime: "4 min read",
     summary:
-      "How to formulate month-over-month cohort retention matrices directly in PostgreSQL using Common Table Expressions (CTEs), DENSE_RANK, and LAG functions.",
-    tag: "SQL & Relational",
+      "How to extract design tokens from Figma primitives and translate them into strict, responsive bento grids using Next.js 15, Tailwind CSS, and CSS Grid.",
+    tag: "Frontend",
     fullContent: {
       intro:
-        "Retention cohort analysis is the gold standard for measuring customer stickiness. Instead of writing inefficient client-side grouping scripts, executing cohort logic directly in SQL unlocks lightning-fast aggregation over millions of transactional rows.",
+        "The Bento Grid trend has taken over modern web design because it offers structured density without sacrificing visual breathing room. Here is our architectural playbook for translating Figma tokens directly into React components.",
       points: [
         {
-          heading: "1. Defining the Initial Acquisition Cohort",
-          body: "Utilize a Common Table Expression (CTE) with the MIN() window function partitioned by customer ID to stamp every user with their acquisition month (`cohort_month`).",
+          heading: "1. Defining the Token Hierarchy",
+          body: "Rather than arbitrary Tailwind classes, isolate canvas, surface, border, and glow tokens into CSS custom properties. This ensures seamless light/dark mode transitions without re-rendering component trees.",
         },
         {
-          heading: "2. Calculating Month Interval Offsets",
-          body: "Compute the integer difference between the order date month and the cohort month using EXTRACT(YEAR FROM ...) * 12 + EXTRACT(MONTH FROM ...). This establishes normalized Month 0, Month 1, Month 2 columns.",
+          heading: "2. Rigid Subgrid vs Nested Flexbox",
+          body: "Bento cards shine when paired with CSS Subgrid or 12-column responsive flex structures (`grid-cols-1 md:grid-cols-3` or `lg:grid-cols-12`). Ensure each card stretches with `h-full flex flex-col justify-between` to avoid ragged grid baselines.",
         },
         {
-          heading: "3. Pivoting with Conditional Aggregations",
-          body: "Aggregate active user counts by cohort and period offset, then compute percentage retention relative to Month 0 base volume to power downstream Tableau and Power BI heatmaps.",
+          heading: "3. Micro-Interaction Polish",
+          body: "Subtle borders (`rgba(255,255,255,0.08)` or `rgba(0,0,0,0.08)`) with hovering scale transformations (`scale-[1.01]`) give bento cards physical presence on the canvas without causing layout recalculation.",
         },
       ],
-      codeSnippet: `WITH user_cohorts AS (
-  SELECT 
-    user_id,
-    DATE_TRUNC('month', MIN(order_date)) AS cohort_month
-  FROM orders
-  GROUP BY user_id
-),
-monthly_activity AS (
-  SELECT 
-    o.user_id,
-    uc.cohort_month,
-    (EXTRACT(YEAR FROM o.order_date) - EXTRACT(YEAR FROM uc.cohort_month)) * 12 +
-    (EXTRACT(MONTH FROM o.order_date) - EXTRACT(MONTH FROM uc.cohort_month)) AS period_offset
-  FROM orders o
-  JOIN user_cohorts uc ON o.user_id = uc.user_id
-)
-SELECT 
-  cohort_month,
-  period_offset,
-  COUNT(DISTINCT user_id) AS active_users,
-  ROUND(COUNT(DISTINCT user_id)::NUMERIC / FIRST_VALUE(COUNT(DISTINCT user_id)) 
-    OVER (PARTITION BY cohort_month ORDER BY period_offset) * 100, 2) AS retention_rate
-FROM monthly_activity
-GROUP BY cohort_month, period_offset
-ORDER BY cohort_month, period_offset;`,
+      codeSnippet: `// tokens.ts - Canonical Token Declaration
+export const tokens = {
+  colors: {
+    canvas: { dark: "#09090b", light: "#f4f4f5" },
+    card: { dark: "#000000", light: "#ffffff" },
+    border: { dark: "rgba(255, 255, 255, 0.08)", light: "rgba(0, 0, 0, 0.08)" }
+  },
+  radii: { bento: "20px" }
+} as const;`,
       conclusion:
-        "Leveraging native database window operations keeps data transformation pipelines reproducible, deterministic, and optimized for sub-second business intelligence feeds.",
+        "By enforcing strict token boundaries and equal-height flex children, your bento interfaces remain solid across all viewport sizes.",
     },
   },
   {
-    slug: "executive-bi-dashboards-powerbi-tableau",
-    title: "Designing Decision-Ready Executive Dashboards in Power BI & Tableau",
+    slug: "postgresql-schema-indexes",
+    title: "Optimizing PostgreSQL Schema & Indexes for Sub-Second Queries",
     date: "Aug 2026",
     readTime: "6 min read",
     summary:
-      "Core principles for reducing cognitive load, architecting robust star schemas, and formulating reusable DAX time-intelligence calculations.",
-    tag: "Business Intelligence",
+      "Architectural techniques for relational database performance, B-tree vs GIN indexing strategies, and connection pooling in high-throughput workloads.",
+    tag: "Database",
     fullContent: {
       intro:
-        "Many business intelligence dashboards fail because they dump 30 disparate charts on a page without a narrative hierarchy. An effective dashboard immediately answers three questions: What happened? Why did it happen? What action should be taken next?",
+        "In production full-stack systems, 90% of latency bottlenecks originate from unindexed foreign keys or N+1 query patterns. Here is how we tune PostgreSQL for high concurrent throughput.",
       points: [
         {
-          heading: "1. Enforce Star Schema Modeling (Kimball Methodology)",
-          body: "Never build BI reports directly against flat, de-normalized 100-column tables. Structuring fact tables (transactions, events) and shared dimension tables (Date, Customer, Product) with 1-to-many relationships optimizes in-memory VertiPaq engine performance.",
+          heading: "1. Indexing What Matters: Compound & Partial Indexes",
+          body: "Don't blindly index every column. Compound indexes must adhere to the left-most prefix rule. For soft-deleted records (`WHERE deleted_at IS NULL`), partial indexes reduce index tree size by up to 80%.",
         },
         {
-          heading: "2. The 5-Second Executive Rule",
-          body: "Place top-level KPI scorecards (Revenue, Churn Rate, LTV, CAC) with clear target variance benchmarks in the top-left quadrant where eye-tracking naturally initiates.",
+          heading: "2. GIN Indexes for JSONB & Full-Text Search",
+          body: "When storing unstructured metadata in JSONB columns, standard B-Trees cannot search inner keys efficiently. Generalized Inverted Indexes (GIN) provide sub-10ms lookup times even over millions of rows.",
         },
         {
-          heading: "3. Reusable DAX Time-Intelligence Measures",
-          body: "Decouple calendar logic into a dedicated Date dimension table and use CALCULATE with DATEADD or DATESYTD to ensure dynamic period-over-period comparisons remain accurate across leap years and fiscal boundaries.",
+          heading: "3. Connection Pooling with PgBouncer",
+          body: "Serverless functions spawn hundreds of ephemeral connections that exhaust PostgreSQL max_connections. Running a transaction-mode connection pooler prevents cold-start starvation.",
         },
       ],
-      codeSnippet: `// DAX Measure: Year-over-Year Revenue Growth %
-YoY Revenue % = 
-VAR CurrentRevenue = [Total Revenue]
-VAR PriorYearRevenue = 
-    CALCULATE(
-        [Total Revenue], 
-        DATEADD('DimDate'[Date], -1, YEAR)
-    )
-RETURN 
-    DIVIDE(CurrentRevenue - PriorYearRevenue, PriorYearRevenue, 0)`,
+      codeSnippet: `-- Partial index for active users
+CREATE INDEX idx_users_active_email 
+ON users (email) 
+WHERE status = 'ACTIVE' AND deleted_at IS NULL;
+
+-- GIN index for metadata JSONB search
+CREATE INDEX idx_resumes_skills_gin 
+ON resumes USING GIN ((metadata->'extracted_skills'));`,
       conclusion:
-        "Rigorous dimensional modeling combined with restrained visual design transforms static charts into strategic decision-support systems.",
+        "Index deliberately, inspect EXPLAIN ANALYZE traces, and pool connections to keep p99 query latencies below 20 milliseconds.",
     },
   },
   {
-    slug: "ab-testing-statistical-significance",
-    title: "Statistical Significance & Common Pitfalls in Product A/B Testing",
+    slug: "clean-architecture-spring-boot",
+    title: "Clean Architecture in Enterprise Java & Spring Boot",
     date: "Jul 2026",
     readTime: "5 min read",
     summary:
-      "Understanding p-values, Type I/II errors, sample size power calculations, and why 'peeking' at metrics ruins experimental validity.",
-    tag: "Statistics & Experimentation",
+      "Structuring microservices for testability, separation of concerns, and resilient RESTful API design using Hexagonal architecture principles.",
+    tag: "Backend",
     fullContent: {
       intro:
-        "A/B testing is frequently misapplied in digital product analytics: experiments are stopped the moment p < 0.05 is observed, or variance is mistaken for genuine causal lift. Here is how to maintain mathematical rigor in hypothesis testing.",
+        "Enterprise Java backends frequently devolve into anemic domain models with 2,000-line service classes. Adopting Hexagonal / Ports & Adapters architecture guarantees maintainability over multi-year lifecycles.",
       points: [
         {
-          heading: "1. Pre-Experiment Power Analysis & Sample Sizing",
-          body: "Never launch an experiment without calculating required sample size in advance based on baseline conversion, Minimum Detectable Effect (MDE), statistical power (1 - beta = 0.80), and alpha (0.05).",
+          heading: "1. Domain Isolation (Entities & Value Objects)",
+          body: "Domain logic must remain agnostic of Spring Framework annotations, JPA entities, and HTTP controllers. Pure Java POJOs execute business rules with 100% unit-test coverage without mocking databases.",
         },
         {
-          heading: "2. The Continuous Peeking Fallacy",
-          body: "Repeatedly evaluating p-values daily inflates the False Positive rate from 5% to over 30% due to random walk fluctuations. Commit to running tests for full seasonal cycles (at least 2 full business weeks).",
+          heading: "2. Ports and Adapters (Inbound & Outbound)",
+          body: "Inbound ports expose use cases to REST controllers or gRPC handlers. Outbound ports declare persistence interfaces that JPA repositories implement behind decoupled adapters.",
         },
         {
-          heading: "3. Two-Tailed vs One-Tailed T-Tests",
-          body: "Always default to two-tailed tests unless there is definitive theoretical proof that a treatment could not possibly cause harm. Watch out for negative side effects on secondary guardrail metrics like refund rates or support ticket volume.",
+          heading: "3. Resilient Error Handling & Result Types",
+          body: "Instead of throwing generic RuntimeExceptions across layer boundaries, return explicit Result / Either monads or custom typed domain exceptions with global ControllerAdvices.",
         },
       ],
-      codeSnippet: `import scipy.stats as stats
-import numpy as np
+      codeSnippet: `// Inbound Port definition
+public interface ProcessApplicationUseCase {
+    ApplicationResult execute(ApplicationCommand command);
+}
 
-# Two-sample Z-test for proportions
-def ab_test_significance(conversions_a, sample_a, conversions_b, sample_b, alpha=0.05):
-    p_a = conversions_a / sample_a
-    p_b = conversions_b / sample_b
-    pooled_p = (conversions_a + conversions_b) / (sample_a + sample_b)
-    se = np.sqrt(pooled_p * (1 - pooled_p) * (1/sample_a + 1/sample_b))
-    
-    z_score = (p_b - p_a) / se
-    p_value = 2 * (1 - stats.norm.cdf(abs(z_score)))
-    
-    is_significant = p_value < alpha
-    return {"z_score": round(z_score, 4), "p_value": round(p_value, 5), "significant": is_significant}`,
+// Domain Entity with invariants
+public record Candidate(CandidateId id, Email email, ReadinessScore score) {
+    public Candidate {
+        Objects.requireNonNull(email, "Candidate email cannot be null");
+    }
+}`,
       conclusion:
-        "Controlled experiments require disciplined statistical patience; validating sample power upfront prevents costly false positives from reaching production.",
+        "Strict boundary enforcement separates transport mechanics from business logic, making systems resilient to framework shifts and upgrades.",
     },
   },
 ];
@@ -164,16 +142,17 @@ export default function BlogPage() {
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
 
   return (
-    <div className="min-h-screen bg-transparent text-[var(--text-primary)] pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className="min-h-screen bg-transparent pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
         {/* Unified Top Navigation with Banner */}
         <BentoHeader
           activeTab="blog"
-          tagHighlight="analytics insights"
-          title="articles &amp; analytics notes"
-          subtitle="Explorations in SQL optimization, business intelligence architecture, statistical experimentation, and data storytelling."
+          tagLineThrough="thoughts"
+          tagHighlight="blog"
+          title="articles & engineering notes"
+          subtitle="Deep dives into software architecture, relational database query optimization, design systems, and frontend craft."
           headerAction={
-            <span className="px-3 py-1 rounded-full text-xs font-mono bg-[var(--surface-subtle)] border border-[var(--bento-border)] text-[var(--text-secondary)]">
+            <span className="px-3 py-1 rounded-full text-xs font-mono bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
               {articles.length} published notes
             </span>
           }
@@ -185,31 +164,31 @@ export default function BlogPage() {
             <article
               key={idx}
               onClick={() => setActiveArticle(art)}
-              className="bento-card p-6 flex flex-col justify-between h-full group cursor-pointer hover:border-[var(--bento-border-hover)] transition-all duration-300"
+              className="bento-card p-6 flex flex-col justify-between h-full group cursor-pointer hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
             >
               <div>
-                <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-[var(--text-muted)]">
+                <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-neutral-500">
                   <span className="flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-[var(--accent-emerald)]" />
+                    <Clock className="w-3 h-3 text-emerald-600 dark:text-[#4ade80]" />
                     {art.readTime}
                   </span>
                   <span>{art.date}</span>
                 </div>
 
-                <h2 className="text-base sm:text-lg font-bold font-sans text-[var(--text-primary)] mb-2.5 group-hover:underline underline-offset-4 leading-snug">
+                <h2 className="text-base sm:text-lg font-bold font-sans text-neutral-900 dark:text-white mb-2.5 group-hover:underline underline-offset-4 leading-snug">
                   {art.title}
                 </h2>
 
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-6">
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
                   {art.summary}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[var(--surface-border)] flex items-center justify-between">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--surface-subtle)] text-[var(--text-secondary)] border border-[var(--surface-border)]">
+              <div className="pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-black/[0.03] dark:bg-white/[0.04] text-neutral-600 dark:text-neutral-300 border border-black/5 dark:border-white/5">
                   {art.tag}
                 </span>
-                <span className="text-xs font-mono text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-0.5 transition-all flex items-center gap-1 font-medium">
+                <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-950 dark:group-hover:text-white group-hover:translate-x-0.5 transition-all flex items-center gap-1">
                   <span>read note</span>
                   <span>→</span>
                 </span>
@@ -231,18 +210,18 @@ export default function BlogPage() {
           onClick={() => setActiveArticle(null)}
         >
           <div
-            className="bento-card p-6 sm:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl relative"
+            className="bento-card bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-6 sm:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between gap-4 pb-4 border-b border-[var(--bento-border)] mb-6">
-              <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--accent-emerald-bg)] border border-[var(--accent-emerald-border)] text-[var(--accent-emerald)] font-medium">
+            <div className="flex items-center justify-between gap-4 pb-4 border-b border-black/10 dark:border-white/10 mb-6">
+              <div className="flex items-center gap-2 text-xs font-mono text-neutral-500 dark:text-neutral-400">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:bg-white/[0.05] dark:text-[#4ade80] border border-emerald-500/20 dark:border-white/10">
                   {activeArticle.tag}
                 </span>
-                <span className="text-[var(--text-subtle)]">•</span>
+                <span>•</span>
                 <span>{activeArticle.date}</span>
-                <span className="text-[var(--text-subtle)]">•</span>
+                <span>•</span>
                 <span>{activeArticle.readTime}</span>
               </div>
 
@@ -250,19 +229,19 @@ export default function BlogPage() {
                 type="button"
                 onClick={() => setActiveArticle(null)}
                 aria-label="Close reading view"
-                className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-900 hover:bg-black/5 dark:hover:text-white dark:hover:bg-white/10 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Title */}
-            <h2 className="text-xl sm:text-2xl font-sans font-bold text-[var(--text-primary)] mb-4 tracking-tight leading-snug">
+            <h2 className="text-xl sm:text-2xl font-sans font-bold text-neutral-900 dark:text-white mb-4 tracking-tight leading-snug">
               {activeArticle.title}
             </h2>
 
             {/* Intro */}
-            <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-sans">
+            <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed mb-6 font-sans">
               {activeArticle.fullContent.intro}
             </p>
 
@@ -270,28 +249,28 @@ export default function BlogPage() {
             <div className="space-y-5 mb-6">
               {activeArticle.fullContent.points.map((point, pIdx) => (
                 <div key={pIdx} className="space-y-1.5">
-                  <h3 className="text-sm font-sans font-bold text-[var(--text-primary)] flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-emerald)] shrink-0" />
+                  <h3 className="text-sm font-sans font-bold text-neutral-900 dark:text-white flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-[#4ade80] shrink-0" />
                     <span>{point.heading}</span>
                   </h3>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed pl-5 font-sans">
+                  <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed pl-5 font-sans">
                     {point.body}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Code Snippet */}
+            {/* Code Snippet if applicable */}
             {activeArticle.fullContent.codeSnippet && (
-              <div className="mb-6 rounded-xl bg-zinc-950 dark:bg-black border border-[var(--surface-border)] p-4 font-mono text-[11px] text-zinc-100 overflow-x-auto shadow-inner">
+              <div className="mb-6 rounded-xl bg-neutral-900 text-neutral-100 border border-neutral-800 dark:bg-neutral-950 dark:border-white/10 dark:text-neutral-300 p-4 font-mono text-[11px] overflow-x-auto">
                 <pre>{activeArticle.fullContent.codeSnippet}</pre>
               </div>
             )}
 
             {/* Conclusion */}
-            <div className="p-4 rounded-xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] text-xs text-[var(--text-secondary)] font-sans leading-relaxed">
-              <span className="font-mono text-[10px] text-[var(--accent-emerald)] uppercase tracking-wider block mb-1 font-semibold">
-                Analytical Takeaway
+            <div className="p-4 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 text-xs text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed">
+              <span className="font-mono text-[10px] text-emerald-600 dark:text-[#4ade80] uppercase tracking-wider block mb-1">
+                Takeaway
               </span>
               {activeArticle.fullContent.conclusion}
             </div>

@@ -11,38 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const staticPages = [
+  return [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      changeFrequency: "weekly",
       priority: 1.0,
     },
-    {
-      url: `${baseUrl}/development`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/cv`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/design`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
+    ...projectUrls,
   ];
-
-  return [...staticPages, ...projectUrls];
 }

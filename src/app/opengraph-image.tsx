@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "Hithesh HG — Data Analyst & Business Intelligence Specialist";
+export const alt = "Hithesh HG — Full Stack Developer Portfolio";
 export const size = {
   width: 1200,
   height: 630,
@@ -19,7 +19,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          backgroundColor: "#09090b",
+          backgroundColor: "#0a0000",
           padding: "80px",
           fontFamily: "sans-serif",
           position: "relative",
@@ -34,7 +34,7 @@ export default async function Image() {
             width: "500px",
             height: "500px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, rgba(0,0,0,0) 70%)",
+            background: "radial-gradient(circle, rgba(79, 109, 75, 0.4) 0%, rgba(0,0,0,0) 70%)",
           }}
         />
 
@@ -50,14 +50,14 @@ export default async function Image() {
             style={{
               padding: "8px 18px",
               borderRadius: "9999px",
-              backgroundColor: "rgba(16, 185, 129, 0.1)",
-              border: "1px solid rgba(16, 185, 129, 0.3)",
-              color: "#10b981",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              color: "#a3c49e",
               fontSize: "18px",
               fontFamily: "monospace",
             }}
           >
-            [hhg] • Data Analyst &amp; BI Specialist
+            [hhg] • Full Stack Developer
           </div>
         </div>
 
@@ -72,8 +72,8 @@ export default async function Image() {
           <div
             style={{
               fontSize: "72px",
-              fontWeight: "bold",
-              color: "#ffffff",
+              fontWeight: "normal",
+              color: "#f8f8f7",
               letterSpacing: "-2px",
               lineHeight: 1.1,
             }}
@@ -83,12 +83,12 @@ export default async function Image() {
           <div
             style={{
               fontSize: "30px",
-              color: "#d4d4d8",
+              color: "#bcbab9",
               maxWidth: "900px",
               lineHeight: 1.4,
             }}
           >
-            Transforming complex data into actionable business intelligence, predictive models, and decision-ready dashboards.
+            Engineering robust web systems, intelligent applications, and high-performance digital products.
           </div>
         </div>
 
@@ -101,13 +101,13 @@ export default async function Image() {
             width: "100%",
             borderTop: "1px solid rgba(255, 255, 255, 0.15)",
             paddingTop: "24px",
-            color: "#a1a1aa",
+            color: "#75757a",
             fontSize: "18px",
             fontFamily: "monospace",
           }}
         >
-          <div>SQL • Python • Power BI • Tableau • PostgreSQL</div>
-          <div>hitheshhg.qd.je</div>
+          <div>Next.js • TypeScript • Java • PostgreSQL</div>
+          <div>github.com/hitheshhg</div>
         </div>
       </div>
     ),

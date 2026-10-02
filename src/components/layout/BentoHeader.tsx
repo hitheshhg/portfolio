@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { Download, Menu, X } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { playClick, playFanfare } from "@/lib/sound";
+import { fireConfetti } from "@/lib/confetti";
 
 export interface BentoHeaderProps {
-  activeTab?: "home" | "design" | "development" | "blog" | "cv" | "projects" | "insights";
+  activeTab?: "home" | "design" | "development" | "blog" | "cv";
   tagLineThrough?: string;
   tagHighlight?: string;
   title?: string;
@@ -16,9 +18,10 @@ export interface BentoHeaderProps {
 }
 
 const NAV_LINKS = [
-  { name: "overview", href: "/", id: "home" },
-  { name: "projects", href: "/development", id: "development" },
-  { name: "insights", href: "/blog", id: "blog" },
+  { name: "home", href: "/", id: "home" },
+  { name: "design", href: "/design", id: "design" },
+  { name: "development", href: "/development", id: "development" },
+  { name: "blog", href: "/blog", id: "blog" },
   { name: "cv", href: "/cv", id: "cv" },
 ] as const;
 
@@ -31,22 +34,44 @@ export function BentoHeader({
   headerAction,
 }: BentoHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const lastClickTimeRef = useRef(0);
+
+  const handleLogoClick = () => {
+    const now = Date.now();
+    playClick(750, 0.02);
+
+    if (now - lastClickTimeRef.current > 2000) {
+      setClickCount(1);
+    } else {
+      const next = clickCount + 1;
+      setClickCount(next);
+      if (next >= 5) {
+        setClickCount(0);
+        playFanfare();
+        fireConfetti();
+      }
+    }
+    lastClickTimeRef.current = now;
+  };
 
   return (
-    <header className="bento-card p-6 sm:p-8 w-full transition-all">
+    <header className="bento-card p-6 sm:p-8 w-full shadow-lg dark:shadow-2xl transition-all">
       {/* Top Bar: Brand, Status, Navigation & Actions */}
       <div className="flex items-center justify-between gap-4">
         {/* Brand & Live Status */}
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="font-mono text-xs sm:text-sm font-bold tracking-tight text-[var(--text-primary)] hover:text-[var(--accent-emerald)] transition-colors select-none"
+            onClick={handleLogoClick}
+            title="Click 5 times for a surprise 🎉"
+            className="font-mono text-xs sm:text-sm font-semibold tracking-tight text-neutral-900 dark:text-white hover:opacity-80 transition-opacity select-none"
           >
-            hitheshhg.qd.je
+            hithesh.dev
           </Link>
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[var(--accent-emerald-bg)] text-[var(--accent-emerald)] border border-[var(--accent-emerald-border)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-emerald)] animate-pulse" />
-            <span>open for data &amp; analytics roles</span>
+          <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-[#4ade80] border border-emerald-500/25">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-[#4ade80] animate-pulse" />
+            <span>available for work</span>
           </span>
         </div>
 
@@ -56,18 +81,16 @@ export function BentoHeader({
           className="hidden md:flex items-center gap-1 text-xs font-mono"
         >
           {NAV_LINKS.map((link) => {
-            const isActive =
-              activeTab === link.id ||
-              (link.id === "development" && activeTab === "projects") ||
-              (link.id === "blog" && activeTab === "insights");
+            const isActive = activeTab === link.id;
             return (
               <Link
                 key={link.id}
                 href={link.href}
-                className={`px-3.5 py-1.5 rounded-lg transition-all ${
+                onClick={() => playClick(700, 0.02)}
+                className={`px-3 py-1.5 rounded-lg transition-all ${
                   isActive
-                    ? "text-[var(--text-primary)] bg-[var(--surface-hover)] font-bold shadow-xs border border-[var(--surface-border)]"
-                    : "text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-subtle)]"
+                    ? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/10 font-semibold shadow-xs border border-black/10 dark:border-white/10"
+                    : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/[0.03] dark:hover:bg-white/[0.04]"
                 }`}
               >
                 {link.name}
@@ -76,17 +99,34 @@ export function BentoHeader({
           })}
         </nav>
 
-        {/* Actions, Theme Toggle & Socials */}
+        {/* Actions & Socials */}
         <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-          {/* Light / Dark Mode Switcher */}
+          {/* Quick Command Palette Button */}
+          <button
+            type="button"
+            onClick={() => {
+              playClick(800, 0.02);
+              window.dispatchEvent(
+                new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })
+              );
+            }}
+            aria-label="Open Command Menu"
+            className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:border-black/25 dark:hover:border-white/25 text-[11px] font-mono transition-all group"
+          >
+            <span className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300">cmd</span>
+            <kbd className="text-[10px] text-neutral-500 dark:text-neutral-400 font-mono">⌘K</kbd>
+          </button>
+
+          {/* Theme Toggle Button */}
           <ThemeToggle />
 
           <a
             href="https://github.com/hitheshhg"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => playClick(600, 0.02)}
             aria-label="GitHub Profile"
-            className="p-1.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] rounded-lg transition-colors"
+            className="p-1.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
           >
             <GithubIcon className="w-3.5 h-3.5" />
           </a>
@@ -94,8 +134,9 @@ export function BentoHeader({
             href="https://linkedin.com/in/hitheshhg"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => playClick(600, 0.02)}
             aria-label="LinkedIn Profile"
-            className="p-1.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] rounded-lg transition-colors"
+            className="p-1.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
           >
             <LinkedinIcon className="w-3.5 h-3.5" />
           </a>
@@ -103,7 +144,8 @@ export function BentoHeader({
           <a
             href="/resume.pdf"
             download="Hithesh_HG_Resume.pdf"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-semibold text-[11px] font-mono hover:opacity-90 transition-opacity shadow-xs"
+            onClick={() => playClick(850, 0.03)}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-black font-medium text-[11px] font-mono hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm"
           >
             <Download className="w-3 h-3" />
             <span className="hidden sm:inline">download cv</span>
@@ -113,9 +155,12 @@ export function BentoHeader({
           {/* Mobile Menu Button */}
           <button
             type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => {
+              playClick(500, 0.02);
+              setMobileMenuOpen(!mobileMenuOpen);
+            }}
             aria-label="Toggle mobile menu"
-            className="md:hidden p-1.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] rounded-lg transition-colors cursor-pointer"
+            className="md:hidden p-1.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -124,12 +169,9 @@ export function BentoHeader({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden pt-4 mt-4 border-t border-[var(--bento-border)] flex flex-col gap-1.5">
+        <div className="md:hidden pt-4 mt-4 border-t border-black/10 dark:border-white/10 flex flex-col gap-1.5">
           {NAV_LINKS.map((link) => {
-            const isActive =
-              activeTab === link.id ||
-              (link.id === "development" && activeTab === "projects") ||
-              (link.id === "blog" && activeTab === "insights");
+            const isActive = activeTab === link.id;
             return (
               <Link
                 key={link.id}
@@ -137,8 +179,8 @@ export function BentoHeader({
                 onClick={() => setMobileMenuOpen(false)}
                 className={`px-3 py-2 text-xs font-mono rounded-lg transition-colors ${
                   isActive
-                    ? "text-[var(--text-primary)] bg-[var(--surface-hover)] font-bold border border-[var(--surface-border)]"
-                    : "text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-subtle)]"
+                    ? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/10 font-bold"
+                    : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
                 }`}
               >
                 {link.name}
@@ -150,27 +192,27 @@ export function BentoHeader({
 
       {/* Optional Subpage Banner */}
       {title && (
-        <div className="pt-8 mt-6 border-t border-[var(--bento-border)] flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        <div className="pt-8 mt-6 border-t border-black/[0.06] dark:border-white/[0.06] flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div className="space-y-2">
             {(tagLineThrough || tagHighlight) && (
               <div className="flex items-center gap-2">
                 {tagLineThrough && (
-                  <span className="font-mono text-xs text-[var(--text-subtle)] line-through">
+                  <span className="font-mono text-xs text-neutral-500 line-through">
                     {tagLineThrough}
                   </span>
                 )}
                 {tagHighlight && (
-                  <span className="font-mono text-xs font-semibold text-[var(--accent-emerald)] tracking-wide uppercase">
+                  <span className="font-mono text-xs font-semibold text-neutral-900 dark:text-white tracking-wide">
                     {tagHighlight}
                   </span>
                 )}
               </div>
             )}
-            <h1 className="text-2xl sm:text-4xl font-sans font-bold text-[var(--text-primary)] tracking-tight">
+            <h1 className="text-2xl sm:text-4xl font-sans font-bold text-neutral-900 dark:text-white tracking-tight">
               {title}
             </h1>
             {subtitle && (
-              <p className="text-xs sm:text-sm text-[var(--text-secondary)] max-w-2xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 max-w-2xl leading-relaxed">
                 {subtitle}
               </p>
             )}

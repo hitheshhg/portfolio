@@ -1,21 +1,21 @@
-import { Database, SearchCheck, BarChart3 } from "lucide-react";
+import { IdeationIcon, ResearchIcon, WireframesIcon } from "@/components/ui/FigmaIcons";
 
 export function FigmaProcessCard() {
   const steps = [
     {
-      title: "ingest & clean",
-      subtitle: "ETL pipelines & schema hygiene",
-      icon: <Database className="w-8 h-8 text-[var(--accent-sky)] group-hover:scale-110 transition-transform duration-300" />,
+      title: "ideation",
+      subtitle: "problem framing & requirements",
+      icon: <IdeationIcon className="w-10 h-10 text-neutral-800 dark:text-white stroke-[1.2] group-hover:scale-110 transition-transform duration-300" />,
     },
     {
-      title: "explore & model",
-      subtitle: "statistics & predictive ML",
-      icon: <SearchCheck className="w-8 h-8 text-[var(--accent-emerald)] group-hover:scale-110 transition-transform duration-300" />,
+      title: "research",
+      subtitle: "architecture & benchmarking",
+      icon: <ResearchIcon className="w-10 h-10 text-neutral-800 dark:text-white stroke-[1.2] group-hover:scale-110 transition-transform duration-300" />,
     },
     {
-      title: "visualize & impact",
-      subtitle: "BI dashboards & decisions",
-      icon: <BarChart3 className="w-8 h-8 text-[var(--accent-amber)] group-hover:scale-110 transition-transform duration-300" />,
+      title: "wireframes",
+      subtitle: "system design & hi-fi build",
+      icon: <WireframesIcon className="w-10 h-10 text-neutral-800 dark:text-white stroke-[1.2] group-hover:scale-110 transition-transform duration-300" />,
     },
   ];
 
@@ -24,13 +24,16 @@ export function FigmaProcessCard() {
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <span className="font-mono text-xs font-semibold text-[var(--text-primary)] tracking-wide uppercase">
-            analytics lifecycle
+          <span className="font-mono text-xs text-neutral-500 line-through">
+            design
+          </span>
+          <span className="font-mono text-xs font-semibold text-neutral-900 dark:text-white tracking-wide">
+            process
           </span>
         </div>
 
-        <p className="text-xs sm:text-sm text-[var(--text-secondary)] font-sans leading-relaxed max-w-md">
-          A rigorous analytical methodology: from raw pipeline ingestion and data validation to statistical modeling and executive BI storytelling.
+        <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 font-sans leading-relaxed max-w-md">
+          A disciplined engineering workflow: from exploratory problem framing and rigorous benchmarking to clean architecture and responsive craft.
         </p>
       </div>
 
@@ -39,15 +42,15 @@ export function FigmaProcessCard() {
         {steps.map((step) => (
           <div
             key={step.title}
-            className="flex flex-col items-center text-center group p-2 rounded-xl hover:bg-[var(--surface-subtle)] transition-colors"
+            className="flex flex-col items-center text-center group p-2 rounded-xl hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition-colors"
           >
-            <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-2.5 rounded-2xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] group-hover:border-[var(--bento-border-hover)] group-hover:bg-[var(--surface-hover)] transition-all shadow-xs">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-2.5 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 group-hover:border-black/20 dark:group-hover:border-white/20 group-hover:bg-black/[0.06] dark:group-hover:bg-white/[0.06] transition-all">
               {step.icon}
             </div>
-            <span className="text-xs font-mono font-medium text-[var(--text-primary)] transition-colors">
+            <span className="text-xs font-mono font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors">
               {step.title}
             </span>
-            <span className="text-[10px] font-mono text-[var(--text-muted)] mt-0.5 line-clamp-1">
+            <span className="text-[10px] font-mono text-neutral-500 mt-0.5 line-clamp-1">
               {step.subtitle}
             </span>
           </div>
@@ -55,9 +58,9 @@ export function FigmaProcessCard() {
       </div>
 
       {/* Bottom tag */}
-      <div className="pt-4 border-t border-[var(--bento-border)] flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)]">
+      <div className="pt-4 border-t border-black/[0.06] dark:border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-neutral-500 dark:text-neutral-400">
         <span>methodology</span>
-        <span className="text-[var(--accent-emerald)] font-medium">evidence-based &amp; verified</span>
+        <span className="text-emerald-600 dark:text-[#4ade80]">iterative &amp; verified</span>
       </div>
     </div>
   );

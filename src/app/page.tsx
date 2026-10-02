@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { BentoHeader } from "@/components/layout/BentoHeader";
 import { FigmaHeroCard } from "@/components/figma/FigmaHeroCard";
@@ -9,7 +10,7 @@ import { projects } from "@/data/projects";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-transparent text-[var(--text-primary)] pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className="min-h-screen bg-transparent pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
         {/* Unified Top Navigation */}
         <BentoHeader activeTab="home" />
@@ -24,31 +25,30 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Row 2: Analytics Tools Card */}
+        {/* Row 2: Development Tools Card */}
         <FigmaToolsCard />
 
-        {/* Row 3: Featured Analytics Case Studies */}
+        {/* Row 3: Featured Work Bento Grid */}
         <div className="bento-card p-6 sm:p-8">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-semibold text-[var(--accent-emerald)] tracking-wide uppercase">
+                <span className="font-mono text-xs text-neutral-500 line-through">
+                  featured
+                </span>
+                <span className="font-mono text-xs font-semibold text-neutral-900 dark:text-white tracking-wide">
                   selected work
                 </span>
-                <span className="text-[var(--text-subtle)] text-xs font-mono">•</span>
-                <span className="font-mono text-xs text-[var(--text-muted)]">
-                  real-world business impact
-                </span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-sans font-bold text-[var(--text-primary)] tracking-tight">
-                predictive models &amp; executive dashboards
+              <h2 className="text-xl sm:text-2xl font-sans font-bold text-neutral-900 dark:text-white tracking-tight">
+                production systems &amp; apps
               </h2>
             </div>
             <Link
               href="/development"
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors group"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-neutral-500 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white transition-colors group"
             >
-              <span>view all case studies</span>
+              <span>view all projects</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
@@ -57,58 +57,54 @@ export default function HomePage() {
             {projects.map((project, idx) => (
               <div
                 key={project.id}
-                className="p-6 rounded-2xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] flex flex-col justify-between group hover:border-[var(--bento-border-hover)] transition-all duration-300 shadow-xs"
+                className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 flex flex-col justify-between group hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-[11px] text-[var(--text-subtle)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-[11px] text-neutral-500">
                       0{idx + 1}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono border border-[var(--surface-border)] bg-[var(--bento-bg)] text-[var(--text-secondary)] shadow-xs">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300 bg-black/[0.02] dark:bg-white/[0.03]">
                       {project.category}
                     </span>
                   </div>
 
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-1.5 group/link mb-2 block"
+                    className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-950 border border-black/10 dark:border-white/10 mb-4 block group-hover:border-black/20 dark:group-hover:border-white/20 transition-all"
                   >
-                    <h3 className="text-lg font-bold font-sans text-[var(--text-primary)] group-hover/link:underline underline-offset-4 leading-snug">
-                      {project.title}
-                    </h3>
-                    <ArrowUpRight className="w-4 h-4 text-[var(--text-subtle)] group-hover/link:text-[var(--text-primary)] shrink-0 transition-colors" />
+                    <Image
+                      src={project.coverImage}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </Link>
 
-                  <p className="text-xs font-mono text-[var(--accent-emerald)] mb-3 font-medium">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-1.5 group/link mb-1.5"
+                  >
+                    <h3 className="text-base font-bold font-sans text-neutral-900 dark:text-white group-hover/link:underline underline-offset-4">
+                      {project.title}
+                    </h3>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover/link:text-neutral-900 dark:text-neutral-500 dark:group-hover/link:text-white" />
+                  </Link>
+
+                  <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4 line-clamp-2">
                     {project.tagline}
                   </p>
-
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4 line-clamp-3">
-                    {project.summary}
-                  </p>
-
-                  {/* Quantified Impact Pill */}
-                  <div className="p-3 rounded-xl bg-[var(--accent-emerald-bg)] border border-[var(--accent-emerald-border)] mb-4">
-                    <span className="font-mono text-[10px] text-[var(--accent-emerald)] font-semibold block uppercase tracking-wider mb-0.5">
-                      Key Impact
-                    </span>
-                    <p className="text-xs text-[var(--text-primary)] font-medium line-clamp-2 leading-snug">
-                      {project.outcome.metrics[0]}
-                    </p>
-                  </div>
                 </div>
 
-                <div>
-                  <div className="pt-3 border-t border-[var(--surface-border)] flex items-center justify-between text-xs font-mono">
-                    <span className="text-[var(--text-muted)]">{project.year}</span>
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="text-[var(--text-primary)] hover:text-[var(--accent-emerald)] transition-colors font-medium flex items-center gap-1"
-                    >
-                      <span>case study</span>
-                      <span>→</span>
-                    </Link>
-                  </div>
+                <div className="pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-mono">
+                  <span className="text-neutral-500">{project.year}</span>
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="text-neutral-700 hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white transition-colors"
+                  >
+                    case study →
+                  </Link>
                 </div>
               </div>
             ))}
@@ -119,33 +115,32 @@ export default function HomePage() {
         <div className="bento-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-1.5 max-w-xl">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-semibold text-[var(--accent-emerald)] tracking-wide uppercase">
-                connect
+              <span className="font-mono text-xs text-neutral-500 line-through">
+                contact
               </span>
-              <span className="text-[var(--text-subtle)] text-xs font-mono">•</span>
-              <span className="font-mono text-xs text-[var(--text-muted)]">
+              <span className="font-mono text-xs font-semibold text-neutral-900 dark:text-white tracking-wide">
                 collaborate
               </span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-sans font-bold text-[var(--text-primary)] tracking-tight">
-              have a data challenge or analytics role in mind?
+            <h2 className="text-xl sm:text-2xl font-sans font-bold text-neutral-900 dark:text-white tracking-tight">
+              have a project or role in mind?
             </h2>
-            <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-              Open to Data Analyst, Business Intelligence, and Analytics Engineering opportunities. Let&apos;s turn your data into strategic clarity.
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              Open to engineering opportunities, distributed systems challenges, and product collaborations.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <a
               href="mailto:hitheshhg@gmail.com"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-semibold text-xs font-mono hover:opacity-90 transition-opacity shadow-xs"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-black font-medium text-xs font-mono dark:hover:bg-neutral-200 transition-colors shadow-sm"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>hitheshhg@gmail.com</span>
             </a>
             <Link
               href="/cv"
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-[var(--bento-border)] bg-[var(--surface-subtle)] hover:bg-[var(--surface-hover)] text-[var(--text-primary)] font-medium text-xs font-mono transition-all"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-black/10 text-neutral-800 hover:border-black/30 hover:bg-black/[0.04] dark:border-white/10 dark:text-white font-medium text-xs font-mono dark:hover:border-white/30 dark:hover:bg-white/[0.04] transition-all"
             >
               <span>view cv</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

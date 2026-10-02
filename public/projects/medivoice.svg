@@ -1,0 +1,103 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" rx="16" fill="#0A0F1D" />
+  <!-- Medical grid pattern -->
+  <defs>
+    <pattern id="med-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#17223B" stroke-width="1" />
+    </pattern>
+    <linearGradient id="med-glow" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#059669" stop-opacity="0.25" />
+      <stop offset="0.6" stop-color="#0EA5E9" stop-opacity="0.15" />
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#med-grid)" />
+  <rect width="800" height="500" fill="url(#med-glow)" />
+
+  {/* Main Dashboard Window */}
+  <g transform="translate(60, 50)">
+    <rect width="680" height="400" rx="12" fill="#101827" stroke="#1F2A3F" stroke-width="1.5" />
+    {/* Window Bar */}
+    <rect width="680" height="44" rx="12" fill="#182338" />
+    <circle cx="24" cy="22" r="6" fill="#EF4444" />
+    <circle cx="44" cy="22" r="6" fill="#F59E0B" />
+    <circle cx="64" cy="22" r="6" fill="#10B981" />
+    <text x="340" y="27" fill="#94A3B8" font-size="13" font-family="monospace" text-anchor="middle">medivoice.health — Clinical Transcription &amp; SOAP Records</text>
+
+    {/* Left Column: Live Audio Consultation */}
+    <g transform="translate(30, 70)">
+      <rect width="300" height="290" rx="10" fill="#0A0F1D" stroke="#1E293B" />
+      <text x="20" y="32" fill="#F8FAFC" font-size="14" font-weight="bold" font-family="sans-serif">Live Consultation Audio Stream</text>
+      
+      {/* Patient info */}
+      <g transform="translate(20, 50)">
+        <rect width="260" height="40" rx="6" fill="#131D31" />
+        <text x="14" y="24" fill="#E2E8F0" font-size="11" font-weight="600" font-family="sans-serif">Patient: John Doe, 42M</text>
+        <rect x="180" y="10" width="66" height="20" rx="4" fill="#059669" fill-opacity="0.2" />
+        <text x="213" y="23" fill="#34D399" font-size="9" font-weight="bold" font-family="sans-serif" text-anchor="middle">ACTIVE</text>
+      </g>
+
+      {/* Voice Waveform Visualizer */}
+      <g transform="translate(20, 105)">
+        <rect width="260" height="70" rx="8" fill="#131D31" />
+        {/* ECG + Waveform SVG */}
+        <path
+          d="M 15 35 L 50 35 L 60 15 L 70 55 L 80 20 L 90 45 L 100 35 L 140 35 L 150 10 L 160 60 L 170 25 L 180 40 L 190 35 L 245 35"
+          stroke="#10B981"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+
+      {/* Real-time transcribed text preview */}
+      <g transform="translate(20, 190)">
+        <rect width="260" height="90" rx="8" fill="#131D31" stroke="#1E293B" />
+        <text x="12" y="20" fill="#64748B" font-size="9" font-family="monospace">REAL-TIME TRANSCRIPT:</text>
+        <text x="12" y="38" fill="#E2E8F0" font-size="11" font-family="sans-serif">"Patient reports mild headache and joint pain</text>
+        <text x="12" y="54" fill="#E2E8F0" font-size="11" font-family="sans-serif">for 3 days. Prescribed Paracetamol 500mg.</text>
+        <text x="12" y="70" fill="#10B981" font-size="11" font-family="sans-serif">Vitals: BP 120/80, Pulse 72 bpm."</text>
+      </g>
+    </g>
+
+    {/* Right Column: Structured SOAP Notes */}
+    <g transform="translate(350, 70)">
+      <rect width="300" height="290" rx="10" fill="#0A0F1D" stroke="#1E293B" />
+      <text x="20" y="32" fill="#F8FAFC" font-size="14" font-weight="bold" font-family="sans-serif">Generated Clinical SOAP Note</text>
+      
+      {/* S: Subjective */}
+      <g transform="translate(20, 50)">
+        <rect width="260" height="48" rx="6" fill="#131D31" />
+        <text x="12" y="18" fill="#38BDF8" font-size="10" font-weight="bold" font-family="monospace">[S] SUBJECTIVE</text>
+        <text x="12" y="34" fill="#CBD5E1" font-size="10" font-family="sans-serif">Headache, fatigue, joint soreness x3 days.</text>
+      </g>
+
+      {/* O: Objective */}
+      <g transform="translate(20, 106)">
+        <rect width="260" height="48" rx="6" fill="#131D31" />
+        <text x="12" y="18" fill="#38BDF8" font-size="10" font-weight="bold" font-family="monospace">[O] OBJECTIVE</text>
+        <text x="12" y="34" fill="#CBD5E1" font-size="10" font-family="sans-serif">BP 120/80 mmHg, HR 72 bpm, Temp 98.6°F.</text>
+      </g>
+
+      {/* A: Assessment */}
+      <g transform="translate(20, 162)">
+        <rect width="260" height="48" rx="6" fill="#131D31" />
+        <text x="12" y="18" fill="#38BDF8" font-size="10" font-weight="bold" font-family="monospace">[A] ASSESSMENT</text>
+        <text x="12" y="34" fill="#CBD5E1" font-size="10" font-family="sans-serif">Acute viral tension headache; stable vitals.</text>
+      </g>
+
+      {/* P: Plan */}
+      <g transform="translate(20, 218)">
+        <rect width="260" height="48" rx="6" fill="#131D31" />
+        <text x="12" y="18" fill="#38BDF8" font-size="10" font-weight="bold" font-family="monospace">[P] PLAN &amp; RX</text>
+        <text x="12" y="34" fill="#CBD5E1" font-size="10" font-family="sans-serif">Hydration, Paracetamol 500mg PRN, follow up.</text>
+      </g>
+
+      {/* Export Button */}
+      <g transform="translate(20, 274)">
+        <rect width="260" height="26" rx="4" fill="#10B981" fill-opacity="0.2" stroke="#10B981" stroke-width="1" />
+        <text x="130" y="17" fill="#6EE7B7" font-size="10" font-weight="bold" font-family="sans-serif" text-anchor="middle">✓ Sync to Electronic Health Record</text>
+      </g>
+    </g>
+  </g>
+</svg>

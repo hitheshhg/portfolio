@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { CommandPalette } from "@/components/ui/CommandPalette";
 import "./globals.css";
 
 const fontGrotesk = Plus_Jakarta_Sans({
@@ -17,27 +18,24 @@ const fontMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hitheshhg.qd.je"),
-  title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
+  title: "Hithesh HG — Software Engineer & Full Stack Developer",
   description:
-    "Portfolio of Hithesh HG — Data Analyst specializing in SQL, Python, Power BI, Tableau, predictive modeling, and statistical business intelligence.",
+    "Portfolio of Hithesh HG — Full stack engineer specializing in Next.js, Java, Spring Boot, TypeScript, and high-performance system architectures.",
   keywords: [
     "Hithesh HG",
-    "Data Analyst",
-    "Business Intelligence",
-    "SQL",
+    "Full Stack Developer",
+    "Software Engineer",
+    "Next.js",
+    "TypeScript",
+    "Java",
+    "Spring Boot",
     "PostgreSQL",
-    "Python",
-    "Pandas",
-    "Power BI",
-    "Tableau",
-    "Predictive Modeling",
-    "ETL",
   ],
   authors: [{ name: "Hithesh HG", url: "https://github.com/hitheshhg" }],
   openGraph: {
-    title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
+    title: "Hithesh HG — Software Engineer & Full Stack Developer",
     description:
-      "Transforming complex datasets into actionable business intelligence, predictive models, and decision-ready dashboards.",
+      "Crafting high-impact web apps, native mobile systems, and scalable backend microservices.",
     url: "https://hitheshhg.qd.je",
     siteName: "Hithesh HG Portfolio",
     locale: "en_US",
@@ -63,12 +61,18 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var saved = localStorage.getItem('theme');
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (saved === 'dark' || (!saved && prefersDark)) {
-                    document.documentElement.classList.add('dark');
+                  var stored = localStorage.getItem('portfolio-theme');
+                  var mql = window.matchMedia('(prefers-color-scheme: dark)');
+                  var theme = stored === 'light' || stored === 'dark' ? stored : (mql.matches ? 'dark' : 'light');
+                  var root = document.documentElement;
+                  if (theme === 'dark') {
+                    root.classList.add('dark');
+                    root.setAttribute('data-theme', 'dark');
+                    root.style.colorScheme = 'dark';
                   } else {
-                    document.documentElement.classList.remove('dark');
+                    root.classList.remove('dark');
+                    root.setAttribute('data-theme', 'light');
+                    root.style.colorScheme = 'light';
                   }
                 } catch (e) {}
               })();
@@ -76,9 +80,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[var(--canvas-bg)] text-[var(--text-primary)] antialiased selection:bg-[var(--selection-bg)] selection:text-[var(--selection-text)] transition-colors duration-200">
+      <body className="min-h-screen bg-[var(--canvas-bg)] text-[var(--text-main)] antialiased transition-colors duration-200">
         <ThemeProvider>
           {children}
+          <CommandPalette />
         </ThemeProvider>
       </body>
     </html>
