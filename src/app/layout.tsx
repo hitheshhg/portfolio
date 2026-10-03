@@ -16,8 +16,12 @@ const fontMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://hithesh.is-a.dev");
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hitheshhg.qd.je"),
+  metadataBase: new URL(siteUrl),
   title: "Hithesh HG — Software Engineer & Full Stack Developer",
   description:
     "Portfolio of Hithesh HG — Full stack engineer specializing in Next.js, Java, Spring Boot, TypeScript, and high-performance system architectures.",
@@ -36,7 +40,7 @@ export const metadata: Metadata = {
     title: "Hithesh HG — Software Engineer & Full Stack Developer",
     description:
       "Crafting high-impact web apps, native mobile systems, and scalable backend microservices.",
-    url: "https://hitheshhg.qd.je",
+    url: siteUrl,
     siteName: "Hithesh HG Portfolio",
     locale: "en_US",
     type: "website",
