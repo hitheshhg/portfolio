@@ -147,43 +147,6 @@
   background-color: var(--bento-subtle-hover);
 }
 
-/* Retro CRT Terminal Easter Egg Mode */
-.crt-mode {
-  --canvas-bg: #030803;
-  --bento-bg: #051205;
-  --bento-border: rgba(74, 222, 128, 0.35);
-  --border-default: rgba(74, 222, 128, 0.35);
-  --text-main: #4ade80;
-  --text-muted: #22c55e;
-  --text-subtle: #16a34a;
-  --accent-green: #4ade80;
-}
-
-.crt-mode body {
-  background-color: #030803 !important;
-  color: #4ade80 !important;
-  font-family: var(--font-mono), 'JetBrains Mono', monospace !important;
-  text-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
-}
-
-.crt-mode .bento-card {
-  background-color: #051205 !important;
-  border-color: rgba(74, 222, 128, 0.35) !important;
-  box-shadow: 0 0 24px rgba(74, 222, 128, 0.08), inset 0 0 15px rgba(74, 222, 128, 0.03);
-}
-
-.crt-mode::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0; left: 0; bottom: 0; right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-              linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-  z-index: 9999;
-  background-size: 100% 3px, 6px 100%;
-  pointer-events: none;
-}
-
 /* Accessibility Focus States */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--focus-outline);

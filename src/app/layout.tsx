@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/context/ThemeContext";
-import { CommandPalette } from "@/components/ui/CommandPalette";
 import "./globals.css";
 
 const fontGrotesk = Plus_Jakarta_Sans({
@@ -87,7 +86,6 @@ export default function RootLayout({
       <body className="min-h-screen bg-[var(--canvas-bg)] text-[var(--text-main)] antialiased transition-colors duration-200">
         <ThemeProvider>
           {children}
-          <CommandPalette />
         </ThemeProvider>
       </body>
     </html>

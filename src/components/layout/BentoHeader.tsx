@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Download, Menu, X } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { playClick, playFanfare } from "@/lib/sound";
-import { fireConfetti } from "@/lib/confetti";
+import { playClick } from "@/lib/sound";
 
 export interface BentoHeaderProps {
   activeTab?: "home" | "design" | "development" | "blog" | "cv";
@@ -34,26 +33,6 @@ export function BentoHeader({
   headerAction,
 }: BentoHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
-  const lastClickTimeRef = useRef(0);
-
-  const handleLogoClick = () => {
-    const now = Date.now();
-    playClick(750, 0.02);
-
-    if (now - lastClickTimeRef.current > 2000) {
-      setClickCount(1);
-    } else {
-      const next = clickCount + 1;
-      setClickCount(next);
-      if (next >= 5) {
-        setClickCount(0);
-        playFanfare();
-        fireConfetti();
-      }
-    }
-    lastClickTimeRef.current = now;
-  };
 
   return (
     <header className="bento-card p-6 sm:p-8 w-full shadow-lg dark:shadow-2xl transition-all">
@@ -63,8 +42,7 @@ export function BentoHeader({
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            onClick={handleLogoClick}
-            title="Click 5 times for a surprise 🎉"
+            onClick={() => playClick(750, 0.02)}
             className="font-mono text-xs sm:text-sm font-semibold tracking-tight text-neutral-900 dark:text-white hover:opacity-80 transition-opacity select-none"
           >
             hithesh.dev
@@ -101,21 +79,6 @@ export function BentoHeader({
 
         {/* Actions & Socials */}
         <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-          {/* Quick Command Palette Button */}
-          <button
-            type="button"
-            onClick={() => {
-              playClick(800, 0.02);
-              window.dispatchEvent(
-                new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })
-              );
-            }}
-            aria-label="Open Command Menu"
-            className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:border-black/25 dark:hover:border-white/25 text-[11px] font-mono transition-all group"
-          >
-            <span className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300">cmd</span>
-            <kbd className="text-[10px] text-neutral-500 dark:text-neutral-400 font-mono">⌘K</kbd>
-          </button>
 
           {/* Theme Toggle Button */}
           <ThemeToggle />

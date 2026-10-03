@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowUp, Terminal } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { playClick } from "@/lib/sound";
 
@@ -61,21 +61,6 @@ export function Footer() {
 
         {/* Shortcuts & Socials */}
         <div className="flex items-center gap-3 text-xs font-mono">
-          <button
-            type="button"
-            onClick={() => {
-              playClick(700, 0.02);
-              window.dispatchEvent(
-                new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })
-              );
-            }}
-            className="hidden sm:inline-flex items-center gap-1.5 text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white px-2 py-1 rounded-lg border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all text-[11px]"
-          >
-            <Terminal className="w-3 h-3 text-emerald-600 dark:text-[#4ade80]" />
-            <span>cmd</span>
-            <kbd className="text-[10px] text-neutral-500">⌘K</kbd>
-          </button>
-
           <a
             href="https://github.com/hitheshhg"
             target="_blank"

@@ -13,12 +13,7 @@
 
 - **Bento Grid Architecture**: Pixel-faithful, balanced 12-column bento grids unified across all routes (`/`, `/design`, `/development`, `/blog`, `/cv`, and `/projects/[slug]`).
 - **Butter-Smooth 120fps Performance**: Pure native hardware acceleration without JavaScript scroll-jacking loops. Subpixel font smoothing and lightweight GPU compositing.
-- **Micro-Haptics (`sound.ts`)**: 0kb zero-dependency audio synthesizer creating subtle mechanical switch clicks and arcade fanfares directly via browser `AudioContext`.
-- **Command Palette (`⌘K`)**: Raycast/Linear-style global command menu with full keyboard navigation (`ArrowUp`, `ArrowDown`, `Enter`).
-- **Memorable Easter Eggs**:
-  - **Konami Code (`↑ ↑ ↓ ↓ ← → ← → B A`)**: Unlocks a retro green-phosphor CRT scanline terminal mode, 8-bit fanfare, and celebratory confetti shower.
-  - **Logo Multi-Click**: Rapidly click `hithesh.dev` 5 times to fire party confetti.
-  - **Interactive CLI commands**: `confetti`, `matrix`, `coffee`, `quote`.
+- **Micro-Haptics (`sound.ts`)**: 0kb zero-dependency audio synthesizer creating subtle mechanical switch clicks directly via browser `AudioContext`.
 
 ---
 
@@ -29,7 +24,6 @@
 - **Styling**: Tailwind CSS v4 + Vanilla CSS Tokens
 - **Icons**: Lucide React + Custom SVG Design Primitives
 - **Audio**: Web Audio API (native browser synthesizer)
-- **Effects**: Lazy-loaded `canvas-confetti`
 
 ---
 

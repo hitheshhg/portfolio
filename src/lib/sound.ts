@@ -1,7 +1,6 @@
 /**
  * Zero-dependency Web Audio micro-haptics.
- * Synthesizes subtle mechanical clicks, retro terminal beeps, and arcade fanfares
- * directly using browser AudioContext with 0kb external bundle size.
+ * Synthesizes subtle mechanical clicks and theme transitions directly using browser AudioContext.
  */
 
 let audioCtx: AudioContext | null = null;
@@ -99,70 +98,6 @@ export function playThemeTransitionSound(targetTheme: "light" | "dark") {
 
     osc.start();
     osc.stop(ctx.currentTime + 0.15);
-  } catch {
-    // Graceful fallback
-  }
-}
-
-/**
- * Play a vintage retro beep for the terminal mode
- */
-export function playRetroBeep() {
-  if (!soundEnabled) return;
-  try {
-    const ctx = getAudioContext();
-    if (!ctx) return;
-
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    osc.type = "square";
-    osc.frequency.setValueAtTime(440, ctx.currentTime);
-    osc.frequency.setValueAtTime(880, ctx.currentTime + 0.06);
-
-    gain.gain.setValueAtTime(0.035, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.16);
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(ctx.currentTime + 0.18);
-  } catch {
-    // Graceful fallback
-  }
-}
-
-/**
- * Play an 8-bit arcade victory arpeggio when unlocking the Konami Code easter egg!
- */
-export function playFanfare() {
-  if (!soundEnabled) return;
-  try {
-    const ctx = getAudioContext();
-    if (!ctx) return;
-
-    // Arpeggio notes: C5, E5, G5, C6 (523Hz, 659Hz, 784Hz, 1046Hz)
-    const notes = [523.25, 659.25, 783.99, 1046.5];
-    const noteDuration = 0.09;
-
-    notes.forEach((freq, idx) => {
-      const startTime = ctx.currentTime + idx * noteDuration;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-
-      osc.type = "triangle";
-      osc.frequency.setValueAtTime(freq, startTime);
-
-      gain.gain.setValueAtTime(0.06, startTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, startTime + noteDuration * 1.5);
-
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start(startTime);
-      osc.stop(startTime + noteDuration * 1.5);
-    });
   } catch {
     // Graceful fallback
   }
