@@ -17,7 +17,7 @@ const fontMono = JetBrains_Mono({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://hithesh.is-a.dev");
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://hitheshhg.is-a.dev");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
