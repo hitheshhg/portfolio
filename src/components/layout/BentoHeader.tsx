@@ -139,7 +139,10 @@ export function BentoHeader({
               <Link
                 key={link.id}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  playClick(700, 0.02);
+                  setMobileMenuOpen(false);
+                }}
                 className={`px-3 py-2 text-xs font-mono rounded-lg transition-colors ${
                   isActive
                     ? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/10 font-bold"

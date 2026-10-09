@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BentoHeader } from "@/components/layout/BentoHeader";
 import { Footer } from "@/components/layout/Footer";
 import { Clock, X, CheckCircle2 } from "lucide-react";
+import { playClick } from "@/lib/sound";
 
 interface Article {
   slug: string;
@@ -141,6 +142,19 @@ public record Candidate(CandidateId id, Email email, ReadinessScore score) {
 export default function BlogPage() {
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
 
+  // Close modal on Escape key and manage body overflow
+  useEffect(() => {
+    if (!activeArticle) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        playClick(450, 0.02);
+        setActiveArticle(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeArticle]);
+
   return (
     <div className="min-h-screen bg-transparent pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
@@ -163,7 +177,10 @@ export default function BlogPage() {
           {articles.map((art, idx) => (
             <article
               key={idx}
-              onClick={() => setActiveArticle(art)}
+              onClick={() => {
+                playClick(750, 0.02);
+                setActiveArticle(art);
+              }}
               className="bento-card p-6 flex flex-col justify-between h-full group cursor-pointer hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
             >
               <div>
@@ -207,7 +224,10 @@ export default function BlogPage() {
           role="dialog"
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
-          onClick={() => setActiveArticle(null)}
+          onClick={() => {
+            playClick(450, 0.02);
+            setActiveArticle(null);
+          }}
         >
           <div
             className="bento-card bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-6 sm:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
@@ -227,7 +247,10 @@ export default function BlogPage() {
 
               <button
                 type="button"
-                onClick={() => setActiveArticle(null)}
+                onClick={() => {
+                  playClick(500, 0.02);
+                  setActiveArticle(null);
+                }}
                 aria-label="Close reading view"
                 className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-900 hover:bg-black/5 dark:hover:text-white dark:hover:bg-white/10 transition-colors"
               >

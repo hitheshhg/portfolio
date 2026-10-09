@@ -83,7 +83,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[var(--canvas-bg)] text-[var(--text-main)] antialiased transition-colors duration-200">
+      <body className="min-h-screen bg-[var(--canvas-bg)] text-[var(--text-main)] antialiased">
         <ThemeProvider>
           {children}
         </ThemeProvider>
