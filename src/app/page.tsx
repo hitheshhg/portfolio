@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { BentoHeader } from "@/components/layout/BentoHeader";
 import { FigmaHeroCard } from "@/components/figma/FigmaHeroCard";
 import { FigmaProcessCard } from "@/components/figma/FigmaProcessCard";
 import { FigmaToolsCard } from "@/components/figma/FigmaToolsCard";
+import { QuickConnectCard } from "@/components/ui/QuickConnectCard";
 import { Footer } from "@/components/layout/Footer";
 import { projects } from "@/data/projects";
 
@@ -111,42 +112,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Row 4: Quick Connect Bento Card */}
-        <div className="bento-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div className="space-y-1.5 max-w-xl">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs text-neutral-500 line-through">
-                contact
-              </span>
-              <span className="font-mono text-xs font-semibold text-neutral-900 dark:text-white tracking-wide">
-                collaborate
-              </span>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-sans font-bold text-neutral-900 dark:text-white tracking-tight">
-              have a project or role in mind?
-            </h2>
-            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Open to engineering opportunities, distributed systems challenges, and product collaborations.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <a
-              href="mailto:hitheshhg@gmail.com"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-black font-medium text-xs font-mono dark:hover:bg-neutral-200 transition-colors shadow-sm"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>hitheshhg@gmail.com</span>
-            </a>
-            <Link
-              href="/cv"
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-black/10 text-neutral-800 hover:border-black/30 hover:bg-black/[0.04] dark:border-white/10 dark:text-white font-medium text-xs font-mono dark:hover:border-white/30 dark:hover:bg-white/[0.04] transition-all"
-            >
-              <span>view cv</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-        </div>
+        {/* Row 4: Quick Connect Bento Card with Interactive Contact Modal */}
+        <QuickConnectCard />
 
         {/* Shared Unified Footer */}
         <Footer />
