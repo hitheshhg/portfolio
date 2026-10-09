@@ -35,6 +35,13 @@ export const metadata: Metadata = {
     "PostgreSQL",
   ],
   authors: [{ name: "Hithesh HG", url: "https://github.com/hitheshhg" }],
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Hithesh HG — Software Engineer & Full Stack Developer",
     description:

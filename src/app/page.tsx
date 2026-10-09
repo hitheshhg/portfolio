@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { BentoHeader } from "@/components/layout/BentoHeader";
 import { FigmaHeroCard } from "@/components/figma/FigmaHeroCard";
-import { FigmaProcessCard } from "@/components/figma/FigmaProcessCard";
 import { FigmaToolsCard } from "@/components/figma/FigmaToolsCard";
 import { QuickConnectCard } from "@/components/ui/QuickConnectCard";
 import { Footer } from "@/components/layout/Footer";
@@ -16,15 +15,8 @@ export default function HomePage() {
         {/* Unified Top Navigation */}
         <BentoHeader activeTab="home" />
 
-        {/* Row 1: Hero Card & Process Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
-          <div className="lg:col-span-7">
-            <FigmaHeroCard />
-          </div>
-          <div className="lg:col-span-5">
-            <FigmaProcessCard />
-          </div>
-        </div>
+        {/* Row 1: Hero Bento Card */}
+        <FigmaHeroCard />
 
         {/* Row 2: Development Tools Card */}
         <FigmaToolsCard />

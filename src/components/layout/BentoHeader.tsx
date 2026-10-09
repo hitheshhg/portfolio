@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { playClick } from "@/lib/sound";
 
 export interface BentoHeaderProps {
-  activeTab?: "home" | "design" | "development" | "blog" | "cv";
+  activeTab?: "home" | "development" | "blog" | "cv";
   tagLineThrough?: string;
   tagHighlight?: string;
   title?: string;
@@ -18,7 +18,6 @@ export interface BentoHeaderProps {
 
 const NAV_LINKS = [
   { name: "home", href: "/", id: "home" },
-  { name: "design", href: "/design", id: "design" },
   { name: "development", href: "/development", id: "development" },
   { name: "blog", href: "/blog", id: "blog" },
   { name: "cv", href: "/cv", id: "cv" },
