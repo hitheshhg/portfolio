@@ -34,14 +34,14 @@ export default function HomePage() {
                 </span>
               </div>
               <h2 className="text-xl sm:text-2xl font-sans font-bold text-neutral-900 dark:text-white tracking-tight">
-                production systems &amp; apps
+                predictive models &amp; bi dashboards
               </h2>
             </div>
             <Link
               href="/development"
               className="inline-flex items-center gap-1.5 text-xs font-mono text-neutral-500 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white transition-colors group"
             >
-              <span>view all projects</span>
+              <span>view all case studies</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>

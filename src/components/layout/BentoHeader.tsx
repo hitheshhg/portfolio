@@ -18,7 +18,7 @@ export interface BentoHeaderProps {
 
 const NAV_LINKS = [
   { name: "home", href: "/", id: "home" },
-  { name: "development", href: "/development", id: "development" },
+  { name: "analytics", href: "/development", id: "development" },
   { name: "blog", href: "/blog", id: "blog" },
   { name: "cv", href: "/cv", id: "cv" },
 ] as const;

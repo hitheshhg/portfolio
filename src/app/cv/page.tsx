@@ -15,7 +15,7 @@ export default function CvPage() {
           tagLineThrough="resume"
           tagHighlight="cv"
           title="curriculum vitae"
-          subtitle="Comprehensive record of professional experience, academic foundations, and engineering competencies."
+          subtitle="Comprehensive record of data analytics experience, academic foundations, and analytical competencies."
           headerAction={
             <a
               href="/resume.pdf"
@@ -35,7 +35,7 @@ export default function CvPage() {
             <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
               <span className="font-mono text-xs uppercase tracking-wider text-neutral-600 dark:text-neutral-400 font-semibold flex items-center gap-1.5">
                 <span className="text-emerald-600 dark:text-[#4ade80]">{"//"}</span>
-                <span>work &amp; leadership experience</span>
+                <span>analytics &amp; professional experience</span>
               </span>
               <span className="text-[11px] font-mono text-neutral-500">
                 {experiences.length} positions

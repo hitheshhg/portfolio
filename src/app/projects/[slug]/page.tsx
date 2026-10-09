@@ -77,7 +77,7 @@ export default async function ProjectDetailPage({
             className="inline-flex items-center gap-2 text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors group"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform text-emerald-600 dark:text-[#4ade80]" />
-            <span>back to all projects</span>
+            <span>back to all case studies</span>
           </Link>
           <span className="text-neutral-500">case study // {project.category.toLowerCase()}</span>
         </div>

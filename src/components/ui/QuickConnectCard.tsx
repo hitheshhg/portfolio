@@ -25,7 +25,7 @@ export function QuickConnectCard() {
             have a project or role in mind?
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Open to engineering opportunities, distributed systems challenges, and product collaborations.
+            Open to data analyst roles, business intelligence challenges, and analytical consulting.
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "Hithesh HG — Full Stack Developer Portfolio";
+export const alt = "Hithesh HG — Data Analyst & Business Intelligence Specialist";
 export const size = {
   width: 1200,
   height: 630,
@@ -57,7 +57,7 @@ export default async function Image() {
               fontFamily: "monospace",
             }}
           >
-            [hhg] • Full Stack Developer
+            [hhg] • Data Analyst & BI
           </div>
         </div>
 
@@ -88,7 +88,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            Engineering robust web systems, intelligent applications, and high-performance digital products.
+            Turning raw data into actionable insights through SQL, Python, Power BI, and statistical modeling.
           </div>
         </div>
 

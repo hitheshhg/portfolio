@@ -23,118 +23,140 @@ interface Article {
 
 const articles: Article[] = [
   {
-    slug: "bento-interfaces-nextjs",
-    title: "Building Pixel-Faithful Bento Interfaces with Next.js",
+    slug: "sql-window-functions-cohort-analysis",
+    title: "Advanced SQL Window Functions for Cohort Retention Analysis",
     date: "Sep 2026",
-    readTime: "4 min read",
+    readTime: "5 min read",
     summary:
-      "How to extract design tokens from Figma primitives and translate them into strict, responsive bento grids using Next.js 15, Tailwind CSS, and CSS Grid.",
-    tag: "Frontend",
+      "How to formulate month-over-month cohort retention matrices directly in PostgreSQL using Common Table Expressions (CTEs), DENSE_RANK, and LAG functions.",
+    tag: "SQL & Relational",
     fullContent: {
       intro:
-        "The Bento Grid trend has taken over modern web design because it offers structured density without sacrificing visual breathing room. Here is our architectural playbook for translating Figma tokens directly into React components.",
+        "Retention cohort analysis is the gold standard for measuring customer stickiness. Instead of writing inefficient client-side grouping scripts, executing cohort logic directly in SQL unlocks lightning-fast aggregation over millions of transactional rows.",
       points: [
         {
-          heading: "1. Defining the Token Hierarchy",
-          body: "Rather than arbitrary Tailwind classes, isolate canvas, surface, border, and glow tokens into CSS custom properties. This ensures seamless light/dark mode transitions without re-rendering component trees.",
+          heading: "1. Defining the Initial Acquisition Cohort",
+          body: "Utilize a Common Table Expression (CTE) with the MIN() window function partitioned by customer ID to stamp every user with their acquisition month (cohort_month).",
         },
         {
-          heading: "2. Rigid Subgrid vs Nested Flexbox",
-          body: "Bento cards shine when paired with CSS Subgrid or 12-column responsive flex structures (`grid-cols-1 md:grid-cols-3` or `lg:grid-cols-12`). Ensure each card stretches with `h-full flex flex-col justify-between` to avoid ragged grid baselines.",
+          heading: "2. Calculating Month Interval Offsets",
+          body: "Compute the integer difference between the order date month and the cohort month using EXTRACT(YEAR FROM ...) * 12 + EXTRACT(MONTH FROM ...). This establishes normalized Month 0, Month 1, Month 2 columns.",
         },
         {
-          heading: "3. Micro-Interaction Polish",
-          body: "Subtle borders (`rgba(255,255,255,0.08)` or `rgba(0,0,0,0.08)`) with hovering scale transformations (`scale-[1.01]`) give bento cards physical presence on the canvas without causing layout recalculation.",
+          heading: "3. Pivoting with Conditional Aggregations",
+          body: "Aggregate active user counts by cohort and period offset, then compute percentage retention relative to Month 0 base volume to power downstream Tableau and Power BI heatmaps.",
         },
       ],
-      codeSnippet: `// tokens.ts - Canonical Token Declaration
-export const tokens = {
-  colors: {
-    canvas: { dark: "#09090b", light: "#f4f4f5" },
-    card: { dark: "#000000", light: "#ffffff" },
-    border: { dark: "rgba(255, 255, 255, 0.08)", light: "rgba(0, 0, 0, 0.08)" }
-  },
-  radii: { bento: "20px" }
-} as const;`,
+      codeSnippet: `WITH user_cohorts AS (
+  SELECT 
+    user_id,
+    DATE_TRUNC('month', MIN(order_date)) AS cohort_month
+  FROM orders
+  GROUP BY user_id
+),
+monthly_activity AS (
+  SELECT 
+    o.user_id,
+    uc.cohort_month,
+    (EXTRACT(YEAR FROM o.order_date) - EXTRACT(YEAR FROM uc.cohort_month)) * 12 +
+    (EXTRACT(MONTH FROM o.order_date) - EXTRACT(MONTH FROM uc.cohort_month)) AS period_offset
+  FROM orders o
+  JOIN user_cohorts uc ON o.user_id = uc.user_id
+)
+SELECT 
+  cohort_month,
+  period_offset,
+  COUNT(DISTINCT user_id) AS active_users,
+  ROUND(COUNT(DISTINCT user_id)::NUMERIC / FIRST_VALUE(COUNT(DISTINCT user_id)) 
+    OVER (PARTITION BY cohort_month ORDER BY period_offset) * 100, 2) AS retention_rate
+FROM monthly_activity
+GROUP BY cohort_month, period_offset
+ORDER BY cohort_month, period_offset;`,
       conclusion:
-        "By enforcing strict token boundaries and equal-height flex children, your bento interfaces remain solid across all viewport sizes.",
+        "Leveraging native database window operations keeps data transformation pipelines reproducible, deterministic, and optimized for sub-second business intelligence feeds.",
     },
   },
   {
-    slug: "postgresql-schema-indexes",
-    title: "Optimizing PostgreSQL Schema & Indexes for Sub-Second Queries",
+    slug: "executive-bi-dashboards-powerbi-tableau",
+    title: "Designing Decision-Ready Executive Dashboards in Power BI & Tableau",
     date: "Aug 2026",
     readTime: "6 min read",
     summary:
-      "Architectural techniques for relational database performance, B-tree vs GIN indexing strategies, and connection pooling in high-throughput workloads.",
-    tag: "Database",
+      "Core principles for reducing cognitive load, architecting robust star schemas, and formulating reusable DAX time-intelligence calculations.",
+    tag: "Business Intelligence",
     fullContent: {
       intro:
-        "In production full-stack systems, 90% of latency bottlenecks originate from unindexed foreign keys or N+1 query patterns. Here is how we tune PostgreSQL for high concurrent throughput.",
+        "Many business intelligence dashboards fail because they dump 30 disparate charts on a page without a narrative hierarchy. An effective dashboard immediately answers three questions: What happened? Why did it happen? What action should be taken next?",
       points: [
         {
-          heading: "1. Indexing What Matters: Compound & Partial Indexes",
-          body: "Don't blindly index every column. Compound indexes must adhere to the left-most prefix rule. For soft-deleted records (`WHERE deleted_at IS NULL`), partial indexes reduce index tree size by up to 80%.",
+          heading: "1. Enforce Star Schema Modeling (Kimball Methodology)",
+          body: "Never build BI reports directly against flat, de-normalized 100-column tables. Structuring fact tables (transactions, events) and shared dimension tables (Date, Customer, Product) with 1-to-many relationships optimizes in-memory VertiPaq engine performance.",
         },
         {
-          heading: "2. GIN Indexes for JSONB & Full-Text Search",
-          body: "When storing unstructured metadata in JSONB columns, standard B-Trees cannot search inner keys efficiently. Generalized Inverted Indexes (GIN) provide sub-10ms lookup times even over millions of rows.",
+          heading: "2. The 5-Second Executive Rule",
+          body: "Place top-level KPI scorecards (Revenue, Churn Rate, LTV, CAC) with clear target variance benchmarks in the top-left quadrant where eye-tracking naturally initiates.",
         },
         {
-          heading: "3. Connection Pooling with PgBouncer",
-          body: "Serverless functions spawn hundreds of ephemeral connections that exhaust PostgreSQL max_connections. Running a transaction-mode connection pooler prevents cold-start starvation.",
+          heading: "3. Reusable DAX Time-Intelligence Measures",
+          body: "Decouple calendar logic into a dedicated Date dimension table and use CALCULATE with DATEADD or DATESYTD to ensure dynamic period-over-period comparisons remain accurate across leap years and fiscal boundaries.",
         },
       ],
-      codeSnippet: `-- Partial index for active users
-CREATE INDEX idx_users_active_email 
-ON users (email) 
-WHERE status = 'ACTIVE' AND deleted_at IS NULL;
-
--- GIN index for metadata JSONB search
-CREATE INDEX idx_resumes_skills_gin 
-ON resumes USING GIN ((metadata->'extracted_skills'));`,
+      codeSnippet: `// DAX Measure: Year-over-Year Revenue Growth %
+YoY Revenue % = 
+VAR CurrentRevenue = [Total Revenue]
+VAR PriorYearRevenue = 
+    CALCULATE(
+        [Total Revenue], 
+        DATEADD('DimDate'[Date], -1, YEAR)
+    )
+RETURN 
+    DIVIDE(CurrentRevenue - PriorYearRevenue, PriorYearRevenue, 0)`,
       conclusion:
-        "Index deliberately, inspect EXPLAIN ANALYZE traces, and pool connections to keep p99 query latencies below 20 milliseconds.",
+        "Rigorous dimensional modeling combined with restrained visual design transforms static charts into strategic decision-support systems.",
     },
   },
   {
-    slug: "clean-architecture-spring-boot",
-    title: "Clean Architecture in Enterprise Java & Spring Boot",
+    slug: "ab-testing-statistical-significance",
+    title: "Statistical Significance & Common Pitfalls in Product A/B Testing",
     date: "Jul 2026",
     readTime: "5 min read",
     summary:
-      "Structuring microservices for testability, separation of concerns, and resilient RESTful API design using Hexagonal architecture principles.",
-    tag: "Backend",
+      "Understanding p-values, Type I/II errors, sample size power calculations, and why 'peeking' at metrics ruins experimental validity.",
+    tag: "Statistics",
     fullContent: {
       intro:
-        "Enterprise Java backends frequently devolve into anemic domain models with 2,000-line service classes. Adopting Hexagonal / Ports & Adapters architecture guarantees maintainability over multi-year lifecycles.",
+        "A/B testing is frequently misapplied in digital product analytics: experiments are stopped the moment p < 0.05 is observed, or variance is mistaken for genuine causal lift. Here is how to maintain mathematical rigor in hypothesis testing.",
       points: [
         {
-          heading: "1. Domain Isolation (Entities & Value Objects)",
-          body: "Domain logic must remain agnostic of Spring Framework annotations, JPA entities, and HTTP controllers. Pure Java POJOs execute business rules with 100% unit-test coverage without mocking databases.",
+          heading: "1. Pre-Experiment Power Analysis & Sample Sizing",
+          body: "Never launch an experiment without calculating required sample size in advance based on baseline conversion, Minimum Detectable Effect (MDE), statistical power (1 - beta = 0.80), and alpha (0.05).",
         },
         {
-          heading: "2. Ports and Adapters (Inbound & Outbound)",
-          body: "Inbound ports expose use cases to REST controllers or gRPC handlers. Outbound ports declare persistence interfaces that JPA repositories implement behind decoupled adapters.",
+          heading: "2. The Continuous Peeking Fallacy",
+          body: "Repeatedly evaluating p-values daily inflates the False Positive rate from 5% to over 30% due to random walk fluctuations. Commit to running tests for full seasonal cycles (at least 2 full business weeks).",
         },
         {
-          heading: "3. Resilient Error Handling & Result Types",
-          body: "Instead of throwing generic RuntimeExceptions across layer boundaries, return explicit Result / Either monads or custom typed domain exceptions with global ControllerAdvices.",
+          heading: "3. Two-Tailed vs One-Tailed T-Tests",
+          body: "Always default to two-tailed tests unless there is definitive theoretical proof that a treatment could not possibly cause harm. Watch out for negative side effects on secondary guardrail metrics like refund rates or support ticket volume.",
         },
       ],
-      codeSnippet: `// Inbound Port definition
-public interface ProcessApplicationUseCase {
-    ApplicationResult execute(ApplicationCommand command);
-}
+      codeSnippet: `import numpy as np
+import scipy.stats as stats
 
-// Domain Entity with invariants
-public record Candidate(CandidateId id, Email email, ReadinessScore score) {
-    public Candidate {
-        Objects.requireNonNull(email, "Candidate email cannot be null");
-    }
-}`,
+# Two-sample Z-test for proportions
+def ab_test_significance(conversions_a, sample_a, conversions_b, sample_b, alpha=0.05):
+    p_a = conversions_a / sample_a
+    p_b = conversions_b / sample_b
+    pooled_p = (conversions_a + conversions_b) / (sample_a + sample_b)
+    se = np.sqrt(pooled_p * (1 - pooled_p) * (1/sample_a + 1/sample_b))
+    
+    z_score = (p_b - p_a) / se
+    p_value = 2 * (1 - stats.norm.cdf(abs(z_score)))
+    
+    is_significant = p_value < alpha
+    return {"z_score": round(z_score, 4), "p_value": round(p_value, 5), "significant": is_significant}`,
       conclusion:
-        "Strict boundary enforcement separates transport mechanics from business logic, making systems resilient to framework shifts and upgrades.",
+        "Controlled experiments require disciplined statistical patience; validating sample power upfront prevents costly false positives from reaching production.",
     },
   },
 ];
@@ -161,10 +183,10 @@ export default function BlogPage() {
         {/* Unified Top Navigation with Banner */}
         <BentoHeader
           activeTab="blog"
-          tagLineThrough="thoughts"
-          tagHighlight="blog"
-          title="articles & engineering notes"
-          subtitle="Deep dives into software architecture, relational database query optimization, design systems, and frontend craft."
+          tagLineThrough="insights"
+          tagHighlight="analytics notes"
+          title="articles & analytics notes"
+          subtitle="Explorations in SQL optimization, business intelligence architecture, statistical experimentation, and data storytelling."
           headerAction={
             <span className="px-3 py-1 rounded-full text-xs font-mono bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
               {articles.length} published notes

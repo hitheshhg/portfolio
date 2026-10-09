@@ -21,18 +21,22 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Hithesh HG — Software Engineer & Full Stack Developer",
+  title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
   description:
-    "Portfolio of Hithesh HG — Full stack engineer specializing in Next.js, Java, Spring Boot, TypeScript, and high-performance system architectures.",
+    "Portfolio of Hithesh HG — Data Analyst specializing in SQL, Python, Power BI, Tableau, cohort retention modeling, and executive BI dashboards.",
   keywords: [
     "Hithesh HG",
-    "Full Stack Developer",
-    "Software Engineer",
-    "Next.js",
-    "TypeScript",
-    "Java",
-    "Spring Boot",
+    "Data Analyst",
+    "Business Intelligence",
+    "Power BI",
+    "Tableau",
+    "SQL",
     "PostgreSQL",
+    "Python",
+    "Pandas",
+    "Data Science",
+    "Cohort Analysis",
+    "Predictive Modeling",
   ],
   authors: [{ name: "Hithesh HG", url: "https://github.com/hitheshhg" }],
   icons: {
@@ -43,9 +47,9 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "Hithesh HG — Software Engineer & Full Stack Developer",
+    title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
     description:
-      "Crafting high-impact web apps, native mobile systems, and scalable backend microservices.",
+      "Turning raw data into actionable insights with SQL, Python, Power BI, Tableau, and predictive analytics.",
     url: siteUrl,
     siteName: "Hithesh HG Portfolio",
     locale: "en_US",

@@ -13,13 +13,13 @@ export default function DevelopmentPage() {
         {/* Unified Top Navigation with Banner */}
         <BentoHeader
           activeTab="development"
-          tagLineThrough="software"
-          tagHighlight="development"
-          title="engineering projects & systems"
-          subtitle="Production-grade web apps, native mobile systems, and backend microservices built with Next.js, Java, TypeScript, and PostgreSQL."
+          tagLineThrough="data"
+          tagHighlight="analytics"
+          title="analytics case studies & insights"
+          subtitle="Production data pipelines, predictive attrition models, cohort retention analyses, and interactive executive dashboards."
           headerAction={
             <span className="px-3 py-1 rounded-full text-xs font-mono bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
-              {projects.length} featured systems
+              {projects.length} featured studies
             </span>
           }
         />
