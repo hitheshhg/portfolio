@@ -21,8 +21,8 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const isScrolled = window.scrollY > 20;
-          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+          const isScrolled = window.scrollY > 10;
+          setScrolled(isScrolled);
           ticking = false;
         });
         ticking = true;
@@ -54,16 +54,13 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full py-4 sm:py-5">
-      {/* Hardware-accelerated frosted glass backdrop that smoothly fades in with zero layout shifts */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-200 pointer-events-none ${
-          scrolled
-            ? "opacity-100 bg-[var(--canvas-bg)]/85 backdrop-blur-md border-b border-black/[0.06] dark:border-white/[0.08] shadow-xs"
-            : "opacity-0"
-        }`}
-      />
-
+    <header
+      className={`sticky top-0 z-50 w-full backdrop-blur-md transition-all duration-200 ${
+        scrolled
+          ? "bg-[#f5f5f7]/85 dark:bg-[#09090b]/85 border-b border-neutral-200/80 dark:border-neutral-800 shadow-xs py-3 sm:py-3.5"
+          : "bg-[#f5f5f7]/65 dark:bg-[#09090b]/65 border-b border-neutral-200/40 dark:border-neutral-800/40 py-3.5 sm:py-4"
+      }`}
+    >
       <div className="relative z-10 max-w-[1360px] mx-auto px-3 sm:px-8 flex items-center justify-between gap-2 sm:gap-4">
         {/* Left: Brand Pill Badge (Screenshot 5) */}
         <Link

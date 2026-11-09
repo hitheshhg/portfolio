@@ -50,14 +50,14 @@ export function WixHeroBento() {
 
             {/* Overlapping Circular Avatar Frame */}
             <div className="-mt-12 sm:-mt-14 ml-5 sm:ml-8 relative z-10">
-              <div className="w-22 h-22 sm:w-28 sm:h-28 rounded-full border-[4px] sm:border-[5px] border-white dark:border-[#222228] overflow-hidden bg-gradient-to-b from-neutral-100 to-neutral-200/80 dark:from-[#2a2a32] dark:to-[#1a1a20] shadow-md ring-1 ring-black/5 dark:ring-white/15 flex items-center justify-center relative group">
+              <div className="w-22 h-22 sm:w-28 sm:h-28 rounded-full border-[4px] sm:border-[5px] border-white dark:border-[#222228] overflow-hidden bg-gradient-to-b from-neutral-100 to-neutral-200/90 dark:from-[#24242c] dark:to-[#16161b] shadow-md ring-1 ring-black/5 dark:ring-white/15 flex items-center justify-center relative group">
                 <Image
                   src="/avatar.png"
                   alt="Hithesh HG - Avatar"
                   fill
                   sizes="(max-width: 640px) 88px, 112px"
                   priority
-                  className="object-cover object-center select-none [image-rendering:pixelated] group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain select-none [image-rendering:pixelated] group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>
