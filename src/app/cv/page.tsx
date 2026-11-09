@@ -16,10 +16,11 @@ export default function CvPage() {
         <a
           href="/resume.pdf"
           download="Hithesh_HG_Resume.pdf"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-black font-medium text-xs font-mono dark:hover:bg-neutral-200 transition-colors shadow-sm shrink-0"
+          className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-black font-medium text-xs font-mono dark:hover:bg-neutral-200 transition-colors shadow-sm shrink-0"
         >
           <Download className="w-3.5 h-3.5" />
-          <span>download official pdf</span>
+          <span className="hidden xs:inline">download official pdf</span>
+          <span className="xs:hidden">pdf cv</span>
         </a>
       }
       showConnectCard={true}
@@ -27,7 +28,7 @@ export default function CvPage() {
       {/* Experience & Education Balanced 2-Column Bento Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-start">
         {/* Column 1: Experience (7 cols) */}
-        <div className="lg:col-span-7 bento-card p-6 sm:p-8 space-y-6">
+        <div className="lg:col-span-7 bento-card p-4 sm:p-8 space-y-6">
           <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
             <span className="font-mono text-xs uppercase tracking-wider text-neutral-600 dark:text-neutral-400 font-semibold flex items-center gap-1.5">
               <span className="text-emerald-600 dark:text-[#4ade80]">{"//"}</span>
@@ -99,7 +100,7 @@ export default function CvPage() {
         {/* Column 2: Education & Technical Matrix (5 cols) */}
         <div className="lg:col-span-5 flex flex-col gap-4 sm:gap-5">
           {/* Education Bento Card */}
-          <div className="bento-card p-6 sm:p-8 space-y-5">
+          <div className="bento-card p-4 sm:p-8 space-y-5">
             <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
               <span className="font-mono text-xs uppercase tracking-wider text-neutral-600 dark:text-neutral-400 font-semibold flex items-center gap-1.5">
                 <span className="text-emerald-600 dark:text-[#4ade80]">{"//"}</span>
@@ -156,7 +157,7 @@ export default function CvPage() {
           </div>
 
           {/* Technical Competencies Matrix Card */}
-          <div className="bento-card p-6 sm:p-8 space-y-5">
+          <div className="bento-card p-4 sm:p-8 space-y-5">
             <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
               <span className="font-mono text-xs uppercase tracking-wider text-neutral-600 dark:text-neutral-400 font-semibold flex items-center gap-1.5">
                 <span className="text-emerald-600 dark:text-[#4ade80]">{"//"}</span>

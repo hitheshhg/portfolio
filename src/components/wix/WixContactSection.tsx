@@ -71,41 +71,41 @@ export function WixContactSection() {
   };
 
   return (
-    <section id="contact" className="w-full max-w-[1360px] mx-auto px-4 sm:px-8 my-8 sm:my-14 scroll-mt-24">
-      <div className="wix-card bg-white dark:bg-[#121214] p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+    <section id="contact" className="w-full max-w-[1360px] mx-auto px-3 sm:px-8 my-6 sm:my-14 scroll-mt-24">
+      <div className="wix-card bg-white dark:bg-[#121214] p-5 sm:p-10 lg:p-16 relative overflow-hidden">
         
         {/* Subtle decorative mesh gradient in top-right corner */}
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-br from-[#fed7aa]/20 via-[#fbcfe8]/20 to-[#bfdbfe]/20 dark:from-[#312e81]/15 dark:via-[#4c1d95]/15 dark:to-[#1e3a8a]/15 blur-3xl pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 relative z-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 relative z-10 items-start">
           
           {/* ==============================================================
               LEFT COLUMN: Header, Availability, Direct Email & Socials
               ============================================================== */}
-          <div className="lg:col-span-5 space-y-7">
+          <div className="lg:col-span-5 space-y-6 sm:space-y-7">
             {/* Outline Pill Badge */}
             <div className="wix-pill border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-white uppercase text-xs tracking-wider">
               CONTACT
             </div>
 
             {/* Headline */}
-            <div className="space-y-3">
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-sans font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.12]">
+            <div className="space-y-2.5 sm:space-y-3">
+              <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-sans font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.12] break-words">
                 Let&apos;s build something memorable together.
               </h2>
-              <p className="text-sm sm:text-[15px] text-neutral-600 dark:text-neutral-400 font-sans leading-relaxed">
+              <p className="text-xs sm:text-[15px] text-neutral-600 dark:text-neutral-400 font-sans leading-relaxed">
                 Have a project in mind, an opportunity to discuss, or just want to explore a potential collaboration? Send a message or reach out directly.
               </p>
             </div>
 
             {/* Direct Email Card with One-Click Copy */}
-            <div className="p-4 sm:p-5 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-white/[0.02] flex items-center justify-between gap-3 shadow-2xs">
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="w-10 h-10 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center shrink-0 shadow-2xs">
+            <div className="p-3.5 sm:p-5 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-white/[0.02] flex flex-col xs:flex-row xs:items-center justify-between gap-3 shadow-2xs">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center shrink-0 shadow-2xs">
                   <Mail className="w-4 h-4 text-neutral-700 dark:text-neutral-300" />
                 </div>
-                <div className="min-w-0">
-                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider block">
+                <div className="min-w-0 flex-1">
+                  <span className="text-[10px] sm:text-[11px] font-mono text-neutral-400 uppercase tracking-wider block">
                     Direct Email
                   </span>
                   <a
@@ -121,7 +121,7 @@ export function WixContactSection() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="wix-pill py-2 px-3.5 text-xs bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 shrink-0 shadow-2xs hover:bg-neutral-100 dark:hover:bg-neutral-700"
+                className="wix-pill py-1.5 sm:py-2 px-3 sm:px-3.5 text-xs bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 shrink-0 shadow-2xs hover:bg-neutral-100 dark:hover:bg-neutral-700 justify-center w-full xs:w-auto"
               >
                 {copied ? (
                   <>
@@ -138,23 +138,23 @@ export function WixContactSection() {
             </div>
 
             {/* Location & Social Connections */}
-            <div className="space-y-3 pt-2">
+            <div className="space-y-3 pt-1 sm:pt-2">
               <div className="flex items-center gap-2 text-xs font-mono text-neutral-500 dark:text-neutral-400">
-                <MapPin className="w-3.5 h-3.5 text-neutral-400" />
-                <span>Bengaluru, Karnataka, India • IST (UTC+5:30)</span>
+                <MapPin className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                <span className="break-words">Bengaluru, Karnataka, India • IST (UTC+5:30)</span>
               </div>
 
-              <div className="flex items-center gap-2.5 pt-1">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 pt-1">
                 <a
                   href="https://linkedin.com/in/hitheshhg"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playClick(600, 0.02)}
-                  className="wix-pill py-2 px-4 text-xs bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white shadow-2xs gap-1.5"
+                  className="wix-pill py-1.5 sm:py-2 px-3 sm:px-4 text-xs bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white shadow-2xs gap-1.5"
                 >
-                  <LinkedinIcon className="w-3.5 h-3.5" />
+                  <LinkedinIcon className="w-3.5 h-3.5 shrink-0" />
                   <span>LinkedIn</span>
-                  <ArrowUpRight className="w-3 h-3 text-neutral-400" />
+                  <ArrowUpRight className="w-3 h-3 text-neutral-400 shrink-0" />
                 </a>
 
                 <a
@@ -162,11 +162,11 @@ export function WixContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playClick(600, 0.02)}
-                  className="wix-pill py-2 px-4 text-xs bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white shadow-2xs gap-1.5"
+                  className="wix-pill py-1.5 sm:py-2 px-3 sm:px-4 text-xs bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white shadow-2xs gap-1.5"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
+                  <GithubIcon className="w-3.5 h-3.5 shrink-0" />
                   <span>GitHub</span>
-                  <ArrowUpRight className="w-3 h-3 text-neutral-400" />
+                  <ArrowUpRight className="w-3 h-3 text-neutral-400 shrink-0" />
                 </a>
               </div>
             </div>
@@ -175,7 +175,7 @@ export function WixContactSection() {
           {/* ==============================================================
               RIGHT COLUMN: Interactive Sleek Contact Form
               ============================================================== */}
-          <div className="lg:col-span-7 bg-neutral-50/70 dark:bg-[#0c0d10] p-6 sm:p-9 lg:p-10 rounded-[24px] border border-neutral-200/80 dark:border-neutral-800 shadow-xs">
+          <div className="lg:col-span-7 bg-neutral-50/70 dark:bg-[#0c0d10] p-4 sm:p-8 lg:p-10 rounded-[20px] sm:rounded-[24px] border border-neutral-200/80 dark:border-neutral-800 shadow-xs">
             
             {status === "success" ? (
               <div className="py-12 text-center space-y-4">

@@ -11,7 +11,7 @@ export function QuickConnectCard() {
 
   return (
     <>
-      <div className="bento-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+      <div className="bento-card p-4 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
         <div className="space-y-1.5 max-w-xl">
           <div className="flex items-center gap-2">
             <span className="font-mono text-xs text-neutral-500 line-through">

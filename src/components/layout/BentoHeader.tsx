@@ -35,20 +35,20 @@ export function BentoHeader({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bento-card p-6 sm:p-8 w-full shadow-lg dark:shadow-2xl transition-all">
+    <header className="bento-card p-4 sm:p-8 w-full shadow-lg dark:shadow-2xl transition-all">
       {/* Top Bar: Brand, Status, Navigation & Actions */}
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand & Live Status */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <Link
             href="/"
             onClick={() => playClick(750, 0.02)}
-            className="font-mono text-xs sm:text-sm font-semibold tracking-tight text-neutral-900 dark:text-white hover:opacity-80 transition-opacity select-none flex items-center gap-2"
+            className="font-mono text-xs sm:text-sm font-semibold tracking-tight text-neutral-900 dark:text-white hover:opacity-80 transition-opacity select-none flex items-center gap-1.5 sm:gap-2 truncate"
           >
-            <span className="w-2 h-2 rounded-full bg-neutral-900 dark:bg-white" />
-            <span>hithesh.dev</span>
+            <span className="w-2 h-2 rounded-full bg-neutral-900 dark:bg-white shrink-0" />
+            <span className="truncate">hithesh.dev</span>
           </Link>
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-[#4ade80] border border-emerald-500/25">
+          <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-[#4ade80] border border-emerald-500/25 shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-[#4ade80] animate-pulse" />
             <span>available for work</span>
           </span>
@@ -81,7 +81,7 @@ export function BentoHeader({
         </nav>
 
         {/* Actions & Socials */}
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
           {/* Sound Mute/Unmute Toggle */}
           <SoundToggle />
 
@@ -94,7 +94,7 @@ export function BentoHeader({
             rel="noopener noreferrer"
             onClick={() => playClick(600, 0.02)}
             aria-label="GitHub Profile"
-            className="p-1.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
+            className="hidden xs:inline-flex p-1.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
           >
             <GithubIcon className="w-3.5 h-3.5" />
           </a>
@@ -104,7 +104,7 @@ export function BentoHeader({
             rel="noopener noreferrer"
             onClick={() => playClick(600, 0.02)}
             aria-label="LinkedIn Profile"
-            className="p-1.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
+            className="hidden xs:inline-flex p-1.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
           >
             <LinkedinIcon className="w-3.5 h-3.5" />
           </a>
@@ -113,7 +113,7 @@ export function BentoHeader({
             href="/resume.pdf"
             download="Hithesh_HG_Resume.pdf"
             onClick={() => playClick(850, 0.03)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-black font-medium text-[11px] font-mono hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm ml-1"
+            className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-black font-medium text-[11px] font-mono hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm ml-0.5 sm:ml-1"
           >
             <Download className="w-3 h-3" />
             <span className="hidden sm:inline">download cv</span>

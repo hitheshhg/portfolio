@@ -243,7 +243,7 @@ export default function BlogPage() {
               playClick(750, 0.02);
               setActiveArticle(art);
             }}
-            className="bento-card p-6 flex flex-col justify-between h-full group cursor-pointer hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
+            className="bento-card p-4 sm:p-6 flex flex-col justify-between h-full group cursor-pointer hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
           >
             <div>
               <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-neutral-500">
@@ -281,14 +281,14 @@ export default function BlogPage() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
           onClick={() => {
             playClick(450, 0.02);
             setActiveArticle(null);
           }}
         >
           <div
-            className="bento-card bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-6 sm:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
+            className="bento-card bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-4 sm:p-10 max-w-2xl w-full max-h-[88vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}

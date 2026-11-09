@@ -44,7 +44,7 @@ export default function AnalyticsPage() {
       showConnectCard={true}
     >
       {/* Search and Category Filter Card */}
-      <div className="bento-card p-5 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+      <div className="bento-card p-4 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         {/* Search Input */}
         <div className="relative flex-1 max-w-md">
           <Search className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -104,7 +104,7 @@ export default function AnalyticsPage() {
           {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className="bento-card p-6 flex flex-col justify-between h-full group hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
+              className="bento-card p-4 sm:p-6 flex flex-col justify-between h-full group hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">

@@ -78,10 +78,10 @@ export default async function ProjectDetailPage({
       </div>
 
       {/* Main Project Case Study Bento Card */}
-      <article className="bento-card p-6 sm:p-10 space-y-12">
+      <article className="bento-card p-4 sm:p-10 space-y-8 sm:space-y-12">
         {/* Header Info */}
         <header>
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-4">
             <span className="px-2.5 py-0.5 rounded-full text-xs font-mono border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
               {project.category}
             </span>
@@ -89,16 +89,16 @@ export default async function ProjectDetailPage({
             <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400">{project.year}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-sans font-bold text-neutral-900 dark:text-white mb-3 tracking-tight">
+          <h1 className="text-2xl sm:text-5xl font-sans font-bold text-neutral-900 dark:text-white mb-3 tracking-tight break-words">
             {project.title}
           </h1>
 
-          <p className="text-sm sm:text-base font-mono text-neutral-600 dark:text-neutral-400 leading-relaxed mb-8 max-w-2xl">
+          <p className="text-xs sm:text-base font-mono text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 sm:mb-8 max-w-2xl">
             {project.tagline}
           </p>
 
           {/* Metadata Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 text-xs font-mono">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 text-xs font-mono">
             <div>
               <span className="text-neutral-500 block mb-1 flex items-center gap-1">
                 <User className="w-3 h-3 text-emerald-600 dark:text-[#4ade80]" /> role
@@ -286,7 +286,7 @@ export default async function ProjectDetailPage({
         </div>
 
         {/* Footer Nav */}
-        <div className="pt-8 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-mono">
+        <div className="pt-6 sm:pt-8 border-t border-black/5 dark:border-white/5 flex flex-col xs:flex-row items-start xs:items-center justify-between gap-3 text-xs font-mono">
           <Link
             href="/analytics"
             className="text-neutral-500 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white transition-colors"

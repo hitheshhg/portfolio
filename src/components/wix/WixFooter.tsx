@@ -35,10 +35,10 @@ export function WixFooter() {
   };
 
   return (
-    <footer className="w-full bg-[#f5f5f7] dark:bg-[#09090b] text-neutral-900 dark:text-white border-t border-neutral-200 dark:border-neutral-900/80 py-12 px-4 sm:px-8 transition-colors">
-      <div className="max-w-[1360px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-sans">
+    <footer className="w-full bg-[#f5f5f7] dark:bg-[#09090b] text-neutral-900 dark:text-white border-t border-neutral-200 dark:border-neutral-900/80 py-8 sm:py-12 px-3 sm:px-8 transition-colors">
+      <div className="max-w-[1360px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 text-xs font-sans">
         {/* Left: Brand & Time */}
-        <div className="flex flex-wrap items-center gap-4 text-neutral-600 dark:text-neutral-400">
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-4 text-neutral-600 dark:text-neutral-400 text-center sm:text-left">
           <Link
             href="/"
             onClick={() => playClick(600, 0.02)}
@@ -58,7 +58,7 @@ export function WixFooter() {
             type="button"
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="wix-pill border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#121214] text-neutral-800 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-neutral-600 text-xs py-2 px-4 shadow-2xs"
+            className="wix-pill border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#121214] text-neutral-800 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-neutral-600 text-xs py-1.5 sm:py-2 px-3.5 sm:px-4 shadow-2xs"
           >
             <span>Top</span>
             <ArrowUp className="w-3.5 h-3.5 ml-1" />

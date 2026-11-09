@@ -16,8 +16,8 @@ export function PageShell({
   ...headerProps
 }: PageShellProps) {
   return (
-    <div className="min-h-screen bg-transparent pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-      <div className={`w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5 ${className}`}>
+    <div className="min-h-screen bg-transparent pt-4 sm:pt-10 pb-12 sm:pb-24 px-3 sm:px-6 lg:px-8 flex flex-col items-center">
+      <div className={`w-full max-w-6xl mx-auto flex flex-col gap-3.5 sm:gap-5 min-w-0 ${className}`}>
         <BentoHeader {...headerProps} />
         {children}
         {showConnectCard && <QuickConnectCard />}

@@ -64,7 +64,7 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
         }`}
       />
 
-      <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
+      <div className="relative z-10 max-w-[1360px] mx-auto px-3 sm:px-8 flex items-center justify-between gap-2 sm:gap-4">
         {/* Left: Brand Pill Badge (Screenshot 5) */}
         <Link
           href="/"
@@ -75,9 +75,11 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}
-          className="wix-pill bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs text-neutral-900 dark:text-white border-neutral-300 dark:border-neutral-700 shadow-2xs hover:shadow-sm"
+          className="wix-pill bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs text-neutral-900 dark:text-white border-neutral-300 dark:border-neutral-700 shadow-2xs hover:shadow-sm px-3 sm:px-5 py-1.5 sm:py-2.5 text-[11px] sm:text-xs shrink min-w-0"
         >
-          <span>HITHESH HG / DATA ANALYST &amp; BI</span>
+          <span className="truncate">
+            HITHESH HG <span className="hidden sm:inline">/ DATA ANALYST &amp; BI</span>
+          </span>
         </Link>
 
         {/* Right: 3 Nav Action Pills (PORTFOLIO, ABOUT, CONTACT) + Utilities */}
@@ -114,7 +116,7 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
         </nav>
 
         {/* Mobile Menu Button */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-1 sm:gap-2 shrink-0 md:hidden">
           <SoundToggle />
           <ThemeToggle />
           <button
@@ -124,7 +126,7 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
               setMobileMenuOpen(!mobileMenuOpen);
             }}
             aria-label="Toggle menu"
-            className="p-2.5 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs"
+            className="p-2 sm:p-2.5 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -133,7 +135,7 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-4 top-20 z-50 p-6 rounded-3xl bg-white/95 dark:bg-[#121214]/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 shadow-2xl flex flex-col gap-3 md:hidden animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="fixed inset-x-3 sm:inset-x-4 top-16 sm:top-20 z-50 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/95 dark:bg-[#121214]/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 shadow-2xl flex flex-col gap-2.5 sm:gap-3 md:hidden animate-in fade-in slide-in-from-top-4 duration-200 max-h-[calc(100vh-5rem)] overflow-y-auto">
           <button
             type="button"
             onClick={() => scrollToSection("portfolio")}

@@ -38,9 +38,9 @@ export function Footer() {
 
   return (
     <footer aria-label="Footer" className="w-full mt-2 sm:mt-4">
-      <div className="bento-card p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="bento-card p-4 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
         {/* Brand, Location & Live Clock */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-center sm:text-left font-mono">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-center sm:text-left font-mono">
           <Link
             href="/"
             onClick={() => playClick(600, 0.02)}

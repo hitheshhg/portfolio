@@ -95,11 +95,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
       onClick={handleClose}
     >
       <div
-        className="bento-card rounded-[28px] bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-6 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
+        className="bento-card rounded-[20px] sm:rounded-[28px] bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-5 sm:p-8 max-w-lg w-full max-h-[92vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
