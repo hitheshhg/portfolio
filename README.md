@@ -1,59 +1,41 @@
-# Hithesh HG — Engineering Portfolio & Systems Showcase
+# Hithesh HG — Portfolio
 
-> Minimalist, ultra-responsive engineering portfolio built with Next.js 16, TypeScript, Tailwind CSS, and zero-dependency Web Audio micro-haptics.
+Personal portfolio and interactive case study showcase for Data Analytics, Business Intelligence, and Product Engineering.
 
-[![Live Site](https://img.shields.io/badge/Live_Site-hithesh.dev-4ade80?style=flat-square)](https://hithesh.dev)
-[![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+🔗 **Live:** [hitheshhg.vercel.app](https://hitheshhg.vercel.app)
 
 ---
 
-## ⚡ Highlights
+## ⚡ Tech Stack
 
-- **Bento Grid Architecture**: Pixel-faithful, balanced 12-column bento grids unified across all routes (`/`, `/design`, `/development`, `/blog`, `/cv`, and `/projects/[slug]`).
-- **Butter-Smooth 120fps Performance**: Pure native hardware acceleration without JavaScript scroll-jacking loops. Subpixel font smoothing and lightweight GPU compositing.
-- **Micro-Haptics (`sound.ts`)**: 0kb zero-dependency audio synthesizer creating subtle mechanical switch clicks directly via browser `AudioContext`.
-
----
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 16 (App Router & Turbopack)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4 + Vanilla CSS Tokens
-- **Icons**: Lucide React + Custom SVG Design Primitives
-- **Audio**: Web Audio API (native browser synthesizer)
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Icons:** Lucide React
+- **Audio:** Native Web Audio API
 
 ---
 
-## 🚀 Getting Started
-
-First, install dependencies:
+## 🚀 Local Setup
 
 ```bash
+# Clone the repository
+git clone https://github.com/hitheshhg/portfolio.git
+cd portfolio
+
+# Install dependencies
 npm install
-```
 
-Run the development server:
-
-```bash
+# Start local dev server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ---
 
-## 📦 Building for Production
+## 🔒 License & Copyright
 
-```bash
-npm run build
-npm run start
-```
+Copyright © 2026 Hithesh HG. All rights reserved.
 
----
-
-## 📄 License
-
-MIT © [Hithesh HG](https://github.com/hitheshhg)
+This repository is publicly available for code inspection, recruitment, and evaluation only. Unauthorized copying, cloning, re-hosting, or redistribution of this design, codebase, or content is strictly prohibited. See [LICENSE](./LICENSE) for full details.
