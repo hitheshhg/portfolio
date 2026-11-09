@@ -1,0 +1,70 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { ArrowUp } from "lucide-react";
+import { playClick } from "@/lib/sound";
+
+export function WixFooter() {
+  const [time, setTime] = useState<string>("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      try {
+        const now = new Date();
+        const istTime = now.toLocaleTimeString("en-US", {
+          timeZone: "Asia/Kolkata",
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        setTime(istTime);
+      } catch {
+        setTime("IST");
+      }
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const scrollToTop = () => {
+    playClick(900, 0.03);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <footer className="w-full bg-[#f5f5f7] dark:bg-[#09090b] text-neutral-900 dark:text-white border-t border-neutral-200 dark:border-neutral-900/80 py-12 px-4 sm:px-8 transition-colors">
+      <div className="max-w-[1360px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-sans">
+        {/* Left: Brand & Time */}
+        <div className="flex flex-wrap items-center gap-4 text-neutral-600 dark:text-neutral-400">
+          <Link
+            href="/"
+            onClick={() => playClick(600, 0.02)}
+            className="text-neutral-900 dark:text-white font-bold uppercase tracking-wider hover:opacity-80"
+          >
+            HITHESH HG
+          </Link>
+          <span>•</span>
+          <span>Bengaluru, IN {time ? `(${time} IST)` : ""}</span>
+          <span>•</span>
+          <span>© {new Date().getFullYear()}</span>
+        </div>
+
+        {/* Right: Back to Top */}
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={scrollToTop}
+            aria-label="Back to top"
+            className="wix-pill border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#121214] text-neutral-800 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-neutral-600 text-xs py-2 px-4 shadow-2xs"
+          >
+            <span>Top</span>
+            <ArrowUp className="w-3.5 h-3.5 ml-1" />
+          </button>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { BentoHeader } from "@/components/layout/BentoHeader";
-import { Footer } from "@/components/layout/Footer";
-import { Clock, X, CheckCircle2 } from "lucide-react";
+import { PageShell } from "@/components/layout/PageShell";
+import { Clock, X, CheckCircle2, Copy, Check } from "lucide-react";
 import { playClick } from "@/lib/sound";
 
 interface Article {
@@ -163,8 +162,17 @@ def ab_test_significance(conversions_a, sample_a, conversions_b, sample_b, alpha
 
 export default function BlogPage() {
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
+  const [selectedTag, setSelectedTag] = useState<string>("All");
+  const [copiedCode, setCopiedCode] = useState<boolean>(false);
 
-  // Close modal on Escape key and manage body overflow
+  const tags = ["All", "SQL & Relational", "Business Intelligence", "Statistics"];
+
+  const filteredArticles =
+    selectedTag === "All"
+      ? articles
+      : articles.filter((a) => a.tag === selectedTag);
+
+  // Close modal on Escape key
   useEffect(() => {
     if (!activeArticle) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -177,67 +185,95 @@ export default function BlogPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeArticle]);
 
+  const copySnippet = async (code: string) => {
+    try {
+      playClick(850, 0.03);
+      await navigator.clipboard.writeText(code);
+      setCopiedCode(true);
+      setTimeout(() => setCopiedCode(false), 2000);
+    } catch {
+      // fallback
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-transparent pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-      <div className="w-full max-w-6xl mx-auto flex flex-col gap-4 sm:gap-5">
-        {/* Unified Top Navigation with Banner */}
-        <BentoHeader
-          activeTab="blog"
-          tagLineThrough="insights"
-          tagHighlight="analytics notes"
-          title="articles & analytics notes"
-          subtitle="Explorations in SQL optimization, business intelligence architecture, statistical experimentation, and data storytelling."
-          headerAction={
-            <span className="px-3 py-1 rounded-full text-xs font-mono bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
-              {articles.length} published notes
-            </span>
-          }
-        />
-
-        {/* Articles Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {articles.map((art, idx) => (
-            <article
-              key={idx}
+    <PageShell
+      activeTab="blog"
+      tagLineThrough="insights"
+      tagHighlight="analytics notes"
+      title="articles & analytics notes"
+      subtitle="Explorations in SQL optimization, business intelligence architecture, statistical experimentation, and data storytelling."
+      headerAction={
+        <span className="px-3 py-1 rounded-full text-xs font-mono bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
+          {articles.length} published notes
+        </span>
+      }
+      showConnectCard={true}
+    >
+      {/* Category Filter Bar */}
+      <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/5 dark:border-white/5 w-fit">
+        {tags.map((tag) => {
+          const isActive = selectedTag === tag;
+          return (
+            <button
+              key={tag}
+              type="button"
               onClick={() => {
-                playClick(750, 0.02);
-                setActiveArticle(art);
+                playClick(700, 0.02);
+                setSelectedTag(tag);
               }}
-              className="bento-card p-6 flex flex-col justify-between h-full group cursor-pointer hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
+                isActive
+                  ? "bg-white dark:bg-black text-neutral-900 dark:text-white font-semibold shadow-xs border border-black/10 dark:border-white/10"
+                  : "text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+              }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-neutral-500">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-emerald-600 dark:text-[#4ade80]" />
-                    {art.readTime}
-                  </span>
-                  <span>{art.date}</span>
-                </div>
+              {tag}
+            </button>
+          );
+        })}
+      </div>
 
-                <h2 className="text-base sm:text-lg font-bold font-sans text-neutral-900 dark:text-white mb-2.5 group-hover:underline underline-offset-4 leading-snug">
-                  {art.title}
-                </h2>
-
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
-                  {art.summary}
-                </p>
+      {/* Articles Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        {filteredArticles.map((art, idx) => (
+          <article
+            key={idx}
+            onClick={() => {
+              playClick(750, 0.02);
+              setActiveArticle(art);
+            }}
+            className="bento-card p-6 flex flex-col justify-between h-full group cursor-pointer hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-neutral-500">
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3 h-3 text-emerald-600 dark:text-[#4ade80]" />
+                  {art.readTime}
+                </span>
+                <span>{art.date}</span>
               </div>
 
-              <div className="pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-black/[0.03] dark:bg-white/[0.04] text-neutral-600 dark:text-neutral-300 border border-black/5 dark:border-white/5">
-                  {art.tag}
-                </span>
-                <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-950 dark:group-hover:text-white group-hover:translate-x-0.5 transition-all flex items-center gap-1">
-                  <span>read note</span>
-                  <span>→</span>
-                </span>
-              </div>
-            </article>
-          ))}
-        </div>
+              <h2 className="text-base sm:text-lg font-bold font-sans text-neutral-900 dark:text-white mb-2.5 group-hover:underline underline-offset-4 leading-snug">
+                {art.title}
+              </h2>
 
-        {/* Unified Footer */}
-        <Footer />
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+                {art.summary}
+              </p>
+            </div>
+
+            <div className="pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-black/[0.03] dark:bg-white/[0.04] text-neutral-600 dark:text-neutral-300 border border-black/5 dark:border-white/5">
+                {art.tag}
+              </span>
+              <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-950 dark:group-hover:text-white group-hover:translate-x-0.5 transition-all flex items-center gap-1 font-semibold">
+                <span>read note</span>
+                <span>→</span>
+              </span>
+            </div>
+          </article>
+        ))}
       </div>
 
       {/* Interactive Article Reading Modal */}
@@ -307,21 +343,34 @@ export default function BlogPage() {
 
             {/* Code Snippet if applicable */}
             {activeArticle.fullContent.codeSnippet && (
-              <div className="mb-6 rounded-xl bg-neutral-900 text-neutral-100 border border-neutral-800 dark:bg-neutral-950 dark:border-white/10 dark:text-neutral-300 p-4 font-mono text-[11px] overflow-x-auto">
-                <pre>{activeArticle.fullContent.codeSnippet}</pre>
+              <div className="mb-6 rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-[#09090b] text-neutral-200">
+                <div className="px-3.5 py-2 bg-black/40 border-b border-white/5 flex items-center justify-between text-[11px] font-mono text-neutral-400">
+                  <span>code implementation</span>
+                  <button
+                    type="button"
+                    onClick={() => copySnippet(activeArticle.fullContent.codeSnippet!)}
+                    className="inline-flex items-center gap-1 text-neutral-300 hover:text-white"
+                  >
+                    {copiedCode ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                    <span>{copiedCode ? "copied" : "copy"}</span>
+                  </button>
+                </div>
+                <div className="p-4 font-mono text-[11px] overflow-x-auto text-emerald-400/90 leading-relaxed">
+                  <pre>{activeArticle.fullContent.codeSnippet}</pre>
+                </div>
               </div>
             )}
 
             {/* Conclusion */}
             <div className="p-4 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 text-xs text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed">
               <span className="font-mono text-[10px] text-emerald-600 dark:text-[#4ade80] uppercase tracking-wider block mb-1">
-                Takeaway
+                Strategic Takeaway
               </span>
               {activeArticle.fullContent.conclusion}
             </div>
           </div>
         </div>
       )}
-    </div>
+    </PageShell>
   );
 }

@@ -66,8 +66,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fontGrotesk.variable} ${fontMono.variable} dark`}
-      data-scroll-behavior="smooth"
+      className={`${fontGrotesk.variable} ${fontMono.variable}`}
     >
       <head>
         <script

@@ -50,7 +50,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   if (!mounted) {
     return (
       <div
-        className={`w-8 h-8 rounded-lg bg-black/[0.04] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 ${className}`}
+        className={`w-9 h-9 rounded-full bg-black/[0.04] dark:bg-white/[0.04] border border-neutral-300 dark:border-neutral-700 ${className}`}
         aria-hidden="true"
       />
     );
@@ -73,24 +73,24 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
           isDark ? "light" : "dark"
         } mode, or right-click for options`}
         title={`Click for ripple transition to ${isDark ? "light" : "dark"} mode (Right-click for options)`}
-        className="relative p-2 rounded-lg bg-black/[0.04] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white hover:border-black/20 dark:hover:border-white/25 hover:shadow-[0_0_18px_rgba(245,158,11,0.22)] dark:hover:shadow-[0_0_18px_rgba(56,189,248,0.25)] active:scale-90 transition-all duration-200 group overflow-hidden"
+        className="relative p-2.5 rounded-full bg-white dark:bg-[#121214] border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white active:scale-95 transition-all shadow-2xs group overflow-hidden"
       >
         <span className="sr-only">Toggle theme with radial ripple</span>
         <div className="relative w-4 h-4 flex items-center justify-center pointer-events-none">
-          {/* Sun icon with celestial spring rotation */}
+          {/* Sun icon with snappy 200ms spring */}
           <Sun
-            className={`w-4 h-4 absolute transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform ${
+            className={`w-4 h-4 absolute transition-all duration-200 ease-out transform ${
               isDark
-                ? "rotate-[140deg] scale-0 opacity-0 text-amber-400"
+                ? "rotate-90 scale-0 opacity-0 text-amber-400"
                 : "rotate-0 scale-100 opacity-100 text-amber-500 drop-shadow-[0_0_6px_rgba(245,158,11,0.5)]"
             }`}
           />
-          {/* Moon icon with eclipse spring rotation */}
+          {/* Moon icon with snappy 200ms spring */}
           <Moon
-            className={`w-4 h-4 absolute transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform ${
+            className={`w-4 h-4 absolute transition-all duration-200 ease-out transform ${
               isDark
                 ? "rotate-0 scale-100 opacity-100 text-sky-400 drop-shadow-[0_0_6px_rgba(56,189,248,0.5)]"
-                : "-rotate-[140deg] scale-0 opacity-0 text-sky-300"
+                : "-rotate-90 scale-0 opacity-0 text-sky-300"
             }`}
           />
         </div>

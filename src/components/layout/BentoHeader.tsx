@@ -5,10 +5,11 @@ import Link from "next/link";
 import { Download, Menu, X } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { SoundToggle } from "@/components/ui/SoundToggle";
 import { playClick } from "@/lib/sound";
 
 export interface BentoHeaderProps {
-  activeTab?: "home" | "development" | "blog" | "cv";
+  activeTab?: "home" | "analytics" | "development" | "blog" | "cv";
   tagLineThrough?: string;
   tagHighlight?: string;
   title?: string;
@@ -18,7 +19,7 @@ export interface BentoHeaderProps {
 
 const NAV_LINKS = [
   { name: "home", href: "/", id: "home" },
-  { name: "analytics", href: "/development", id: "development" },
+  { name: "analytics", href: "/analytics", id: "analytics" },
   { name: "blog", href: "/blog", id: "blog" },
   { name: "cv", href: "/cv", id: "cv" },
 ] as const;
@@ -42,11 +43,12 @@ export function BentoHeader({
           <Link
             href="/"
             onClick={() => playClick(750, 0.02)}
-            className="font-mono text-xs sm:text-sm font-semibold tracking-tight text-neutral-900 dark:text-white hover:opacity-80 transition-opacity select-none"
+            className="font-mono text-xs sm:text-sm font-semibold tracking-tight text-neutral-900 dark:text-white hover:opacity-80 transition-opacity select-none flex items-center gap-2"
           >
-            hithesh.dev
+            <span className="w-2 h-2 rounded-full bg-neutral-900 dark:bg-white" />
+            <span>hithesh.dev</span>
           </Link>
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-[#4ade80] border border-emerald-500/25">
+          <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-[#4ade80] border border-emerald-500/25">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-[#4ade80] animate-pulse" />
             <span>available for work</span>
           </span>
@@ -58,7 +60,9 @@ export function BentoHeader({
           className="hidden md:flex items-center gap-1 text-xs font-mono"
         >
           {NAV_LINKS.map((link) => {
-            const isActive = activeTab === link.id;
+            const isActive =
+              activeTab === link.id ||
+              (activeTab === "development" && link.id === "analytics");
             return (
               <Link
                 key={link.id}
@@ -77,7 +81,9 @@ export function BentoHeader({
         </nav>
 
         {/* Actions & Socials */}
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* Sound Mute/Unmute Toggle */}
+          <SoundToggle />
 
           {/* Theme Toggle Button */}
           <ThemeToggle />
@@ -107,7 +113,7 @@ export function BentoHeader({
             href="/resume.pdf"
             download="Hithesh_HG_Resume.pdf"
             onClick={() => playClick(850, 0.03)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-black font-medium text-[11px] font-mono hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-black font-medium text-[11px] font-mono hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm ml-1"
           >
             <Download className="w-3 h-3" />
             <span className="hidden sm:inline">download cv</span>
@@ -133,7 +139,9 @@ export function BentoHeader({
       {mobileMenuOpen && (
         <div className="md:hidden pt-4 mt-4 border-t border-black/10 dark:border-white/10 flex flex-col gap-1.5">
           {NAV_LINKS.map((link) => {
-            const isActive = activeTab === link.id;
+            const isActive =
+              activeTab === link.id ||
+              (activeTab === "development" && link.id === "analytics");
             return (
               <Link
                 key={link.id}

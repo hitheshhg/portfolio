@@ -61,10 +61,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       if (!active) return;
       try {
         const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
+        const mql = window.matchMedia("(prefers-color-scheme: dark)");
         const initialTheme: Theme =
           stored === "light" || stored === "dark" || stored === "system"
             ? stored
-            : "dark";
+            : (mql.matches ? "dark" : "light");
 
         setThemeState(initialTheme);
         const initialResolved: ResolvedTheme =
@@ -145,6 +146,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       );
 
       // Trigger View Transition with DOM snapshot
+      document.documentElement.classList.add("no-transition");
+
       const transition = doc.startViewTransition(() => {
         applyTheme(targetResolved);
         setThemeState(newTheme);
@@ -154,7 +157,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         } catch {}
       });
 
-      // Animate circular clip path expansion
+      transition.finished.finally(() => {
+        document.documentElement.classList.remove("no-transition");
+      });
+
+      // Animate circular clip path expansion with an ultra-snappy 280ms curve
       transition.ready
         .then(() => {
           const clipPath = [
@@ -167,8 +174,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
               clipPath: clipPath,
             },
             {
-              duration: 480,
-              easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+              duration: 280,
+              easing: "cubic-bezier(0.2, 0, 0, 1)",
               pseudoElement: "::view-transition-new(root)",
             }
           );

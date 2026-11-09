@@ -99,7 +99,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       onClick={handleClose}
     >
       <div
-        className="bento-card bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-6 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
+        className="bento-card rounded-[28px] bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-6 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
