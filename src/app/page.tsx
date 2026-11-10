@@ -15,7 +15,13 @@ export default function HomePage() {
   const scrollToContact = () => {
     const el = document.getElementById("contact");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const headerOffset = 70;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     } else {
       setContactOpen(true);
     }

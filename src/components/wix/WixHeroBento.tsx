@@ -9,11 +9,17 @@ export function WixHeroBento() {
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
   const scrollToPortfolio = () => {
-    playClick(750, 0.02);
     const element = document.getElementById("portfolio");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const headerOffset = 70;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
+    playClick(750, 0.02);
   };
 
   const expertiseTags = [
