@@ -29,23 +29,23 @@ export function WixProjectShowcase() {
               SIKURA
             </h2>
             <p className="text-xs sm:text-sm font-sans text-neutral-500 mb-4 sm:mb-6">
-              Cybersecurity for your company
+              Cybersecurity Telemetry &amp; Attrition Analytics
             </p>
 
             <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed mb-6 sm:mb-8">
-              Share information on a previous project here to attract new clients. Provide a brief summary to help visitors understand the context and background of your work.
+              Enterprise-grade telemetry pipeline and customer churn detection platform. Unifying cloud threat telemetry and subscriber behavioral data into actionable retention intelligence.
             </p>
 
             {/* Metadata Two-Column Table */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-neutral-800 text-xs font-mono mb-6 sm:mb-8">
               <div>
                 <span className="text-neutral-400 block mb-1">Year</span>
-                <span className="text-neutral-900 dark:text-white font-semibold">2035</span>
+                <span className="text-neutral-900 dark:text-white font-semibold">2025</span>
               </div>
               <div>
                 <span className="text-neutral-400 block mb-1">URL</span>
                 <span className="text-neutral-900 dark:text-white font-semibold truncate block">
-                  www.url.com
+                  hitheshhg.vercel.app
                 </span>
               </div>
             </div>
@@ -185,23 +185,23 @@ export function WixProjectShowcase() {
               Converza Technologies
             </h2>
             <p className="text-xs sm:text-sm font-sans text-neutral-500 mb-4 sm:mb-6">
-              AI-generated NLP system
+              AI-Powered Cohort Retention &amp; NLP
             </p>
 
             <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed mb-6 sm:mb-8">
-              Share information on a previous project here to attract new clients. Provide a brief summary to help visitors understand the context and background of your work.
+              Conversational intelligence platform that translates raw customer dialogue transcripts and event logs into structured cohort retention matrices and lifetime value forecasts.
             </p>
 
             {/* Metadata Two-Column Table */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-neutral-800 text-xs font-mono mb-6 sm:mb-8">
               <div>
                 <span className="text-neutral-400 block mb-1">Year</span>
-                <span className="text-neutral-900 dark:text-white font-semibold">2035</span>
+                <span className="text-neutral-900 dark:text-white font-semibold">2025</span>
               </div>
               <div>
                 <span className="text-neutral-400 block mb-1">URL</span>
                 <span className="text-neutral-900 dark:text-white font-semibold truncate block">
-                  www.url.com
+                  hitheshhg.vercel.app
                 </span>
               </div>
             </div>
@@ -293,23 +293,23 @@ export function WixProjectShowcase() {
               Malkow &amp; Breid
             </h2>
             <p className="text-xs sm:text-sm font-sans text-neutral-500 mb-4 sm:mb-6">
-              Financial consultant
+              Predictive Clinical Risk &amp; Readmission Modeling
             </p>
 
             <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed mb-6 sm:mb-8">
-              Share information on a previous project here to attract new clients. Provide a brief summary to help visitors understand the context and background of your work.
+              Clinical decision-support model identifying high-risk diabetic patient cohorts to prevent 30-day readmissions and optimize hospital resource allocation.
             </p>
 
             {/* Metadata Two-Column Table */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-neutral-800 text-xs font-mono mb-6 sm:mb-8">
               <div>
                 <span className="text-neutral-400 block mb-1">Year</span>
-                <span className="text-neutral-900 dark:text-white font-semibold">2035</span>
+                <span className="text-neutral-900 dark:text-white font-semibold">2024</span>
               </div>
               <div>
                 <span className="text-neutral-400 block mb-1">URL</span>
                 <span className="text-neutral-900 dark:text-white font-semibold truncate block">
-                  www.url.com
+                  hitheshhg.vercel.app
                 </span>
               </div>
             </div>

@@ -165,6 +165,19 @@
   border-color: var(--bento-border-hover);
 }
 
+@media (min-width: 1024px) {
+  .bento-card:hover,
+  .wix-card:hover {
+    box-shadow: 0 14px 32px -12px rgba(0, 0, 0, 0.08);
+  }
+  :root.dark .bento-card:hover,
+  :root.dark .wix-card:hover,
+  .dark .bento-card:hover,
+  .dark .wix-card:hover {
+    box-shadow: 0 14px 32px -12px rgba(0, 0, 0, 0.5);
+  }
+}
+
 .wix-pill {
   display: inline-flex;
   align-items: center;
@@ -195,7 +208,7 @@
 }
 
 .wix-pill:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
 }
 
 /* Accessible outline */

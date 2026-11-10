@@ -70,10 +70,10 @@ export function WixHeroBento() {
             </div>
           </div>
 
-          {/* Expertise Pill Badges (Wix Screenshot 5: Experties) */}
+          {/* Expertise Pill Badges (Wix Screenshot 5) */}
           <div className="px-5 sm:px-8 pb-6 sm:pb-8 pt-4 border-t border-neutral-100 dark:border-neutral-800/80">
             <span className="text-xs font-sans font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mb-3 block">
-              Experties
+              Expertise
             </span>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {expertiseTags.map((tag) => (
@@ -100,7 +100,7 @@ export function WixHeroBento() {
                 About
               </span>
               <p className="text-xs sm:text-sm text-neutral-800 dark:text-neutral-200 font-sans leading-relaxed">
-                Hi, I&apos;m Hithesh. I am a UX designer and data specialist using AI innovation to build products that are intuitive, intelligent, and a pleasure to use. My passion is turning deep user research into resonant experiences that don&apos;t just solve problems, but create delight. My goal is to bridge the gap between human needs and technology, making digital tools feel more natural.
+                Hi, I&apos;m Hithesh. I transform complex data pipelines and raw signals into intuitive, decision-ready intelligence and high-impact digital experiences. With a foundation in Computer Science, SQL, and predictive modeling, my mission is to bridge the gap between heavy technical systems and clear human decisions.
               </p>
             </div>
 
@@ -220,9 +220,14 @@ export function WixHeroBento() {
               </div>
 
               <div>
-                <p className="text-xs sm:text-sm font-sans font-bold leading-tight text-white">
-                  Designing for Trust
-                </p>
+                <div className="flex items-center gap-1.5">
+                  {isPlayingAudio && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping shrink-0" />
+                  )}
+                  <p className="text-xs sm:text-sm font-sans font-bold leading-tight text-white">
+                    Designing for Trust
+                  </p>
+                </div>
                 <p className="text-[10px] sm:text-xs text-white/90 font-sans mt-0.5 truncate">
                   {isPlayingAudio ? "Playing audio..." : "Listen to my interview"}
                 </p>
@@ -282,7 +287,7 @@ export function WixHeroBento() {
                 <span className="text-[10px] sm:text-[11px] font-sans font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wider block">
                   Active Pipeline
                 </span>
-                <div className="space-y-1 sm:space-y-1.5 text-[10px] sm:text-[11px] font-sans text-neutral-600 dark:text-neutral-400">
+                <div className="space-y-1 sm:space-y-1.5 text-[10px] sm:text-[11px] font-sans text-neutral-700 dark:text-neutral-300">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#84cc16] shrink-0" />
                     <span className="truncate">Applied</span>
