@@ -31,14 +31,14 @@ export async function POST(request: Request) {
       const recipientEmail = process.env.CONTACT_EMAIL || "hitheshhg@gmail.com"; // TODO: Configure recipient email
 
       await resend.emails.send({
-        from: "Portfolio Contact <onboarding@resend.dev>",
+        from: "Prepr Contact <onboarding@resend.dev>",
         to: recipientEmail,
         replyTo: email,
-        subject: subject || `New portfolio contact from ${name}`,
+        subject: subject || `New contact from ${name} via Prepr`,
         text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; color: #111;">
-            <h2>New Message from Portfolio Website</h2>
+            <h2>New Message from Prepr</h2>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
             ${subject ? `<p><strong>Subject:</strong> ${subject}</p>` : ""}
