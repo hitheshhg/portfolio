@@ -50,7 +50,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   if (!mounted) {
     return (
       <div
-        className={`w-9 h-9 rounded-full bg-black/[0.04] dark:bg-white/[0.04] border border-neutral-300 dark:border-neutral-700 ${className}`}
+        className={`w-9 h-9 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-neutral-300 dark:border-white/15 ${className}`}
         aria-hidden="true"
       />
     );
@@ -73,7 +73,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
           isDark ? "light" : "dark"
         } mode, or right-click for options`}
         title={`Click for ripple transition to ${isDark ? "light" : "dark"} mode (Right-click for options)`}
-        className="relative p-2.5 rounded-full bg-white dark:bg-[#121214] border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white active:scale-95 transition-all shadow-2xs group overflow-hidden"
+        className="relative p-2.5 rounded-full bg-white dark:bg-[#14161f] border border-neutral-300 dark:border-white/15 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white/40 active:scale-95 transition-all shadow-2xs group overflow-hidden"
       >
         <span className="sr-only">Toggle theme with radial ripple</span>
         <div className="relative w-4 h-4 flex items-center justify-center pointer-events-none">
@@ -98,7 +98,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
 
       {/* Floating Theme Selection Menu */}
       {menuOpen && (
-        <div className="absolute right-0 top-full mt-2 w-40 rounded-xl bg-white dark:bg-[#121214] border border-black/10 dark:border-white/15 shadow-2xl py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150 font-mono text-xs">
+        <div className="absolute right-0 top-full mt-2 w-40 rounded-xl bg-white dark:bg-[#14161f] border border-black/10 dark:border-white/15 shadow-2xl py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150 font-mono text-xs">
           <div className="px-3 py-1 text-[10px] uppercase tracking-wider text-neutral-400 font-semibold border-b border-black/5 dark:border-white/5 mb-1 flex items-center gap-1.5">
             <Sparkles className="w-3 h-3 text-emerald-500 dark:text-[#4ade80]" />
             <span>Theme Mode</span>

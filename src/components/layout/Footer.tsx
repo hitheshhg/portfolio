@@ -44,7 +44,7 @@ export function Footer() {
           <Link
             href="/"
             onClick={() => playClick(600, 0.02)}
-            className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-white hover:opacity-80 transition-opacity"
+            className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 hover:opacity-80 transition-opacity"
           >
             hithesh.dev
           </Link>

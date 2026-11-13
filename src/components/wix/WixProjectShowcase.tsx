@@ -13,7 +13,7 @@ export function WixProjectShowcase() {
           ============================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
         {/* Left Column: White Info Card (Screenshot 2) */}
-        <div className="lg:col-span-4 wix-card bg-white dark:bg-[#121214] p-5 sm:p-9 flex flex-col justify-between">
+        <div className="lg:col-span-4 wix-card bg-white dark:bg-[#14161f] p-5 sm:p-9 flex flex-col justify-between">
           <div>
             {/* Orange Rounded Logo Icon */}
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#ff5733] to-[#ff3b14] text-white flex items-center justify-center shadow-md mb-5 sm:mb-6 p-2.5 sm:p-3">
@@ -25,7 +25,7 @@ export function WixProjectShowcase() {
               </svg>
             </div>
 
-            <h2 className="text-xl sm:text-3xl font-sans font-bold text-neutral-900 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-sans font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
               SIKURA
             </h2>
             <p className="text-xs sm:text-sm font-sans text-neutral-500 mb-4 sm:mb-6">
@@ -37,14 +37,14 @@ export function WixProjectShowcase() {
             </p>
 
             {/* Metadata Two-Column Table */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-neutral-800 text-xs font-mono mb-6 sm:mb-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-white/10 text-xs font-mono mb-6 sm:mb-8">
               <div>
                 <span className="text-neutral-400 block mb-1">Year</span>
-                <span className="text-neutral-900 dark:text-white font-semibold">2025</span>
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2025</span>
               </div>
               <div>
                 <span className="text-neutral-400 block mb-1">URL</span>
-                <span className="text-neutral-900 dark:text-white font-semibold truncate block">
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold truncate block">
                   hitheshhg.vercel.app
                 </span>
               </div>
@@ -56,7 +56,7 @@ export function WixProjectShowcase() {
             <Link
               href="/projects/churn-analytics"
               onClick={() => playClick(750, 0.02)}
-              className="wix-pill border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#18181b] text-neutral-900 dark:text-white text-xs font-semibold justify-between w-full hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors shadow-2xs"
+              className="wix-pill border-neutral-300 dark:border-white/15 bg-white dark:bg-[#1e202d] text-neutral-900 dark:text-neutral-100 text-xs font-semibold justify-between w-full hover:bg-neutral-50 dark:hover:bg-[#272a3a] transition-colors shadow-2xs"
             >
               <span>View Case Study</span>
               <ArrowUpRight className="w-4 h-4 ml-1" />
@@ -172,7 +172,7 @@ export function WixProjectShowcase() {
           ============================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
         {/* Left Column: White Info Card (Screenshot 3) */}
-        <div className="lg:col-span-4 wix-card bg-white dark:bg-[#121214] p-5 sm:p-9 flex flex-col justify-between">
+        <div className="lg:col-span-4 wix-card bg-white dark:bg-[#14161f] p-5 sm:p-9 flex flex-col justify-between">
           <div>
             {/* Lavender Rounded Logo Icon */}
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#ede9fe] text-[#7c3aed] flex items-center justify-center shadow-md mb-5 sm:mb-6 p-2.5 sm:p-3">
@@ -181,7 +181,7 @@ export function WixProjectShowcase() {
               </div>
             </div>
 
-            <h2 className="text-xl sm:text-3xl font-sans font-bold text-neutral-900 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-sans font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
               Converza Technologies
             </h2>
             <p className="text-xs sm:text-sm font-sans text-neutral-500 mb-4 sm:mb-6">
@@ -193,14 +193,14 @@ export function WixProjectShowcase() {
             </p>
 
             {/* Metadata Two-Column Table */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-neutral-800 text-xs font-mono mb-6 sm:mb-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-white/10 text-xs font-mono mb-6 sm:mb-8">
               <div>
                 <span className="text-neutral-400 block mb-1">Year</span>
-                <span className="text-neutral-900 dark:text-white font-semibold">2025</span>
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2025</span>
               </div>
               <div>
                 <span className="text-neutral-400 block mb-1">URL</span>
-                <span className="text-neutral-900 dark:text-white font-semibold truncate block">
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold truncate block">
                   hitheshhg.vercel.app
                 </span>
               </div>
@@ -212,7 +212,7 @@ export function WixProjectShowcase() {
             <Link
               href="/projects/cohort-revenue"
               onClick={() => playClick(750, 0.02)}
-              className="wix-pill border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#18181b] text-neutral-900 dark:text-white text-xs font-semibold justify-between w-full hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors shadow-2xs"
+              className="wix-pill border-neutral-300 dark:border-white/15 bg-white dark:bg-[#1e202d] text-neutral-900 dark:text-neutral-100 text-xs font-semibold justify-between w-full hover:bg-neutral-50 dark:hover:bg-[#272a3a] transition-colors shadow-2xs"
             >
               <span>View Case Study</span>
               <ArrowUpRight className="w-4 h-4 ml-1" />
@@ -237,22 +237,22 @@ export function WixProjectShowcase() {
           {/* 3 Cascading Stacked White Cards Exactly as in Screenshot 3 */}
           <div className="relative w-full max-w-lg space-y-2.5 sm:space-y-3">
             {/* Card 1 (Back): Language Translation */}
-            <div className="bg-white/95 dark:bg-[#121214]/95 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/50 dark:border-white/10 shadow-lg translate-x-1.5 sm:translate-x-10">
-              <h3 className="text-base sm:text-xl font-sans font-bold text-neutral-900 dark:text-white">
+            <div className="bg-white/95 dark:bg-[#14161f]/95 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/50 dark:border-white/10 shadow-lg translate-x-1.5 sm:translate-x-10">
+              <h3 className="text-base sm:text-xl font-sans font-bold text-neutral-900 dark:text-neutral-100">
                 Language Translation
               </h3>
             </div>
 
             {/* Card 2 (Middle): Chatbots */}
-            <div className="bg-white/95 dark:bg-[#121214]/95 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/60 dark:border-white/10 shadow-xl translate-x-0.5 sm:translate-x-5">
-              <h3 className="text-base sm:text-xl font-sans font-bold text-neutral-900 dark:text-white">
+            <div className="bg-white/95 dark:bg-[#14161f]/95 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/60 dark:border-white/10 shadow-xl translate-x-0.5 sm:translate-x-5">
+              <h3 className="text-base sm:text-xl font-sans font-bold text-neutral-900 dark:text-neutral-100">
                 Chatbots
               </h3>
             </div>
 
             {/* Card 3 (Front): Sentiment Analysis with Circular Graphic on Left & Text on Right */}
-            <div className="bg-white dark:bg-[#0c0d12] rounded-2xl p-4 sm:p-8 border border-black/10 dark:border-white/15 shadow-2xl relative z-10">
-              <h3 className="text-lg sm:text-2xl font-sans font-bold text-neutral-900 dark:text-white mb-3 sm:mb-4">
+            <div className="bg-white dark:bg-[#10111a] rounded-2xl p-4 sm:p-8 border border-black/10 dark:border-white/15 shadow-2xl relative z-10">
+              <h3 className="text-lg sm:text-2xl font-sans font-bold text-neutral-900 dark:text-neutral-100 mb-3 sm:mb-4">
                 Sentiment Analysis
               </h3>
 
@@ -278,7 +278,7 @@ export function WixProjectShowcase() {
           ============================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
         {/* Left Column: White Info Card (Screenshot 4) */}
-        <div className="lg:col-span-4 wix-card bg-white dark:bg-[#121214] p-5 sm:p-9 flex flex-col justify-between">
+        <div className="lg:col-span-4 wix-card bg-white dark:bg-[#14161f] p-5 sm:p-9 flex flex-col justify-between">
           <div>
             {/* Lime Green Rounded Logo Icon */}
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#d9f99d] text-neutral-900 flex items-center justify-center shadow-md mb-5 sm:mb-6 p-2.5 sm:p-3">
@@ -289,7 +289,7 @@ export function WixProjectShowcase() {
               </div>
             </div>
 
-            <h2 className="text-xl sm:text-3xl font-sans font-bold text-neutral-900 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-sans font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
               Malkow &amp; Breid
             </h2>
             <p className="text-xs sm:text-sm font-sans text-neutral-500 mb-4 sm:mb-6">
@@ -301,14 +301,14 @@ export function WixProjectShowcase() {
             </p>
 
             {/* Metadata Two-Column Table */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-neutral-800 text-xs font-mono mb-6 sm:mb-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 py-3 sm:py-4 border-y border-neutral-100 dark:border-white/10 text-xs font-mono mb-6 sm:mb-8">
               <div>
                 <span className="text-neutral-400 block mb-1">Year</span>
-                <span className="text-neutral-900 dark:text-white font-semibold">2024</span>
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold">2024</span>
               </div>
               <div>
                 <span className="text-neutral-400 block mb-1">URL</span>
-                <span className="text-neutral-900 dark:text-white font-semibold truncate block">
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold truncate block">
                   hitheshhg.vercel.app
                 </span>
               </div>
@@ -320,7 +320,7 @@ export function WixProjectShowcase() {
             <Link
               href="/projects/healthcare-readmission"
               onClick={() => playClick(750, 0.02)}
-              className="wix-pill border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#18181b] text-neutral-900 dark:text-white text-xs font-semibold justify-between w-full hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors shadow-2xs"
+              className="wix-pill border-neutral-300 dark:border-white/15 bg-white dark:bg-[#1e202d] text-neutral-900 dark:text-neutral-100 text-xs font-semibold justify-between w-full hover:bg-neutral-50 dark:hover:bg-[#272a3a] transition-colors shadow-2xs"
             >
               <span>View Case Study</span>
               <ArrowUpRight className="w-4 h-4 ml-1" />
@@ -331,7 +331,7 @@ export function WixProjectShowcase() {
         {/* Right Column: Soft Muted Lavender Canvas (#e6e5f8 - Screenshot 4) */}
         <div
           style={{ borderColor: "transparent" }}
-          className="lg:col-span-8 wix-card bg-[#e6e5f8] dark:bg-[#20202e] p-4 sm:p-12 flex items-center justify-center relative overflow-hidden min-h-[380px] sm:min-h-[540px]"
+          className="lg:col-span-8 wix-card bg-[#e6e5f8] dark:bg-[#181926] p-4 sm:p-12 flex items-center justify-center relative overflow-hidden min-h-[380px] sm:min-h-[540px]"
         >
           {/* Black Frame with Electric Neon Green Matrix Barcode Screen */}
           <div className="w-full max-w-xl bg-black rounded-2xl border border-white/10 p-4 sm:p-8 text-white shadow-2xl relative z-10 space-y-4 sm:space-y-6">

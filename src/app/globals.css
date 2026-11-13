@@ -22,21 +22,21 @@
   }
 
   .dark {
-    --canvas-bg: #09090b;
-    --bento-bg: #121214;
+    --canvas-bg: #0b0c10;
+    --bento-bg: #14161f;
     --bento-border: rgba(255, 255, 255, 0.08);
-    --bento-border-hover: rgba(255, 255, 255, 0.22);
-    --bento-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    --bento-border-hover: rgba(255, 255, 255, 0.20);
+    --bento-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
     --border-default: rgba(255, 255, 255, 0.09);
-    --text-main: #ffffff;
-    --text-muted: #a1a1aa;
-    --text-subtle: #71717a;
-    --text-faint: #52525b;
-    --selection-bg: #ffffff;
-    --selection-color: #000000;
-    --scrollbar-thumb: rgba(255, 255, 255, 0.14);
-    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.28);
-    --focus-outline: #ffffff;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --text-subtle: #6b7280;
+    --text-faint: #4b5563;
+    --selection-bg: #38bdf8;
+    --selection-color: #0b0c10;
+    --scrollbar-thumb: rgba(255, 255, 255, 0.16);
+    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.30);
+    --focus-outline: #38bdf8;
   }
 
   *, ::before, ::after {
@@ -156,7 +156,8 @@
   }
 }
 
-.bento-card {
+.bento-card,
+.wix-card {
   background-color: var(--bento-bg);
 }
 

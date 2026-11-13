@@ -55,7 +55,7 @@ export function WixAboutSection({ onOpenContact }: WixAboutSectionProps) {
           </div>
 
           {/* Right Column: Mini Interactive Preview Frame Matching Screenshot 1 */}
-          <div className="lg:col-span-5 p-4 sm:p-7 rounded-[20px] sm:rounded-[22px] border border-neutral-800 bg-[#09090b] relative overflow-hidden flex flex-col justify-between min-h-[300px] sm:min-h-[360px]">
+          <div className="lg:col-span-5 p-4 sm:p-7 rounded-[20px] sm:rounded-[22px] border border-neutral-800 bg-[#0b0c10] relative overflow-hidden flex flex-col justify-between min-h-[300px] sm:min-h-[360px]">
             {/* Dot Matrix Pattern */}
             <div
               className="absolute inset-0 opacity-25 pointer-events-none"
@@ -66,7 +66,7 @@ export function WixAboutSection({ onOpenContact }: WixAboutSectionProps) {
             />
 
             {/* Mini Browser Frame Preview */}
-            <div className="relative z-10 bg-[#121214] rounded-xl border border-neutral-800 shadow-xl overflow-hidden">
+            <div className="relative z-10 bg-[#14161f] rounded-xl border border-neutral-800 shadow-xl overflow-hidden">
               {/* Browser Titlebar */}
               <div className="px-3.5 py-2.5 bg-neutral-900 border-b border-neutral-800 flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
@@ -79,7 +79,7 @@ export function WixAboutSection({ onOpenContact }: WixAboutSectionProps) {
               </div>
 
               {/* Browser Content Thumbnail */}
-              <div className="p-3 bg-[#0a0a0c] space-y-2">
+              <div className="p-3 bg-[#0c0d12] space-y-2">
                 <div className="grid grid-cols-12 gap-1.5">
                   <div className="col-span-5 h-16 rounded-md bg-neutral-800/80 p-1.5 flex flex-col justify-between">
                     <div className="w-full h-5 rounded bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-blue-400/40" />

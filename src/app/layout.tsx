@@ -75,8 +75,7 @@ export default function RootLayout({
               (function() {
                 try {
                   var stored = localStorage.getItem('portfolio-theme');
-                  var mql = window.matchMedia('(prefers-color-scheme: dark)');
-                  var theme = stored === 'light' || stored === 'dark' ? stored : (mql.matches ? 'dark' : 'light');
+                  var theme = stored === 'light' || stored === 'dark' ? stored : 'light';
                   var root = document.documentElement;
                   if (theme === 'dark') {
                     root.classList.add('dark');

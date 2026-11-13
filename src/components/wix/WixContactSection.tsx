@@ -72,7 +72,7 @@ export function WixContactSection() {
 
   return (
     <section id="contact" className="w-full max-w-[1360px] mx-auto px-3 sm:px-8 my-6 sm:my-14 scroll-mt-24">
-      <div className="wix-card bg-white dark:bg-[#121214] p-5 sm:p-10 lg:p-16 relative overflow-hidden">
+      <div className="wix-card bg-white dark:bg-[#14161f] p-5 sm:p-10 lg:p-16 relative overflow-hidden">
         
         {/* Subtle decorative mesh gradient in top-right corner */}
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-br from-[#fed7aa]/20 via-[#fbcfe8]/20 to-[#bfdbfe]/20 dark:from-[#312e81]/15 dark:via-[#4c1d95]/15 dark:to-[#1e3a8a]/15 blur-3xl pointer-events-none" />
@@ -84,13 +84,13 @@ export function WixContactSection() {
               ============================================================== */}
           <div className="lg:col-span-5 space-y-6 sm:space-y-7">
             {/* Outline Pill Badge */}
-            <div className="wix-pill border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-white uppercase text-xs tracking-wider">
+            <div className="wix-pill border-neutral-300 dark:border-white/15 bg-neutral-50 dark:bg-[#1e202d] text-neutral-900 dark:text-neutral-100 uppercase text-xs tracking-wider">
               CONTACT
             </div>
 
             {/* Headline */}
             <div className="space-y-2.5 sm:space-y-3">
-              <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-sans font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.12] break-words">
+              <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-sans font-bold tracking-tight text-neutral-900 dark:text-neutral-100 leading-[1.12] break-words">
                 Let&apos;s build something memorable together.
               </h2>
               <p className="text-xs sm:text-[15px] text-neutral-600 dark:text-neutral-400 font-sans leading-relaxed">
@@ -99,9 +99,9 @@ export function WixContactSection() {
             </div>
 
             {/* Direct Email Card with One-Click Copy */}
-            <div className="p-3.5 sm:p-5 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-white/[0.02] flex flex-col xs:flex-row xs:items-center justify-between gap-3 shadow-2xs">
+            <div className="p-3.5 sm:p-5 rounded-2xl border border-neutral-200 dark:border-white/10 bg-neutral-50/70 dark:bg-white/[0.03] flex flex-col xs:flex-row xs:items-center justify-between gap-3 shadow-2xs">
               <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-[#1e202d] border border-neutral-200 dark:border-white/10 flex items-center justify-center shrink-0 shadow-2xs">
                   <Mail className="w-4 h-4 text-neutral-700 dark:text-neutral-300" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -111,7 +111,7 @@ export function WixContactSection() {
                   <a
                     href="mailto:hitheshhg@gmail.com"
                     onClick={() => playClick(600, 0.02)}
-                    className="font-sans font-semibold text-xs sm:text-sm text-neutral-900 dark:text-white truncate block hover:underline"
+                    className="font-sans font-semibold text-xs sm:text-sm text-neutral-900 dark:text-neutral-100 truncate block hover:underline"
                   >
                     hitheshhg@gmail.com
                   </a>
@@ -121,7 +121,7 @@ export function WixContactSection() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="wix-pill py-1.5 sm:py-2 px-3 sm:px-3.5 text-xs bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 shrink-0 shadow-2xs hover:bg-neutral-100 dark:hover:bg-neutral-700 justify-center w-full xs:w-auto"
+                className="wix-pill py-1.5 sm:py-2 px-3 sm:px-3.5 text-xs bg-white dark:bg-[#1e202d] border-neutral-200 dark:border-white/15 text-neutral-800 dark:text-neutral-200 shrink-0 shadow-2xs hover:bg-neutral-100 dark:hover:bg-[#272a3a] justify-center w-full xs:w-auto"
               >
                 {copied ? (
                   <>
@@ -150,7 +150,7 @@ export function WixContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playClick(600, 0.02)}
-                  className="wix-pill py-1.5 sm:py-2 px-3 sm:px-4 text-xs bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white shadow-2xs gap-1.5"
+                  className="wix-pill py-1.5 sm:py-2 px-3 sm:px-4 text-xs bg-white dark:bg-[#1e202d] border-neutral-200 dark:border-white/15 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white/40 shadow-2xs gap-1.5"
                 >
                   <LinkedinIcon className="w-3.5 h-3.5 shrink-0" />
                   <span>LinkedIn</span>
@@ -162,7 +162,7 @@ export function WixContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playClick(600, 0.02)}
-                  className="wix-pill py-1.5 sm:py-2 px-3 sm:px-4 text-xs bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white shadow-2xs gap-1.5"
+                  className="wix-pill py-1.5 sm:py-2 px-3 sm:px-4 text-xs bg-white dark:bg-[#1e202d] border-neutral-200 dark:border-white/15 text-neutral-800 dark:text-neutral-200 hover:border-black dark:hover:border-white/40 shadow-2xs gap-1.5"
                 >
                   <GithubIcon className="w-3.5 h-3.5 shrink-0" />
                   <span>GitHub</span>
@@ -175,7 +175,7 @@ export function WixContactSection() {
           {/* ==============================================================
               RIGHT COLUMN: Interactive Sleek Contact Form
               ============================================================== */}
-          <div className="lg:col-span-7 bg-neutral-50/70 dark:bg-[#0c0d10] p-4 sm:p-8 lg:p-10 rounded-[20px] sm:rounded-[24px] border border-neutral-200/80 dark:border-neutral-800 shadow-xs">
+          <div className="lg:col-span-7 bg-neutral-50/70 dark:bg-[#0f1118] p-4 sm:p-8 lg:p-10 rounded-[20px] sm:rounded-[24px] border border-neutral-200/80 dark:border-white/10 shadow-xs">
             
             {status === "success" ? (
               <div className="py-12 text-center space-y-4">
@@ -236,7 +236,7 @@ export function WixContactSection() {
                       placeholder="Jane Doe"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white placeholder-neutral-400 text-xs sm:text-sm font-sans focus:outline-none focus:border-black dark:focus:border-white transition-colors shadow-2xs"
+                      className="w-full px-4 py-3 rounded-2xl bg-white dark:bg-[#14161f] border border-neutral-200 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 text-xs sm:text-sm font-sans focus:outline-none focus:border-black dark:focus:border-white/40 transition-colors shadow-2xs"
                     />
                   </div>
 
@@ -251,7 +251,7 @@ export function WixContactSection() {
                       placeholder="jane@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white placeholder-neutral-400 text-xs sm:text-sm font-sans focus:outline-none focus:border-black dark:focus:border-white transition-colors shadow-2xs"
+                      className="w-full px-4 py-3 rounded-2xl bg-white dark:bg-[#14161f] border border-neutral-200 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 text-xs sm:text-sm font-sans focus:outline-none focus:border-black dark:focus:border-white/40 transition-colors shadow-2xs"
                     />
                   </div>
                 </div>
@@ -270,7 +270,7 @@ export function WixContactSection() {
                     placeholder="Tell me about your project, timeline, or what you'd like to achieve..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full px-4 py-3 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white placeholder-neutral-400 text-xs sm:text-sm font-sans focus:outline-none focus:border-black dark:focus:border-white transition-colors resize-none shadow-2xs"
+                    className="w-full px-4 py-3 rounded-2xl bg-white dark:bg-[#14161f] border border-neutral-200 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 text-xs sm:text-sm font-sans focus:outline-none focus:border-black dark:focus:border-white/40 transition-colors resize-none shadow-2xs"
                   />
                 </div>
 

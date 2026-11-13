@@ -30,13 +30,13 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const STORAGE_KEY = "portfolio-theme";
 
 function getSystemTheme(): ResolvedTheme {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("light");
   const [mounted, setMounted] = useState(false);
 
   // Apply class and attributes to documentElement
@@ -61,11 +61,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       if (!active) return;
       try {
         const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
-        const mql = window.matchMedia("(prefers-color-scheme: dark)");
         const initialTheme: Theme =
           stored === "light" || stored === "dark" || stored === "system"
             ? stored
-            : (mql.matches ? "dark" : "light");
+            : "light";
 
         setThemeState(initialTheme);
         const initialResolved: ResolvedTheme =
@@ -73,7 +72,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         setResolvedTheme(initialResolved);
         applyTheme(initialResolved);
       } catch {
-        applyTheme("dark");
+        applyTheme("light");
       } finally {
         setMounted(true);
       }

@@ -63,8 +63,8 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
     <header
       className={`sticky top-0 z-50 w-full backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-200 py-3.5 sm:py-4 ${
         scrolled
-          ? "bg-[#f5f5f7]/85 dark:bg-[#09090b]/85 border-b border-neutral-200/80 dark:border-neutral-800 shadow-xs"
-          : "bg-[#f5f5f7]/65 dark:bg-[#09090b]/65 border-b border-neutral-200/40 dark:border-neutral-800/40"
+          ? "bg-[#f5f5f7]/85 dark:bg-[#0b0c10]/85 border-b border-neutral-200/80 dark:border-white/10 shadow-xs"
+          : "bg-[#f5f5f7]/65 dark:bg-[#0b0c10]/65 border-b border-neutral-200/40 dark:border-white/5"
       }`}
     >
       <div className="relative z-10 max-w-[1360px] mx-auto px-3 sm:px-8 flex items-center justify-between gap-2 sm:gap-4">
@@ -78,7 +78,7 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}
-          className="wix-pill bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs text-neutral-900 dark:text-white border-neutral-300 dark:border-neutral-700 shadow-2xs hover:shadow-sm px-3 sm:px-5 py-1.5 sm:py-2.5 text-[11px] sm:text-xs shrink min-w-0"
+          className="wix-pill bg-white/90 dark:bg-[#14161f]/90 backdrop-blur-xs text-neutral-900 dark:text-neutral-100 border-neutral-300 dark:border-white/15 shadow-2xs hover:shadow-sm px-3 sm:px-5 py-1.5 sm:py-2.5 text-[11px] sm:text-xs shrink min-w-0"
         >
           <span className="truncate">
             HITHESH HG <span className="hidden sm:inline">/ DATA ANALYST &amp; BI</span>
@@ -90,7 +90,7 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
           <button
             type="button"
             onClick={() => scrollToSection("portfolio")}
-            className="wix-pill bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs text-neutral-900 dark:text-white border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 shadow-2xs"
+            className="wix-pill bg-white/90 dark:bg-[#14161f]/90 backdrop-blur-xs text-neutral-900 dark:text-neutral-100 border-neutral-300 dark:border-white/15 hover:bg-neutral-50 dark:hover:bg-[#1e202d] shadow-2xs"
           >
             PORTFOLIO
           </button>
@@ -98,7 +98,7 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
           <button
             type="button"
             onClick={() => scrollToSection("about")}
-            className="wix-pill bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs text-neutral-900 dark:text-white border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 shadow-2xs"
+            className="wix-pill bg-white/90 dark:bg-[#14161f]/90 backdrop-blur-xs text-neutral-900 dark:text-neutral-100 border-neutral-300 dark:border-white/15 hover:bg-neutral-50 dark:hover:bg-[#1e202d] shadow-2xs"
           >
             ABOUT
           </button>
@@ -106,13 +106,13 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
           <button
             type="button"
             onClick={handleContact}
-            className="wix-pill bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs text-neutral-900 dark:text-white border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 shadow-2xs"
+            className="wix-pill bg-white/90 dark:bg-[#14161f]/90 backdrop-blur-xs text-neutral-900 dark:text-neutral-100 border-neutral-300 dark:border-white/15 hover:bg-neutral-50 dark:hover:bg-[#1e202d] shadow-2xs"
           >
             CONTACT
           </button>
 
           {/* Audio & Theme Micro-controls */}
-          <div className="flex items-center gap-1.5 ml-2 pl-3 border-l border-neutral-200 dark:border-neutral-800">
+          <div className="flex items-center gap-1.5 ml-2 pl-3 border-l border-neutral-200 dark:border-white/10">
             <SoundToggle />
             <ThemeToggle />
           </div>
@@ -129,7 +129,7 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
               setMobileMenuOpen(!mobileMenuOpen);
             }}
             aria-label="Toggle menu"
-            className="p-2 sm:p-2.5 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-[#121214]/90 backdrop-blur-xs"
+            className="p-2 sm:p-2.5 rounded-full border border-neutral-300 dark:border-white/15 bg-white/90 dark:bg-[#14161f]/90 backdrop-blur-xs text-neutral-800 dark:text-neutral-200"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -138,29 +138,29 @@ export function WixHeader({ onOpenContact }: WixHeaderProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-3 sm:inset-x-4 top-16 sm:top-20 z-50 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/95 dark:bg-[#121214]/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 shadow-2xl flex flex-col gap-2.5 sm:gap-3 md:hidden animate-in fade-in slide-in-from-top-4 duration-200 max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div className="fixed inset-x-3 sm:inset-x-4 top-16 sm:top-20 z-50 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/95 dark:bg-[#14161f]/95 backdrop-blur-xl border border-neutral-200 dark:border-white/10 shadow-2xl flex flex-col gap-2.5 sm:gap-3 md:hidden animate-in fade-in slide-in-from-top-4 duration-200 max-h-[calc(100vh-5rem)] overflow-y-auto">
           <button
             type="button"
             onClick={() => scrollToSection("portfolio")}
-            className="w-full text-left py-3.5 px-4 rounded-xl text-sm font-sans uppercase tracking-wider font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="w-full text-left py-3.5 px-4 rounded-xl text-sm font-sans uppercase tracking-wider font-semibold hover:bg-neutral-100 dark:hover:bg-white/5 text-neutral-900 dark:text-neutral-100"
           >
             PORTFOLIO
           </button>
           <button
             type="button"
             onClick={() => scrollToSection("about")}
-            className="w-full text-left py-3.5 px-4 rounded-xl text-sm font-sans uppercase tracking-wider font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="w-full text-left py-3.5 px-4 rounded-xl text-sm font-sans uppercase tracking-wider font-semibold hover:bg-neutral-100 dark:hover:bg-white/5 text-neutral-900 dark:text-neutral-100"
           >
             ABOUT
           </button>
           <button
             type="button"
             onClick={handleContact}
-            className="w-full text-left py-3.5 px-4 rounded-xl text-sm font-sans uppercase tracking-wider font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="w-full text-left py-3.5 px-4 rounded-xl text-sm font-sans uppercase tracking-wider font-semibold hover:bg-neutral-100 dark:hover:bg-white/5 text-neutral-900 dark:text-neutral-100"
           >
             CONTACT
           </button>
-          <div className="pt-3 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
+          <div className="pt-3 border-t border-neutral-100 dark:border-white/10 flex items-center justify-between">
             <a
               href="/resume.pdf"
               download="Hithesh_HG_Resume.pdf"

@@ -99,7 +99,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       onClick={handleClose}
     >
       <div
-        className="bento-card rounded-[20px] sm:rounded-[28px] bg-white dark:bg-[#0d0d0f] border border-black/15 dark:border-white/20 p-5 sm:p-8 max-w-lg w-full max-h-[92vh] overflow-y-auto text-neutral-900 dark:text-white shadow-2xl relative"
+        className="bento-card rounded-[20px] sm:rounded-[28px] bg-white dark:bg-[#14161f] border border-black/15 dark:border-white/15 p-5 sm:p-8 max-w-lg w-full max-h-[92vh] overflow-y-auto text-neutral-900 dark:text-neutral-100 shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
@@ -109,13 +109,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <span className="font-mono text-[11px] text-neutral-500 line-through">
                 contact
               </span>
-              <span className="font-mono text-[11px] font-semibold text-neutral-900 dark:text-white tracking-wide">
+              <span className="font-mono text-[11px] font-semibold text-neutral-900 dark:text-neutral-100 tracking-wide">
                 get in touch
               </span>
             </div>
             <h2
               id="contact-modal-title"
-              className="text-lg sm:text-xl font-bold font-sans text-neutral-900 dark:text-white"
+              className="text-lg sm:text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100"
             >
               start a conversation
             </h2>
@@ -182,7 +182,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 placeholder="Jane Doe"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-white focus:outline-none focus:border-black/30 dark:focus:border-white/30 font-sans transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-black/30 dark:focus:border-white/30 font-sans transition-colors"
               />
             </div>
 
@@ -197,7 +197,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 placeholder="jane@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-white focus:outline-none focus:border-black/30 dark:focus:border-white/30 font-sans transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-black/30 dark:focus:border-white/30 font-sans transition-colors"
               />
             </div>
 
@@ -212,7 +212,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 placeholder="Project inquiry / Full-time role"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-white focus:outline-none focus:border-black/30 dark:focus:border-white/30 font-sans transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-black/30 dark:focus:border-white/30 font-sans transition-colors"
               />
             </div>
 
@@ -229,7 +229,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 placeholder="Tell me about your project, timeline, or open role..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-white focus:outline-none focus:border-black/30 dark:focus:border-white/30 font-sans transition-colors resize-none"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-black/30 dark:focus:border-white/30 font-sans transition-colors resize-none"
               />
             </div>
 
