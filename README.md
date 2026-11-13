@@ -1,6 +1,6 @@
-# Prepr — Hithesh HG
+# Hithesh HG — Portfolio
 
-Prepr — Interactive case study and showcase for Data Analytics, Business Intelligence, and Product Engineering.
+Personal portfolio and interactive case study showcase for Data Analytics, Business Intelligence, and Product Engineering.
 
 🔗 **Live:** [hitheshhg.vercel.app](https://hitheshhg.vercel.app)
 
@@ -20,8 +20,8 @@ Prepr — Interactive case study and showcase for Data Analytics, Business Intel
 
 ```bash
 # Clone the repository
-git clone https://github.com/hitheshhg/prepr.git
-cd prepr
+git clone https://github.com/hitheshhg/portfolio.git
+cd portfolio
 
 # Install dependencies
 npm install

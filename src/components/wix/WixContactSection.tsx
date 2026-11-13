@@ -37,7 +37,7 @@ export function WixContactSection() {
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
-          subject: "Prepr Inquiry",
+          subject: "Portfolio Inquiry",
           message: message.trim(),
           website_honeypot: honeypot,
         }),

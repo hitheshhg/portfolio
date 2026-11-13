@@ -21,11 +21,10 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Prepr — Hithesh HG | Data Analyst & BI",
+  title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
   description:
-    "Prepr — Data Analytics and Business Intelligence showcase by Hithesh HG specializing in SQL, Python, Power BI, Tableau, cohort retention modeling, and executive BI dashboards.",
+    "Portfolio of Hithesh HG — Data Analyst specializing in SQL, Python, Power BI, Tableau, cohort retention modeling, and executive BI dashboards.",
   keywords: [
-    "Prepr",
     "Hithesh HG",
     "Data Analyst",
     "Business Intelligence",
@@ -48,11 +47,11 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "Prepr — Hithesh HG | Data Analyst & BI",
+    title: "Hithesh HG — Data Analyst & Business Intelligence Specialist",
     description:
       "Turning raw data into actionable insights with SQL, Python, Power BI, Tableau, and predictive analytics.",
     url: siteUrl,
-    siteName: "Prepr",
+    siteName: "Hithesh HG Portfolio",
     locale: "en_US",
     type: "website",
   },
@@ -75,7 +74,7 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var stored = localStorage.getItem('prepr-theme') || localStorage.getItem('portfolio-theme');
+                  var stored = localStorage.getItem('portfolio-theme');
                   var mql = window.matchMedia('(prefers-color-scheme: dark)');
                   var theme = stored === 'light' || stored === 'dark' ? stored : (mql.matches ? 'dark' : 'light');
                   var root = document.documentElement;

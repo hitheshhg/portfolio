@@ -27,8 +27,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const STORAGE_KEY = "prepr-theme";
-const LEGACY_STORAGE_KEY = "portfolio-theme";
+const STORAGE_KEY = "portfolio-theme";
 
 function getSystemTheme(): ResolvedTheme {
   if (typeof window === "undefined") return "dark";
@@ -61,7 +60,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     requestAnimationFrame(() => {
       if (!active) return;
       try {
-        const stored = (localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY)) as Theme | null;
+        const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
         const mql = window.matchMedia("(prefers-color-scheme: dark)");
         const initialTheme: Theme =
           stored === "light" || stored === "dark" || stored === "system"
