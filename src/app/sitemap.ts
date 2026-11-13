@@ -4,7 +4,7 @@ import { projects } from "@/data/projects";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://hitheshhg.duckdns.org");
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://hitheshhg.vercel.app");
 
   const projectUrls = projects.map((p) => ({
     url: `${baseUrl}/projects/${p.slug}`,
@@ -25,12 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/development`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,

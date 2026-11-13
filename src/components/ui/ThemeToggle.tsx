@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Sun, Moon, Monitor, Check, Sparkles } from "lucide-react";
 import { useTheme, Theme, ThemeCoordinates } from "@/context/ThemeContext";
 import { playClick } from "@/lib/sound";
+import { cn } from "@/lib/utils";
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const { theme, resolvedTheme, setTheme, toggleTheme, mounted } = useTheme();
@@ -50,7 +51,10 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   if (!mounted) {
     return (
       <div
-        className={`w-9 h-9 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-neutral-300 dark:border-white/15 ${className}`}
+        className={cn(
+          "w-9 h-9 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-neutral-300 dark:border-white/15",
+          className
+        )}
         aria-hidden="true"
       />
     );
@@ -59,7 +63,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <div ref={containerRef} className={`relative inline-flex items-center ${className}`}>
+    <div ref={containerRef} className={cn("relative inline-flex items-center", className)}>
       <button
         ref={buttonRef}
         type="button"

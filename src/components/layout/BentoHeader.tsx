@@ -7,9 +7,10 @@ import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { SoundToggle } from "@/components/ui/SoundToggle";
 import { playClick } from "@/lib/sound";
+import { cn } from "@/lib/utils";
 
 export interface BentoHeaderProps {
-  activeTab?: "home" | "analytics" | "development" | "blog" | "cv";
+  activeTab?: "home" | "analytics" | "blog" | "cv";
   tagLineThrough?: string;
   tagHighlight?: string;
   title?: string;
@@ -60,19 +61,18 @@ export function BentoHeader({
           className="hidden md:flex items-center gap-1 text-xs font-mono"
         >
           {NAV_LINKS.map((link) => {
-            const isActive =
-              activeTab === link.id ||
-              (activeTab === "development" && link.id === "analytics");
+            const isActive = activeTab === link.id;
             return (
               <Link
                 key={link.id}
                 href={link.href}
                 onClick={() => playClick(700, 0.02)}
-                className={`px-3 py-1.5 rounded-lg transition-all ${
+                className={cn(
+                  "px-3 py-1.5 rounded-lg transition-all",
                   isActive
                     ? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/10 font-semibold shadow-xs border border-black/10 dark:border-white/10"
                     : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/[0.03] dark:hover:bg-white/[0.04]"
-                }`}
+                )}
               >
                 {link.name}
               </Link>
@@ -139,9 +139,7 @@ export function BentoHeader({
       {mobileMenuOpen && (
         <div className="md:hidden pt-4 mt-4 border-t border-black/10 dark:border-white/10 flex flex-col gap-1.5">
           {NAV_LINKS.map((link) => {
-            const isActive =
-              activeTab === link.id ||
-              (activeTab === "development" && link.id === "analytics");
+            const isActive = activeTab === link.id;
             return (
               <Link
                 key={link.id}
@@ -150,11 +148,12 @@ export function BentoHeader({
                   playClick(700, 0.02);
                   setMobileMenuOpen(false);
                 }}
-                className={`px-3 py-2 text-xs font-mono rounded-lg transition-colors ${
+                className={cn(
+                  "px-3 py-2 text-xs font-mono rounded-lg transition-colors",
                   isActive
                     ? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/10 font-bold"
                     : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
-                }`}
+                )}
               >
                 {link.name}
               </Link>

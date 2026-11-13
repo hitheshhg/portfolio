@@ -1,5 +1,5 @@
-import AnalyticsPage from "@/app/analytics/page";
+import { redirect } from "next/navigation";
 
 export default function DevelopmentPage() {
-  return <AnalyticsPage />;
+  redirect("/analytics");
 }
